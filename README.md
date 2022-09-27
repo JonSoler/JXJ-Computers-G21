@@ -11,8 +11,13 @@
 
 <h2> 📖 Resumen/Contexto </h2>
 
-    Aplicación que se basará en una tienda online de dispositivos informáticos (pc,movil) . JXJ Computers ofrecerá al consumidor una gran variedad de dispositivos.     La app estará dividida en varias partes. Tendremos el login, donde el usuario podrá entrar en la plataforma.  En caso de que no estuviera registrado, procedería     a realizar el registro del usuario. Una vez dentro, la app tendrá una sección donde se mostrarán los productos informáticos de diferentes productos.
-    El usuario podrá  seleccionar cualquier tipo de producto en el que esté interesado. Además podrá tener información que necesite sobre el producto.
+    Aplicación que se basará en una tienda online de dispositivos informáticos (pc,movil) . 
+    JXJ Computers ofrecerá al consumidor una gran variedad de dispositivos.    
+    La app estará dividida en varias partes. Tendremos el login, donde el usuario podrá entrar en la plataforma.
+    En caso de que no estuviera registrado, procedería     a realizar el registro del usuario.
+    Una vez dentro, la app tendrá una sección donde se mostrarán los productos informáticos de diferentes productos.
+    El usuario podrá  seleccionar cualquier tipo de producto en el que esté interesado.
+    Además podrá tener información que necesite sobre el producto.
 
 ## 💻🛠 Sobre el equipo
 
