@@ -21,7 +21,7 @@
 
 ## 💻🛠 Sobre el equipo
 
-- 🎓 &nbsp; Grupo de cuatro estudiantes de Ingenieria Informática en la Universidad de Deusto.
+- 🎓 &nbsp; Grupo de tres estudiantes de Ingenieria Informática en la Universidad de Deusto.
 - ⚙️ &nbsp; Asignatura: Programación III
 
 
@@ -51,11 +51,11 @@ Badge | URL
       ""
    
       JXJ Computers se inicia desde VentanaInicial. Si tenemos cuenta, iniciamos sesión. 
-      Si es nuestra primera vez en la aplicación, elegimos la opcion de "Registrar Usuario".
+      Si es nuestra primera vez en la aplicación, elegiremos la opcion de "Registrar Usuario".
 
       En el registro debemos poner un nombre de Usuario, contraseña y el email (@ y .).
 
-      Una vez registrados, entramos en la aplicación. 
+      Una vez registrados, entraremos en la aplicación. 
       
    <h2> Dos opciones: </h2>
                       
@@ -95,7 +95,7 @@ credenciales.
    
    <h3> Mi Perfil </h3>
    
-     ● En "Mi Perfil" accedes a la informacion de tu cuenta. Esta ventana te mostrará todos los datos del usuario con el que 
+     ● En "Mi Perfil" accederas a la informacion de tu cuenta. Esta ventana te mostrará todos los datos del usuario con el que 
      has iniciado sesión.
 
       
@@ -104,7 +104,7 @@ credenciales.
      ● Ventana Disp. Sobremesa/Portatil/Tablet/Movil: Cuando seleccionemos la sección del dispositivo en el que estamos interesados, pasaremos a una 
       ventana donde encontraremos todos los dispositivos disponibles que hay en esa categoría.
       
-     ● VentanaCarritoCompra: Una vez el usuario  ha decidido que compra desea hacer, podrá ver el resumen de su carrito en 
+     ● VentanaCarritoCompra: Una vez el usuario  decida que compra desea hacer, podrá ver el resumen de su carrito en 
       esta venta, además del precio y algún detalle más. Una vez desea realizar el pedido, procederá a la ventana de pago.
       
      ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
@@ -112,7 +112,7 @@ credenciales.
       
   <h3> Venta </h3>
   
-     ● Ventas e información: En este apartado el usuario tiene la opción de poner su dispositivo
+     ● Ventas e información: En este apartado el usuario tendrá la opción de poner su dispositivo
 			     a la venta, especificando la categoria del dispositivo que pondrá a la venta. Este dispositivo
 			     aparecerá en las ventanas de las diferentes categorías.
                                  
@@ -122,7 +122,7 @@ credenciales.
                
     ● VentanaAjustes:    
    
-		   - Privacidad: Dentro de esta tenemos las opciones de
+		   - Privacidad: Dentro de esta tendremos las opciones de
 			              "Politica de Privacidad", "Acerca de" y la
 			                opcion de eliminar su cuenta.
                
