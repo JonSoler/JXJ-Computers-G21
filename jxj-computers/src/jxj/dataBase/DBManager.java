@@ -1,5 +1,5 @@
 package jxj.dataBase;
 
-public class DBMnager {
+public class DBManager {
 
 }
