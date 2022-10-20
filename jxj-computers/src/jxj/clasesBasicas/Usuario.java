@@ -21,6 +21,31 @@ public class Usuario {
 		
 	}
 	
+	public Usuario(String nombre, String apellidos, String usuario, String contrasenia, String email) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.usuario = usuario;
+		this.contrasenia = contrasenia;
+		this.email = email;
+		
+	}
+	
+	public Usuario(String usuario, String contrasenia, String email) {
+		super();
+		this.usuario = usuario;
+		this.contrasenia = contrasenia;
+		this.email = email;
+		
+	}
+	
+	public Usuario(int id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		
+	}
+	
 	public Usuario() {
 		super();
 		this.id = 0;
@@ -82,7 +107,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "   Nombre: "+nombre+ " | Usuario: " + usuario+ " | ContraseÃ±a: " + contrasenia;
+		return "   Nombre: "+nombre+ " | Usuario: " + usuario+ " | Contraseña: " + contrasenia;
 	}
 	
 	

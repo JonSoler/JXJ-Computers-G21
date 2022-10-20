@@ -9,15 +9,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import jxj.excepciones.ExcepcionExplicita;
 
-public class Dispositivo {
+public class Dispositivo implements Serializable {
 
 	private String id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto;
 	private double precio;
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-	public Dispositivo(String id, String nombre, String seccion, String marca, String fecha_fabricacion, String memoria,
-			String sistemaOperativo, String rutaFoto, double precio, SimpleDateFormat sdf) throws ExcepcionExplicita {
+	public Dispositivo(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistemaOperativo, String rutaFoto, double precio) throws ExcepcionExplicita {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -119,15 +119,13 @@ public class Dispositivo {
 		return sdf;
 	}
 
-	public void setSdf(SimpleDateFormat sdf) {
-		this.sdf = sdf;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Dispositivo [id=" + id + ", nombre=" + nombre + ", seccion=" + seccion + ", marca=" + marca
 				+ ", fecha_fabricacion=" + fecha_fabricacion + ", sistemaOperativo=" + sistemaOperativo + ", rutaFoto="
-				+ rutaFoto + ", precio=" + precio + ", sdf=" + sdf + "]";
+				+ rutaFoto + ", precio=" + precio + "]";
 	}
 	
 }

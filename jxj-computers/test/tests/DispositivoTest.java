@@ -1,10 +1,12 @@
 package tests;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+//import static org.junit.jupiter.api.Assertions.*; 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 
 import jxj.excepciones.ExcepcionExplicita;
 import jxj.seccionDisp.Dispositivo;
@@ -15,9 +17,9 @@ public class DispositivoTest {
 	private Dispositivo dis1;
 	
 	@Before
-	 void setUp() throws Exception {
+	 public void setUpDispositivo() {
 		try {
-			dis = new Dispositivo("01","iphone 12","movil", "apple", "2020-05-15", "ios", "imagenes", null, 1500.0,null);
+			dis = new Dispositivo("01","iphone 12","movil", "apple", "2020-05-15", "ios", "imagenes", 1.500);
 		} catch (ExcepcionExplicita e) {
 			
 			e.printStackTrace();
@@ -26,104 +28,104 @@ public class DispositivoTest {
 	}
 
 	@Test
-	 void testDispositivo() {
-		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("01","iphone 14","14", "apple", "2000-04-19", "ios", "imagenes", null, 1500.0,null);});
+	 public void testDispositivo() {
+		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("01","iphone 14","14", "apple", "2000-04-19", "ios", "imagenes", 1.500);});
 		assertThrows(AssertionError.class, ()-> {
 		assertThrows(ExcepcionExplicita.class, () -> {	
-				new Dispositivo("01","iphone 12","movil", "apple", "2017-04-19", "ios", "imagenes", null, 1500.0,null);
+				new Dispositivo("01","iphone 12","movil", "apple", "2017-04-19", "ios", "imagenes", 1.500);
 			});
 							
 		});
 	}
 
 	@Test
-	void testGetId() {
+	public void testGetId() {
 		assertEquals("01", dis.getId());
 	}
 	@Test
-	void testSetId() {
+	public void testSetId() {
 		dis.setId("02");
 		assertEquals("02", dis.getId());		
 	}
 	
 	@Test
-	void testGetNombre() {
-		assertEquals("iphone 12 ", dis.getNombre());
+	public void testGetNombre() {
+		assertEquals("iphone 12", dis.getNombre());
 	}
 	
 	@Test
-	void testSetNombre() {
+	public void testSetNombre() {
 		dis.setNombre("13");
 		assertEquals("13", dis.getNombre());		
 	}
 	@Test
-	void testGetSeccion() {
+	public void testGetSeccion() {
 		assertEquals("movil", dis.getSeccion());
 	}
 	
 	@Test
-	void testSetSeccion() {
+	public void testSetSeccion() {
 		dis.setSeccion("14");;
 		assertEquals("14", dis.getSeccion());		
 	}
 	
 	@Test
-	void testGetMarca() {
+	public void testGetMarca() {
 		assertEquals("apple", dis.getMarca());
 	}
 	
 	@Test
-	void testSetMarca() {
+	public void testSetMarca() {
 		dis.setMarca("samsung");;
 		assertEquals("samsung", dis.getMarca());		
 	}
 	
 	@Test
-	void testGetFecha_fabricacion() {
+	public void testGetFecha_fabricacion() {
 		assertEquals("2020-05-15", dis.getFecha_fabricacion());
 	}
 	
 	@Test
-	void testSetFecha_fabricacion() {
+	public void testSetFecha_fabricacion() {
 		dis.setFecha_fabricacion("2015-06-20");;
 		assertEquals("2015-06-20", dis.getFecha_fabricacion());		
 	}
 	
 	@Test
-	void testGetSistemaOperativo() {
+	public void testGetSistemaOperativo() {
 		assertEquals("ios", dis.getSistemaOperativo());
 	}
 	
 	@Test
-	void testSetSistemaOperativo() {
+	public void testSetSistemaOperativo() {
 		dis.setSistemaOperativo("android");
 		assertEquals("android", dis.getSistemaOperativo());		
 	}
 	
 	@Test
-	void testGetPrecio() {
-		assertEquals(1500, dis.getPrecio());
+	public void testGetPrecio() {
+		assertEquals(1.500, dis.getPrecio());
 	}
 
 	@Test
-	void testSetPrecio() {
+	public void testSetPrecio() {
 		dis.setPrecio(1000);
-		assertEquals(1000, dis.getPrecio());
+		assertEquals(1.000, dis.getPrecio());
 	}
 	@Test
-	void testGetRutaFoto() {
-		assertEquals("imagen", dis.getRutaFoto());
+	public void testGetRutaFoto() {
+		assertEquals("imagenes", dis.getRutaFoto());
 	}
 	
 	@Test
-	void testSetRutaFoto() {
+	public void testSetRutaFoto() {
 		dis.setRutaFoto("imagen1");
 		assertEquals("imagen1", dis.getRutaFoto());
 	}
 	
 	@Test
-	void testToString() {
-		assertEquals("Dispositivo [id=01, nombre=iphone 12, seccion=movil, marca=apple, fecha_fabricacion=2020-05-15, sistema operativo=ios, precio=1500.0, rutaFoto=imagen]", dis.toString());
+	public void testToString() {
+		assertEquals("Dispositivo [id=01, nombre=iphone 12, seccion=movil, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, rutaFoto=imagenes, precio=1.5]", dis.toString());
 	}
 	
 	
