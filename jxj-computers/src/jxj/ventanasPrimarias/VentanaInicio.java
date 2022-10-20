@@ -42,7 +42,7 @@ public class VentanaInicio extends JFrame {
 		setBounds(100, 100, 638, 639);
 		//Boton Registro
 		JButton btnRegistro = new JButton("");
-		btnRegistro.setIcon(new ImageIcon("poner una imagen de icono Registro"));
+		btnRegistro.setIcon(new ImageIcon("imagenes/iconoRegistro.png"));
 		btnRegistro.setFocusPainted(false);
 		btnRegistro.setBorderPainted(false);
 		btnRegistro.setContentAreaFilled(false);
@@ -67,7 +67,7 @@ public class VentanaInicio extends JFrame {
 		//Boton Login
 		JButton btnLogin = new JButton("");
 		btnLogin.setBackground(SystemColor.control);
-		btnLogin.setIcon(new ImageIcon("poner una imagen de icono Login"));
+		btnLogin.setIcon(new ImageIcon("imagenes/iconoUsuario.png"));
 		btnLogin.setFocusPainted(false);
 		btnLogin.setBorderPainted(false);
 		btnLogin.setContentAreaFilled(false);
@@ -94,7 +94,7 @@ public class VentanaInicio extends JFrame {
 		
 		JLabel lblLogo1 = new JLabel("Logo");
 		lblLogo1.setBounds(160, 188, 313, 246);
-		ImageIcon ico = new ImageIcon("poner la imagen del logo");
+		ImageIcon ico = new ImageIcon("imagenes/logoInicio.jpg");
 		ImageIcon img = new ImageIcon(
 		ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo1.setIcon(img);
