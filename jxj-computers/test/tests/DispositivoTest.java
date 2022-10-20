@@ -1,9 +1,9 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.*; 
 
+import static org.junit.jupiter.api.Assertions.*; 
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertThrows;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +31,7 @@ public class DispositivoTest {
 	 public void testDispositivo() {
 		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("01","iphone 14","14", "apple", "2000-04-19", "ios", "imagenes", 1.500);});
 		assertThrows(AssertionError.class, ()-> {
-		assertThrows(ExcepcionExplicita.class, () -> {	
+			assertThrows(ExcepcionExplicita.class, () -> {	
 				new Dispositivo("01","iphone 12","movil", "apple", "2017-04-19", "ios", "imagenes", 1.500);
 			});
 							
@@ -109,7 +109,7 @@ public class DispositivoTest {
 
 	@Test
 	public void testSetPrecio() {
-		dis.setPrecio(1000);
+		dis.setPrecio(1);
 		assertEquals(1.000, dis.getPrecio());
 	}
 	@Test
