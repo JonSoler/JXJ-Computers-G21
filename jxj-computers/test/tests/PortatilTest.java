@@ -1,21 +1,71 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import jxj.seccionDisp.Portatil;
+
 public class PortatilTest {
 
+	private Portatil p;
+	private Portatil p1;
 	@Before
 	public void setUp() throws Exception {
+	
+		p= new Portatil("01","mac pro","mac", "apple", "2020-05-13","128","ios","imagen",1450.0,true,"Keyboard Pro","multi-tactil");
+		p1= new Portatil();
 	}
 
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testSetId() {
+		p.setId("01");
+		assertEquals("01", p.getId());
 	}
 
+	@Test
+	public void testSetNombre() {
+		p.setNombre("hp chromebook");
+		assertEquals("hp chromebook", p.getNombre());
+	}
+	
+	@Test
+	public void testGetWebcam() {	
+		assertEquals(true, p.isWebcam());
+	}
+	
+	@Test
+	public void testSetWebcam() {	
+		p.setWebcam(false);
+		assertEquals(false, p.isWebcam());
+	}
+	
+	@Test
+	public void testGetTipoTeclado() {	
+		assertEquals("Keyboard Pro", p.getTipoTeclado());
+	}
+	
+	@Test
+	public void testSetTipoTeclado() {	
+		p.setTipoTeclado("teclado ergonomico");
+		assertEquals("teclado ergonomico", p.getTipoTeclado());
+	}
+	
+	@Test
+	public void testGetTouchpad() {	
+		assertEquals("multi-tactil", p.getTouchpad());
+	}
+	
+	@Test
+	public void testSetTouchpad() {	
+		p.setTouchpad("panel tactil");
+		assertEquals("panel tactil", p.getTouchpad());
+	}
+	
+	@Test
+	public void testToString() {
+		assertEquals("Portatil [webcam = true, tipoTeclado = Keyboard Pro, touchpad = multi-tactil]", p.toString());
+	}
 }

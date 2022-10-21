@@ -1,9 +1,5 @@
 package jxj.seccionDisp;
 
-import java.text.SimpleDateFormat;
-
-import jxj.excepciones.ExcepcionExplicita;
-
 public class Portatil extends Dispositivo{
 	
 	public boolean webcam;

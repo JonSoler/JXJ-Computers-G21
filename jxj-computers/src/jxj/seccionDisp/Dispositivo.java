@@ -1,16 +1,15 @@
 package jxj.seccionDisp;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import jxj.excepciones.ExcepcionExplicita;
 
 public class Dispositivo implements Serializable {
 
+	
 	private String id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto;
 	private double precio;
 	

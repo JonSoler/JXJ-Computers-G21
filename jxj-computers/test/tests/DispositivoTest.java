@@ -1,12 +1,11 @@
 package tests;
 
 
-import static org.junit.jupiter.api.Assertions.*; 
 import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
-
 
 import jxj.excepciones.ExcepcionExplicita;
 import jxj.seccionDisp.Dispositivo;
@@ -19,7 +18,7 @@ public class DispositivoTest {
 	@Before
 	 public void setUpDispositivo() {
 		try {
-			dis = new Dispositivo("01","iphone 12","movil", "apple", "2020-05-15", "ios", "imagenes", 1.500);
+			dis = new Dispositivo("dis01","iphone 12","iphone", "apple", "2020-05-15", "ios", "imagenes", 1.500);
 		} catch (ExcepcionExplicita e) {
 			
 			e.printStackTrace();
@@ -29,10 +28,10 @@ public class DispositivoTest {
 
 	@Test
 	 public void testDispositivo() {
-		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("01","iphone 14","14", "apple", "2000-04-19", "ios", "imagenes", 1.500);});
+		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 14","14", "apple", "2000-04-19", "ios", "imagenes", 1.500);});
 		assertThrows(AssertionError.class, ()-> {
 			assertThrows(ExcepcionExplicita.class, () -> {	
-				new Dispositivo("01","iphone 12","movil", "apple", "2017-04-19", "ios", "imagenes", 1.500);
+				new Dispositivo("01","iphone 12","iphone", "apple", "2017-04-19", "ios", "imagenes", 1.500);
 			});
 							
 		});
@@ -40,7 +39,7 @@ public class DispositivoTest {
 
 	@Test
 	public void testGetId() {
-		assertEquals("01", dis.getId());
+		assertEquals("dis01", dis.getId());
 	}
 	@Test
 	public void testSetId() {
@@ -60,13 +59,13 @@ public class DispositivoTest {
 	}
 	@Test
 	public void testGetSeccion() {
-		assertEquals("movil", dis.getSeccion());
+		assertEquals("iphone", dis.getSeccion());
 	}
 	
 	@Test
 	public void testSetSeccion() {
-		dis.setSeccion("14");;
-		assertEquals("14", dis.getSeccion());		
+		dis.setSeccion("ipad");;
+		assertEquals("ipad", dis.getSeccion());		
 	}
 	
 	@Test
@@ -125,7 +124,7 @@ public class DispositivoTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Dispositivo [id=01, nombre=iphone 12, seccion=movil, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, rutaFoto=imagenes, precio=1.5]", dis.toString());
+		assertEquals("Dispositivo [id=01, nombre=iphone 12, seccion=iphone, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.500,rutaFoto=imagenes]", dis.toString());
 	}
 	
 	

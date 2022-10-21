@@ -1,9 +1,5 @@
 package jxj.seccionDisp;
 
-import java.text.SimpleDateFormat;
-
-import jxj.excepciones.ExcepcionExplicita;
-
 public class Sobremesa extends Dispositivo{
 	
 	private String fuenteAlimentacion;
