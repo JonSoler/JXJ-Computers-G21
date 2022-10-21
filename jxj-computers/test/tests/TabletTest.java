@@ -66,7 +66,7 @@ public class TabletTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Table[color = gris, conectividadTeclado= true, pixelCamara=12]",t.toString());
+		assertEquals("Tablet [color=gris, conectividadTeclado=true, pixelesCamara=12]",t.toString());
 	}
 	
 	

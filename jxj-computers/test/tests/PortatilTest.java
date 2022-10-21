@@ -66,6 +66,6 @@ public class PortatilTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Portatil [webcam = true, tipoTeclado = Keyboard Pro, touchpad = multi-tactil]", p.toString());
+		assertEquals("Portatil [webcam=true, tipoTeclado=Keyboard Pro, touchpad=multi-tactil]", p.toString());
 	}
 }

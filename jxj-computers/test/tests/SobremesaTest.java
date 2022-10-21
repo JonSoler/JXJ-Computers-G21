@@ -48,7 +48,7 @@ public class SobremesaTest {
 	
 	@Test
 	public void testSetVentilador() {	
-		sm.setVentilador(" ventilador");
+		sm.setVentilador("ventilador");
 		assertEquals("ventilador",sm.getVentilador());
 	}
 	
@@ -65,6 +65,6 @@ public class SobremesaTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Sobremesa [fuenteAlimentacion=500 W 80 plus bronze | ventilador= ventilador CPU | numPuertosUSB = 4]", sm.toString());
+		assertEquals("Sobremesa [fuenteAlimentacion=500 W 80 plus bronze, ventilador=ventilador cpu, numPuertosUSB=4]", sm.toString());
 	}
 }
