@@ -124,7 +124,7 @@ public class DispositivoTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Dispositivo [id=01, nombre=iphone 12, seccion=iphone, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.500,rutaFoto=imagenes]", dis.toString());
+		assertEquals("Dispositivo [id=dis01, nombre=iphone 12, seccion=iphone, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios,rutaFoto=imagenes, precio=1.5]", dis.toString());
 	}
 	
 	
