@@ -22,7 +22,7 @@ class ListaDispositivoTest {
 		listaD.put(01, disp);
 		listaD.get(01);
 		try {
-		disp = new Dispositivo("01", "Samsung Z4", "Tablet", "Samsung", "2020-03-10", "Windows","imagenes",2.000);
+		disp = new Dispositivo("01", "Samsung Z4", "Tablet", "Samsung", "2020-03-10", "Windows",2.000,"imagenes");
 	
 	} catch (ExcepcionExplicita e) {
 		// TODO Auto-generated catch block

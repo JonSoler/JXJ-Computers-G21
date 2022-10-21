@@ -16,7 +16,7 @@ public class Dispositivo implements Serializable {
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	public Dispositivo(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, String rutaFoto, double precio) throws ExcepcionExplicita {
+			String sistemaOperativo, double precio, String rutaFoto) throws ExcepcionExplicita {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -123,8 +123,8 @@ public class Dispositivo implements Serializable {
 	@Override
 	public String toString() {
 		return "Dispositivo [id=" + id + ", nombre=" + nombre + ", seccion=" + seccion + ", marca=" + marca
-				+ ", fecha_fabricacion=" + fecha_fabricacion + ", sistemaOperativo=" + sistemaOperativo + ", rutaFoto="
-				+ rutaFoto + ", precio=" + precio + "]";
+				+ ", fecha_fabricacion=" + fecha_fabricacion + ", sistemaOperativo=" + sistemaOperativo + ", precio=" + precio + ", rutaFoto="
+				+ rutaFoto +"]";
 	}
 	
 }
