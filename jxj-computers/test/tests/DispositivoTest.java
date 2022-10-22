@@ -18,7 +18,7 @@ public class DispositivoTest {
 	@Before
 	 public void setUpDispositivo() {
 		try {
-			dis = new Dispositivo("dis01","iphone 12","movil", "apple", "2020-05-15", "ios", 1.500,"imagenes");
+			dis = new Dispositivo("dis01","iphone 12","movil", "apple", "2020-05-15", "ios", 1.500,"imagen");
 		} catch (ExcepcionExplicita e) {
 			
 			e.printStackTrace();
@@ -28,10 +28,10 @@ public class DispositivoTest {
 
 	@Test
 	 public void testDispositivo() {
-		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 12","movil", "apple", "2000-04-19", "ios", 1.500, "imagenes");});
+		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 12", "movil", "apple", "2000-04-19", "ios", 1.500, "imagen");});
 		assertThrows(AssertionError.class, ()-> {
 			assertThrows(ExcepcionExplicita.class, () -> {	
-				new Dispositivo("dis01","iphone 12","movil", "apple", "2017-04-19", "ios", 1.500, "imagenes");
+				new Dispositivo("dis01","iphone 12","movil", "apple", "2017-04-19", "ios", 1.500, "imagen");
 			});
 							
 		});
@@ -113,7 +113,7 @@ public class DispositivoTest {
 	}
 	@Test
 	public void testGetRutaFoto() {
-		assertEquals("imagenes", dis.getRutaFoto());
+		assertEquals("imagen", dis.getRutaFoto());
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class DispositivoTest {
 	
 	@Test
 	public void testToString() {
-		assertEquals("Dispositivo [id=dis01, nombre=iphone 12, seccion=movil, marca=apple, feche_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.5, rutaFoto=imagenes]", dis.toString());
+		assertEquals("Dispositivo [id=dis01, nombre=iphone 12, seccion=movil, marca=apple, feche_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.5, rutaFoto=imagen]", dis.toString());
 	}
 	
 }
