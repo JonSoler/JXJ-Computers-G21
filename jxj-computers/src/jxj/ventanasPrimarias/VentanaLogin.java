@@ -16,7 +16,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,7 +29,6 @@ public class VentanaLogin extends JFrame {
 
 	private JPanel panelCentral, panelTitulo;
 	private JLabel lblUsuario, lblContrasenya;
-	public static String nick;
 	private JLabel lblTitulo;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenya;
@@ -45,6 +43,7 @@ public class VentanaLogin extends JFrame {
 		setBounds(100, 100, 570, 420);
 		setTitle("Inicio de sesion");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 
 		panelTitulo = new JPanel();
 		panelTitulo.setBounds(60, 11, 437, 62);
@@ -90,17 +89,17 @@ public class VentanaLogin extends JFrame {
 		lblIconoUsuario.setBounds(93, 28, 60, 60);
 		panelCentral.add(lblIconoUsuario);
 
-		JLabel lblIconoContrasena = new JLabel("");
-		lblIconoContrasena.setIcon(new ImageIcon("imagenes/Contrasenya.png"));
-		lblIconoContrasena.setBounds(95, 111, 60, 60);
-		panelCentral.add(lblIconoContrasena);
+		JLabel lblIconoContrasenya = new JLabel("");
+		lblIconoContrasenya.setIcon(new ImageIcon("imagenes/Contrasenya.png"));
+		lblIconoContrasenya.setBounds(95, 111, 60, 60);
+		panelCentral.add(lblIconoContrasenya);
 
-		JCheckBox cbMostrarContrasena = new JCheckBox("Mostrar contrase\u00F1a");
-		cbMostrarContrasena.setFont(new Font("Segoe UI Variable", Font.PLAIN, 10));
-		cbMostrarContrasena.setBounds(293, 171, 163, 23);
-		panelCentral.add(cbMostrarContrasena);
+		JCheckBox cbMostrarContrasenya = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContrasenya.setFont(new Font("Segoe UI Variable", Font.PLAIN, 10));
+		cbMostrarContrasenya.setBounds(293, 171, 163, 23);
+		panelCentral.add(cbMostrarContrasenya);
 
-		cbMostrarContrasena.addItemListener(new ItemListener() {
+		cbMostrarContrasenya.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -178,7 +177,7 @@ public class VentanaLogin extends JFrame {
 		lblIniciarSesion.setBounds(405, 323, 92, 25);
 		getContentPane().add(lblIniciarSesion);
 
-		JLabel lblAtras = new JLabel("Atras");
+		JLabel lblAtras = new JLabel("Atr\u00e1s");
 		lblAtras.setForeground(new Color(204, 102, 0));
 		lblAtras.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblAtras.setEnabled(true);

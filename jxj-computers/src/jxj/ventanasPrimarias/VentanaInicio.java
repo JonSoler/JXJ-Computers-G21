@@ -39,6 +39,8 @@ public class VentanaInicio extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 610, 630);
+		setLocationRelativeTo(null);
+		
 		// Boton Registro
 		JButton btnRegistro = new JButton("");
 		btnRegistro.setIcon(new ImageIcon("imagenes/AgregarUsuarios.png"));
@@ -65,7 +67,7 @@ public class VentanaInicio extends JFrame {
 		btnLogin.setContentAreaFilled(false);
 		btnLogin.addActionListener(e -> {
 
-			JOptionPane.showMessageDialog(null, "Introduzca su identificacion", "login",
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales a continuaci\u00F3n", "Iniciar sesi\u00F3n",
 					JOptionPane.INFORMATION_MESSAGE);
 
 			VentanaLogin vi = null;
