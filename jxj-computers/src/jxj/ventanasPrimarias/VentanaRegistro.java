@@ -3,6 +3,7 @@ package jxj.ventanasPrimarias;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.util.regex.Pattern;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -10,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -44,6 +46,20 @@ public class VentanaRegistro extends JFrame {
 	private final JPanel panelTitulo = new JPanel();
 	private final JPanel panelDatos = new JPanel();
 	private final JPanel panelCampos = new JPanel();
+	
+	public static Pattern patronEmail = Pattern
+			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	
+	public static boolean comprobarEmail(String email, boolean showErrorWindow) {
+		if (patronEmail.matcher(email).matches()) {
+			return patronEmail.matcher(email).matches(); // email correcto
+		} else {
+			if (showErrorWindow) {
+				JOptionPane.showMessageDialog(null, "El email " + email + " no es v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+			}
+			return false;
+		}
+	}
 
 	public class JNumberTextField extends JTextField {
 		private static final long serialVersionUID = 1L;
@@ -87,11 +103,11 @@ public class VentanaRegistro extends JFrame {
 		labelEmail.setOpaque(true);
 		labelEmail.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
 
-		labelContrasenya.setText("Contraseña:");
+		labelContrasenya.setText("Contrase\u00F1a:");
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
 
-		labelConfirmarContrasenya.setText("Confirmar contraseña:");
+		labelConfirmarContrasenya.setText("Confirmar contrase\u00F1a:");
 		labelConfirmarContrasenya.setOpaque(true);
 		labelConfirmarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
 
@@ -193,8 +209,80 @@ public class VentanaRegistro extends JFrame {
 		btnRegistrarse.setContentAreaFilled(false);
 		btnRegistrarse.addActionListener(e -> {
 
-			// comprobar los campos y realizar el registro
+			String dni = textoDNI.getText().toString();
+			String nombre = textoNombre.getText().toString();
+			String apellido = textoApellido.getText().toString();
+			String edad = textoEdad.getText().toString();
+			boolean RegistroCorrecto = false;
+			boolean error = false;
 
+			if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
+					|| textoEmail.getText().equals("") || textoContrasenya.toString().equals("")
+					|| textoConfirmarContrasenya.toString().equals("")) {
+
+				JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+				VentanaRegistro.this.repaint();
+				error = true;
+
+			} else if (dni.matches("^[a-zA-Z]+$")) {
+
+				JOptionPane.showMessageDialog(null, "DNI no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+				error = true;
+				VentanaRegistro.this.repaint();
+
+			} else if (nombre.matches("^[0-9]+$")) {
+
+				JOptionPane.showMessageDialog(null, "Nombre no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+				error = true;
+				VentanaRegistro.this.repaint();
+
+			} else if (apellido.matches("^[0-9]+$")) {
+
+				JOptionPane.showMessageDialog(null, "Apellido no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+				error = true;
+				VentanaRegistro.this.repaint();
+
+			} else if (edad.matches("^[a-zA-Z]+$")) {
+
+				JOptionPane.showMessageDialog(null, "Edad no v\u00e1lida", "Error", JOptionPane.INFORMATION_MESSAGE);
+				error = true;
+				VentanaRegistro.this.repaint();
+
+			} else if (!comprobarEmail(textoEmail.getText(), false)) {
+				comprobarEmail(textoEmail.getText(), true);
+
+				error = true;
+				VentanaRegistro.this.repaint();
+
+			} else if (!String.valueOf(textoContrasenya.getPassword())
+					.equals(String.valueOf(textoConfirmarContrasenya.getPassword()))) {
+
+				JOptionPane.showMessageDialog(null, "Las contrase\u00F1as no coinciden", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+				VentanaRegistro.this.repaint();
+				error = true;
+
+			} else if (!error) {
+
+				// Metodo registrar cliente
+
+				RegistroCorrecto = true;
+			}
+
+			if (RegistroCorrecto) {
+				JOptionPane.showMessageDialog(null, "Cliente registrado correctamente", "Nuevo cliente",
+						JOptionPane.INFORMATION_MESSAGE);
+				VentanaLogin inicio = new VentanaLogin();
+				inicio.setVisible(true);
+				VentanaRegistro.this.dispose();
+
+			} else if (!error) {
+				JOptionPane.showMessageDialog(null,
+						"El email introducido ya ha sido registrado, pruebe a iniciar sesi\u00F3n", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+				VentanaRegistro.this.repaint();
+			}
 		});
 
 		btnRegistrarse.setBounds(384, 499, 30, 30);
