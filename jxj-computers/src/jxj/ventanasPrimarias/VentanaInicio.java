@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import jxj.dataBase.DBException;
@@ -66,9 +65,6 @@ public class VentanaInicio extends JFrame {
 		btnLogin.setBorderPainted(false);
 		btnLogin.setContentAreaFilled(false);
 		btnLogin.addActionListener(e -> {
-
-			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales a continuaci\u00F3n", "Iniciar sesi\u00F3n",
-					JOptionPane.INFORMATION_MESSAGE);
 
 			VentanaLogin vi = null;
 			vi = new VentanaLogin();

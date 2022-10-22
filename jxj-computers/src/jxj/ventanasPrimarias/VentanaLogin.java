@@ -16,11 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 import jxj.dataBase.DBException;
 
 public class VentanaLogin extends JFrame {
@@ -41,7 +41,7 @@ public class VentanaLogin extends JFrame {
 		super();
 
 		setBounds(100, 100, 570, 420);
-		setTitle("Inicio de sesion");
+		setTitle("Inicio de sesi\u00F3n");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -138,7 +138,11 @@ public class VentanaLogin extends JFrame {
 		btnAdmin.setBorderPainted(false);
 		btnAdmin.setContentAreaFilled(false);
 		btnAdmin.addActionListener(e -> {
-
+			
+			ImageIcon icon = new ImageIcon("imagenes/Seguridad.png");
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales de seguridad a continuaci\u00F3n", "Administrador - Iniciar sesi\u00F3n",
+					JOptionPane.INFORMATION_MESSAGE, icon);
+			
 			jxj.ventanasAdministrador.VentanaLoginAdmin vi = null;
 			vi = new jxj.ventanasAdministrador.VentanaLoginAdmin();
 			vi.setVisible(true);
@@ -146,7 +150,7 @@ public class VentanaLogin extends JFrame {
 
 		});
 
-		btnAdmin.setBounds(252, 297, 50, 50);
+		btnAdmin.setBounds(253, 297, 50, 50);
 		getContentPane().add(btnAdmin);
 
 		// Boton Atras
@@ -187,11 +191,11 @@ public class VentanaLogin extends JFrame {
 		lblAtras.setBounds(65, 323, 92, 25);
 		getContentPane().add(lblAtras);
 
-		JLabel lblAdmin = new JLabel("Admin");
+		JLabel lblAdmin = new JLabel("Administrador");
 		lblAdmin.setForeground(new Color(51, 102, 51));
 		lblAdmin.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblAdmin.setEnabled(true);
-		lblAdmin.setBounds(250, 345, 50, 25);
+		lblAdmin.setBounds(228, 345, 99, 25);
 		getContentPane().add(lblAdmin);
 
 	}
