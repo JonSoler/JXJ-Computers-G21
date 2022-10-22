@@ -90,17 +90,17 @@ public class VentanaLogin extends JFrame {
 		lblIconoUsuario.setBounds(93, 28, 60, 60);
 		panelCentral.add(lblIconoUsuario);
 
-		JLabel lblIconoContraseña = new JLabel("");
-		lblIconoContraseña.setIcon(new ImageIcon("imagenes/Contrasenya.png"));
-		lblIconoContraseña.setBounds(95, 111, 60, 60);
-		panelCentral.add(lblIconoContraseña);
+		JLabel lblIconoContrasena = new JLabel("");
+		lblIconoContrasena.setIcon(new ImageIcon("imagenes/Contrasenya.png"));
+		lblIconoContrasena.setBounds(95, 111, 60, 60);
+		panelCentral.add(lblIconoContrasena);
 
-		JCheckBox cbMostrarContraseña = new JCheckBox("Mostrar contrase\u00F1a");
-		cbMostrarContraseña.setFont(new Font("Segoe UI Variable", Font.PLAIN, 10));
-		cbMostrarContraseña.setBounds(293, 171, 163, 23);
-		panelCentral.add(cbMostrarContraseña);
+		JCheckBox cbMostrarContrasena = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContrasena.setFont(new Font("Segoe UI Variable", Font.PLAIN, 10));
+		cbMostrarContrasena.setBounds(293, 171, 163, 23);
+		panelCentral.add(cbMostrarContrasena);
 
-		cbMostrarContraseña.addItemListener(new ItemListener() {
+		cbMostrarContrasena.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
