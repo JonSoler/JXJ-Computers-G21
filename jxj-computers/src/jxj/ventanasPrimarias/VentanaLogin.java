@@ -7,6 +7,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -15,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -26,9 +28,8 @@ public class VentanaLogin extends JFrame {
 	public static int idUsuario;
 	private static final long serialVersionUID = 1L;
 
-	private JPanel panelCentral, panelTitulo, panelBotones;
+	private JPanel panelCentral, panelTitulo;
 	private JLabel lblUsuario, lblContrasenya;
-	private JButton btnIniciarSesion, btnVolver, btnAdmin;
 	public static String nick;
 	private JLabel lblTitulo;
 	private JTextField txtNombre;
@@ -41,18 +42,15 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		super();
 
-		setBounds(100, 100, 571, 384);
+		setBounds(100, 100, 570, 420);
 		setTitle("Inicio de sesion");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		panelTitulo = new JPanel();
-		panelTitulo.setBounds(0, 11, 557, 62);
+		panelTitulo.setBounds(60, 11, 437, 62);
 
 		panelCentral = new JPanel();
-		panelCentral.setBounds(0, 70, 557, 232);
-
-		panelBotones = new JPanel();
-		panelBotones.setBounds(0, 303, 557, 33);
+		panelCentral.setBounds(0, 70, 557, 207);
 
 		getContentPane().add(panelCentral, BorderLayout.CENTER);
 		getContentPane().setLayout(null);
@@ -64,7 +62,6 @@ public class VentanaLogin extends JFrame {
 		lblTitulo.setForeground(new Color(102, 102, 153));
 		lblTitulo.setFont(new Font("Cooper Black", Font.BOLD, 40));
 		panelTitulo.add(lblTitulo);
-		getContentPane().add(panelBotones);
 
 		panelCentral.setLayout(null);
 
@@ -112,37 +109,53 @@ public class VentanaLogin extends JFrame {
 					// do something...
 				} else {// checkbox has been deselected
 					txtContrasenya.setEchoChar('*');
-				};
+				}
+				;
 			}
 
 		});
 
-		btnIniciarSesion = new JButton();
-		btnIniciarSesion.setToolTipText("Pulsa para iniciar sesion");
-		btnIniciarSesion.setText("Iniciar sesi\u00F3n");
-		panelBotones.add(btnIniciarSesion);
-
+		// Boton Iniciar Sesion
+		JButton btnIniciarSesion = new JButton("");
+		btnIniciarSesion.setBackground(SystemColor.control);
+		btnIniciarSesion.setIcon(new ImageIcon("imagenes/Iniciar.png"));
+		btnIniciarSesion.setFocusPainted(false);
+		btnIniciarSesion.setBorderPainted(false);
+		btnIniciarSesion.setContentAreaFilled(false);
 		btnIniciarSesion.addActionListener(e -> {
-			// TODO Auto-generated method stub
-			
-		});
-		
-		btnAdmin = new JButton("Admin");
-		btnAdmin.setToolTipText("Modo administrador");
-		panelBotones.add(btnAdmin);
 
+			//Metodo iniciar sesion
+
+		});
+
+		btnIniciarSesion.setBounds(496, 321, 30, 30);
+		getContentPane().add(btnIniciarSesion);
+
+		// Boton Admin
+		JButton btnAdmin = new JButton("");
+		btnAdmin.setBackground(SystemColor.control);
+		btnAdmin.setIcon(new ImageIcon("imagenes/Admin.png"));
+		btnAdmin.setFocusPainted(false);
+		btnAdmin.setBorderPainted(false);
+		btnAdmin.setContentAreaFilled(false);
 		btnAdmin.addActionListener(e -> {
-			// TODO Auto-generated method stub
-			
-		});
-		
-		btnVolver = new JButton();
-		btnVolver.setToolTipText("Pulsa para volver a la ventana inicial");
-		btnVolver.setText("Volver");
-		panelBotones.add(btnVolver);
 
-		btnVolver.addActionListener(e -> {
-			// TODO Auto-generated method stub
+			//Abrir ventana admin
+
+		});
+
+		btnAdmin.setBounds(252, 297, 50, 50);
+		getContentPane().add(btnAdmin);
+
+		// Boton Atras
+		JButton btnAtras = new JButton("");
+		btnAtras.setBackground(SystemColor.control);
+		btnAtras.setIcon(new ImageIcon("imagenes/Atras.png"));
+		btnAtras.setFocusPainted(false);
+		btnAtras.setBorderPainted(false);
+		btnAtras.setContentAreaFilled(false);
+		btnAtras.addActionListener(e -> {
+
 			VentanaInicio vi = null;
 			try {
 				vi = new VentanaInicio();
@@ -152,7 +165,32 @@ public class VentanaLogin extends JFrame {
 			}
 			vi.setVisible(true);
 			dispose();
+
 		});
+
+		btnAtras.setBounds(28, 321, 30, 30);
+		getContentPane().add(btnAtras);
+
+		JLabel lblIniciarSesion = new JLabel("Iniciar sesi\u00F3n");
+		lblIniciarSesion.setForeground(new Color(51, 51, 204));
+		lblIniciarSesion.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
+		lblIniciarSesion.setEnabled(true);
+		lblIniciarSesion.setBounds(405, 323, 92, 25);
+		getContentPane().add(lblIniciarSesion);
+
+		JLabel lblAtras = new JLabel("Atras");
+		lblAtras.setForeground(new Color(204, 102, 0));
+		lblAtras.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
+		lblAtras.setEnabled(true);
+		lblAtras.setBounds(65, 323, 92, 25);
+		getContentPane().add(lblAtras);
+
+		JLabel lblAdmin = new JLabel("Admin");
+		lblAdmin.setForeground(new Color(51, 102, 51));
+		lblAdmin.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
+		lblAdmin.setEnabled(true);
+		lblAdmin.setBounds(250, 345, 50, 25);
+		getContentPane().add(lblAdmin);
 
 	}
 
