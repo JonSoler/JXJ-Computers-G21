@@ -1,4 +1,4 @@
-package jxj.ventanasPrimarias;
+package jxj.ventanasAdministrador;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,9 +21,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import jxj.dataBase.DBException;
-
-public class VentanaLogin extends JFrame {
+public class VentanaLoginAdmin extends JFrame {
 	public static int idUsuario;
 	private static final long serialVersionUID = 1L;
 
@@ -37,16 +35,16 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame
 	 */
 	@SuppressWarnings("static-access")
-	public VentanaLogin() {
+	public VentanaLoginAdmin() {
 		super();
 
-		setBounds(100, 100, 570, 420);
-		setTitle("Inicio de sesion");
+		setBounds(100, 100, 550, 390);
+		setTitle("Administrador - Inicio de sesi\u00F3n");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
 		panelTitulo = new JPanel();
-		panelTitulo.setBounds(60, 11, 437, 62);
+		panelTitulo.setBounds(0, 11, 533, 62);
 
 		panelCentral = new JPanel();
 		panelCentral.setBounds(0, 70, 557, 207);
@@ -55,7 +53,7 @@ public class VentanaLogin extends JFrame {
 		getContentPane().setLayout(null);
 		getContentPane().add(panelTitulo);
 
-		lblTitulo = new JLabel("INICIO DE SESI\u00D3N");
+		lblTitulo = new JLabel("ADMINISTRADOR");
 		lblTitulo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setForeground(new Color(102, 102, 153));
@@ -66,37 +64,37 @@ public class VentanaLogin extends JFrame {
 
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(291, 44, 163, 30);
+		txtNombre.setBounds(277, 44, 163, 30);
 		panelCentral.add(txtNombre);
 
 		lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
-		lblUsuario.setBounds(169, 46, 86, 25);
+		lblUsuario.setBounds(155, 46, 86, 25);
 		panelCentral.add(lblUsuario);
 
 		txtContrasenya = new JPasswordField();
-		txtContrasenya.setBounds(291, 127, 163, 30);
+		txtContrasenya.setBounds(277, 127, 163, 30);
 		panelCentral.add(txtContrasenya);
 
 		lblContrasenya = new JLabel("Contrase\u00F1a");
 		lblContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(169, 130, 112, 25);
+		lblContrasenya.setBounds(155, 130, 112, 25);
 		panelCentral.add(lblContrasenya);
 
 		JLabel lblIconoUsuario = new JLabel("");
-		lblIconoUsuario.setIcon(new ImageIcon("imagenes/Usuario.png"));
-		lblIconoUsuario.setBounds(93, 28, 60, 60);
+		lblIconoUsuario.setIcon(new ImageIcon("imagenes/Admin2.png"));
+		lblIconoUsuario.setBounds(79, 28, 60, 60);
 		panelCentral.add(lblIconoUsuario);
 
 		JLabel lblIconoContrasenya = new JLabel("");
 		lblIconoContrasenya.setIcon(new ImageIcon("imagenes/Contrasenya.png"));
-		lblIconoContrasenya.setBounds(95, 111, 60, 60);
+		lblIconoContrasenya.setBounds(81, 111, 60, 60);
 		panelCentral.add(lblIconoContrasenya);
 
 		JCheckBox cbMostrarContrasenya = new JCheckBox("Mostrar contrase\u00F1a");
 		cbMostrarContrasenya.setFont(new Font("Segoe UI Variable", Font.PLAIN, 10));
-		cbMostrarContrasenya.setBounds(293, 171, 163, 23);
+		cbMostrarContrasenya.setBounds(279, 171, 163, 23);
 		panelCentral.add(cbMostrarContrasenya);
 
 		cbMostrarContrasenya.addItemListener(new ItemListener() {
@@ -117,37 +115,18 @@ public class VentanaLogin extends JFrame {
 		// Boton Iniciar Sesion
 		JButton btnIniciarSesion = new JButton("");
 		btnIniciarSesion.setBackground(SystemColor.control);
-		btnIniciarSesion.setIcon(new ImageIcon("imagenes/Iniciar.png"));
+		btnIniciarSesion.setIcon(new ImageIcon("imagenes/IniciarAdmin.png"));
 		btnIniciarSesion.setFocusPainted(false);
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
 		btnIniciarSesion.addActionListener(e -> {
 
-			//Metodo iniciar sesion
+			// Metodo iniciar sesion
 
 		});
 
-		btnIniciarSesion.setBounds(496, 321, 30, 30);
+		btnIniciarSesion.setBounds(477, 298, 36, 33);
 		getContentPane().add(btnIniciarSesion);
-
-		// Boton Admin
-		JButton btnAdmin = new JButton("");
-		btnAdmin.setBackground(SystemColor.control);
-		btnAdmin.setIcon(new ImageIcon("imagenes/Admin.png"));
-		btnAdmin.setFocusPainted(false);
-		btnAdmin.setBorderPainted(false);
-		btnAdmin.setContentAreaFilled(false);
-		btnAdmin.addActionListener(e -> {
-
-			jxj.ventanasAdministrador.VentanaLoginAdmin vi = null;
-			vi = new jxj.ventanasAdministrador.VentanaLoginAdmin();
-			vi.setVisible(true);
-			dispose();
-
-		});
-
-		btnAdmin.setBounds(252, 297, 50, 50);
-		getContentPane().add(btnAdmin);
 
 		// Boton Atras
 		JButton btnAtras = new JButton("");
@@ -158,41 +137,29 @@ public class VentanaLogin extends JFrame {
 		btnAtras.setContentAreaFilled(false);
 		btnAtras.addActionListener(e -> {
 
-			VentanaInicio vi = null;
-			try {
-				vi = new VentanaInicio();
-			} catch (DBException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			jxj.ventanasPrimarias.VentanaLogin vi = null;
+			vi = new jxj.ventanasPrimarias.VentanaLogin();
 			vi.setVisible(true);
 			dispose();
 
 		});
 
-		btnAtras.setBounds(28, 321, 30, 30);
+		btnAtras.setBounds(25, 298, 30, 30);
 		getContentPane().add(btnAtras);
 
 		JLabel lblIniciarSesion = new JLabel("Iniciar sesi\u00F3n");
 		lblIniciarSesion.setForeground(new Color(51, 51, 204));
 		lblIniciarSesion.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblIniciarSesion.setEnabled(true);
-		lblIniciarSesion.setBounds(405, 323, 92, 25);
+		lblIniciarSesion.setBounds(386, 300, 92, 25);
 		getContentPane().add(lblIniciarSesion);
 
 		JLabel lblAtras = new JLabel("Atr\u00e1s");
 		lblAtras.setForeground(new Color(204, 102, 0));
 		lblAtras.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblAtras.setEnabled(true);
-		lblAtras.setBounds(65, 323, 92, 25);
+		lblAtras.setBounds(62, 300, 92, 25);
 		getContentPane().add(lblAtras);
-
-		JLabel lblAdmin = new JLabel("Admin");
-		lblAdmin.setForeground(new Color(51, 102, 51));
-		lblAdmin.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
-		lblAdmin.setEnabled(true);
-		lblAdmin.setBounds(250, 345, 50, 25);
-		getContentPane().add(lblAdmin);
 
 	}
 
@@ -215,7 +182,7 @@ public class VentanaLogin extends JFrame {
 	void posicionaLinea(Container cont, String etiqueta, Component campo) {
 		JPanel tempPanel = new JPanel();
 		tempPanel.setOpaque(false);
-		tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); // se hace un flow ajustado a la izquierda
+		tempPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JLabel l = new JLabel(etiqueta);
 		l.setPreferredSize(new Dimension(250, 50));
 		l.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
