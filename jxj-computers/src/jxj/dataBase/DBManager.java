@@ -247,5 +247,33 @@ public class DBManager {
 		}
 	}
 
+	public static void insertarMovil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistema_operativo, String precio, String rutaFoto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void insertarPortatil(String id, String nombre, String seccion, String marca,
+			String fecha_fabricacion, String sistema_operativo, String precio, String rutaFoto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void insertarSobremesa(String id, String nombre, String seccion, String marca,
+			String fecha_fabricacion, String sistema_operativo, String precio, String rutaFoto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void insertarTablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistema_operativo, String precio, String rutaFoto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+
 
 }
