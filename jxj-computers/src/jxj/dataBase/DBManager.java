@@ -132,7 +132,7 @@ public class DBManager {
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
-				statement.executeUpdate("CREATE TABLE if not exists Usuario "
+				statement.executeUpdate("CREATE TABLE if not exists usuario "
 						+ "(id integer, nombre string, apellidos string, usuario string, contrasenia string, email string");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
@@ -172,7 +172,7 @@ public class DBManager {
 			statement.executeUpdate("drop table if exists Portatil");
 			statement.executeUpdate("drop table if exists Sobremesa");
 			statement.executeUpdate("drop table if exists Tablet");
-			statement.executeUpdate("drop table if exists Usuario");
+			statement.executeUpdate("drop table if exists usuario");
 			//statement.executeUpdate("drop table if exists opinion");
 			return usarCrearTablasBD(con);
 		} catch (SQLException e) {
