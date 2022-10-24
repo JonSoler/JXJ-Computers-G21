@@ -7,12 +7,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 
@@ -130,7 +132,7 @@ public class DBManager {
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
-				statement.executeUpdate("CREATE TABLE if not exists usuario "
+				statement.executeUpdate("CREATE TABLE if not exists Usuario "
 						+ "(id integer, nombre String, apellidos string, usuario string, contrasenia string, email string");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
@@ -148,6 +150,100 @@ public class DBManager {
 			return statement;
 		} catch (SQLException e) {
 			return null;
+		}
+	} 
+	
+	/**
+	 * Reinicia en blanco las tablas de la base de datos. UTILIZAR ESTE MËTODO CON
+	 * PRECAUCIÓN. Borra todos los datos que hubiera ya en las tablas
+	 * 
+	 * @param con Conexión ya creada y abierta a la base de datos
+	 * @return sentencia de trabajo si se borra correctamente, null si hay cualquier
+	 *         error
+	 * @throws DBException
+	 */
+	public static Statement reiniciarBD(Connection con) throws DBException {
+		logger.log(Level.INFO, "Reiniciando la base de datos...");
+
+		try {
+			Statement statement = con.createStatement();
+			statement.executeUpdate("drop table if exists Dispositivo");
+			statement.executeUpdate("drop table if exists Movil");
+			statement.executeUpdate("drop table if exists Portatil");
+			statement.executeUpdate("drop table if exists Sobremesa");
+			statement.executeUpdate("drop table if exists Tablet");
+			statement.executeUpdate("drop table if exists Usuario");
+			//statement.executeUpdate("drop table if exists opinion");
+			return usarCrearTablasBD(con);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
+			throw new DBException("Error al reiniciar la BD", e);
+
+		}
+	}
+
+	/**
+	 * Logging
+	 * 
+	 * @param level
+	 * @param msg
+	 * @param exception
+	 */
+	private static void log(Level level, String msg, Throwable exception) {
+		if (!LOGGING) {
+			return;
+		}
+		if (logger == null) {
+			logger = Logger.getLogger(DBManager.class.getName());
+			logger.setLevel(level.ALL);
+		}
+		if (exception == null) {
+			logger.log(level, msg);
+		} else {
+			logger.log(level, msg, exception);
+		}
+	}
+	/**
+	 * Busca el usuario por su id
+	 * 
+	 * @param id
+	 * @return
+	 * @throws DBException
+	 */
+	public Usuario buscarUsuarioId(int id) throws DBException {
+		try (PreparedStatement stmt = conn.prepareStatement(
+				"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE id = ?")) {
+			stmt.setInt(1, id);
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("id"));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setApellidos(rs.getString("apellidos"));
+				usuario.setUsuario(rs.getString("usuario"));
+				usuario.setContrasenia(rs.getString("contrasenia"));
+				usuario.setEmail(rs.getString("email"));
+				return usuario;
+
+			} else {
+				return new Usuario();
+			}
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo el usuario con id " + id, e);
+		}
+	}
+	
+	public static void cerrarBD(Connection con, Statement st) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+			logger.log(Level.INFO, "Se ha cerrado correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 
