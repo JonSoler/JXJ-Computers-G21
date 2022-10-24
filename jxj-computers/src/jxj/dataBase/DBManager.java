@@ -133,7 +133,7 @@ public class DBManager {
 
 			try {
 				statement.executeUpdate("CREATE TABLE if not exists Usuario "
-						+ "(id integer, nombre String, apellidos string, usuario string, contrasenia string, email string");
+						+ "(id integer, nombre string, apellidos string, usuario string, contrasenia string, email string");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				throw new DBException("Error creando tabla de Usuarios a la BD", ex);
@@ -235,17 +235,127 @@ public class DBManager {
 		}
 	}
 	
-	public static void cerrarBD(Connection con, Statement st) {
+	/**
+	 * Nos permite iniciar sesion en ERM
+	 * 
+	 * @param nomUsuario
+	 * @param contrasenia
+	 * @return
+	 * @throws DBException
+	 */
+	public boolean loginUsuario(String nomUsuario, String contrasenia) throws DBException {
+
+		boolean acceso = false;
+
+		if (nomUsuario.contains("@")) {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, usuario, contrasenia, email FROM usuario WHERE email = ? AND contrasenia = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenia);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo datos de la query", e);
+			} 
+
+		} else {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, usuario, contrasenia, email FROM usuario WHERE ususario = ? AND contrasenia = ?")) {
+				stmt.setString(1, nomUsuario);
+				stmt.setString(2, contrasenia);
+
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					acceso = true;
+				} else {
+					acceso = false;
+				}
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo datos de la query", e);
+			}
+		}
+
+		return acceso;
+	}
+
+	/**
+	 * Este metodo nos permitir� poder registrarnos como usuarios de ERM
+	 * 
+	 * @param u
+	 * @return
+	 * @throws DBException
+	 */
+
+	public boolean registrar(Usuario u) throws DBException {
+
 		try {
-			if (st != null)
-				st.close();
-			if (con != null)
-				con.close();
-			logger.log(Level.INFO, "Se ha cerrado correctamente");
+
+			// cambiar la conexion a la nueva bd
+			Connection con = initBD("EasyRentingMotors.db");
+			String sql = "INSERT INTO usuario (id, nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
+
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, u.getId());
+			ps.setString(2, u.getNombre());
+			ps.setString(3, u.getApellidos());
+			ps.setString(4, u.getUsuario());
+			ps.setString(5, u.getContrasenia());
+			ps.setString(6, u.getEmail());
+			
+
+			ps.execute();
+			System.out.println("Usuario registrado");
+			log(Level.INFO, "Usuario registrado", null);
+
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			log(Level.SEVERE, "Error al insertar usuario", e);
+			return false;
+
+		}
+
+	}
+/**
+	 * Insertar un usuario en la base de datos
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param apellidos
+	 * @param usuario
+	 * @param email
+	 * @param contrasenia
+	 * @throws DBException
+	 */
+
+	public static void insertarUsuario(String id, String nombre, String apellidos, String usuario, String email,
+			String contrasenia) throws DBException {
+
+		String s = "INSERT INTO usuario VALUES(" + id + ",'" + nombre + "','" + apellidos + "','"
+				+ usuario + "','" + contrasenia + "','" + email + "')";
+		Connection c = DBManager.initBD("JXJComputers.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}
+
 	}
+
+	
 
 	public static void insertarMovil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistema_operativo, String precio, String rutaFoto) {
@@ -271,9 +381,25 @@ public class DBManager {
 		
 	}
 
+	public static void disconnect() throws DBException {
+		try {
+			conn = initBD("JXJComputers.db");
+			conn.close();
+		} catch (SQLException e) {
+			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
+		}
+	}
 	
-
 	
-
-
+	public static void cerrarBD(Connection con, Statement st) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+			logger.log(Level.INFO, "Se ha cerrado correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
+	}
 }
