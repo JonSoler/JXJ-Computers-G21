@@ -143,8 +143,15 @@ credenciales.
       
   <h2> ⚡️ BASE DE DATOS </h2>
   
+   <b> BD: JXJComputers.db (SqLite) </b>
+  <br> </br>
+      
+      Todo lo que hace el usuario, tanto el normal como el admin, se almacena en la base de datos de la web.
    
       
   <h2> 📖 TEST </h2>
-  
+  	
+	Todo el código, tanto de ventanas, clases y BBDD esta comprobado en la carpeta "jxj-computers/test",
+	en las clases de JUnit respectivas a las clases normales, de las demás carpetas.
+  	
       
