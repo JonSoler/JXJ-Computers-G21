@@ -49,6 +49,7 @@ public class VentanaRegistro extends JFrame {
 	
 	public static Pattern patronEmail = Pattern
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	private JTextField textoUsuario;
 	
 	public static boolean comprobarEmail(String email, boolean showErrorWindow) {
 		if (patronEmail.matcher(email).matches()) {
@@ -110,94 +111,108 @@ public class VentanaRegistro extends JFrame {
 		labelConfirmarContrasenya.setText("Confirmar contrase\u00F1a:");
 		labelConfirmarContrasenya.setOpaque(true);
 		labelConfirmarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
+		
+		JLabel lblNewLabel = new JLabel("Nombre usuario");
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 16));
 
 		GroupLayout gl_panelDatos = new GroupLayout(panelDatos);
-		gl_panelDatos.setHorizontalGroup(gl_panelDatos.createParallelGroup(Alignment.LEADING)
+		gl_panelDatos.setHorizontalGroup(
+			gl_panelDatos.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelDatos.createSequentialGroup()
-						.addGroup(gl_panelDatos.createParallelGroup(Alignment.LEADING)
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addContainerGap(18, Short.MAX_VALUE)
-												.addComponent(labelConfirmarContrasenya))
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addContainerGap(94, Short.MAX_VALUE)
-												.addComponent(labelContrasenya))
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addContainerGap(138, Short.MAX_VALUE)
-												.addComponent(labelEmail))
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addContainerGap(138, Short.MAX_VALUE)
-												.addComponent(labelEdad))
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addGap(117).addComponent(labelApellido,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-								.addGroup(Alignment.TRAILING,
-										gl_panelDatos.createSequentialGroup().addContainerGap(117, Short.MAX_VALUE)
-												.addComponent(labelNombre))
-								.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-										.addContainerGap(148, Short.MAX_VALUE).addComponent(labelDNI)))
-						.addContainerGap()));
-
-		gl_panelDatos.setVerticalGroup(gl_panelDatos.createParallelGroup(Alignment.LEADING).addGroup(gl_panelDatos
-				.createSequentialGroup().addGap(20).addComponent(labelDNI).addGap(29)
-				.addComponent(labelNombre, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE).addGap(30)
-				.addComponent(labelApellido, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE).addGap(30)
-				.addComponent(labelEdad, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE).addGap(30)
-				.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE).addGap(31)
-				.addComponent(labelContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE).addGap(30)
-				.addComponent(labelConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(30, Short.MAX_VALUE)));
+					.addContainerGap(121, Short.MAX_VALUE)
+					.addComponent(labelNombre)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addGap(117)
+					.addComponent(labelApellido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addGap(64)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addContainerGap(129, Short.MAX_VALUE)
+					.addGroup(gl_panelDatos.createParallelGroup(Alignment.LEADING)
+						.addComponent(labelEmail)
+						.addComponent(labelEdad))
+					.addGap(18))
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addContainerGap(93, Short.MAX_VALUE)
+					.addComponent(labelContrasenya)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addContainerGap(14, Short.MAX_VALUE)
+					.addComponent(labelConfirmarContrasenya)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
+					.addContainerGap(145, Short.MAX_VALUE)
+					.addComponent(labelDNI)
+					.addGap(19))
+		);
+		gl_panelDatos.setVerticalGroup(
+			gl_panelDatos.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelDatos.createSequentialGroup()
+					.addGap(38)
+					.addComponent(labelDNI)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(labelNombre, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(labelApellido, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(lblNewLabel)
+					.addGap(18)
+					.addComponent(labelEdad, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addComponent(labelContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addComponent(labelConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(37, Short.MAX_VALUE))
+		);
 		panelDatos.setLayout(gl_panelDatos);
 
 		panelCampos.setBounds(208, 100, 174, 372);
 		contentpane.add(panelCampos);
+		
+		textoUsuario = new JTextField();
 		GroupLayout gl_panelCampos = new GroupLayout(panelCampos);
-
-		gl_panelCampos.setHorizontalGroup(gl_panelCampos.createParallelGroup(Alignment.LEADING).addGroup(gl_panelCampos
-				.createSequentialGroup()
-				.addGroup(gl_panelCampos.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(
-								textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(
-								textoContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(textoEmail,
-								GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(textoEdad,
-								GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(textoApellido,
-								GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(textoNombre,
-								GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelCampos.createSequentialGroup().addContainerGap().addComponent(textoDNI,
-								GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)))
-				.addContainerGap(17, Short.MAX_VALUE)));
-		gl_panelCampos
-				.setVerticalGroup(
-						gl_panelCampos
-								.createParallelGroup(
-										Alignment.LEADING)
-								.addGroup(
-										gl_panelCampos.createSequentialGroup().addGap(24)
-												.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(30)
-												.addComponent(textoNombre, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(29)
-												.addComponent(textoApellido, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(31)
-												.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(30)
-												.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(31)
-												.addComponent(textoContrasenya, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-												.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGap(27)));
+		gl_panelCampos.setHorizontalGroup(
+			gl_panelCampos.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelCampos.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panelCampos.createParallelGroup(Alignment.LEADING)
+						.addComponent(textoNombre, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoApellido, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoUsuario, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(21, Short.MAX_VALUE))
+		);
+		gl_panelCampos.setVerticalGroup(
+			gl_panelCampos.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelCampos.createSequentialGroup()
+					.addGap(36)
+					.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(textoNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(textoApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(textoUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(27)
+					.addComponent(textoContrasenya, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(28)
+					.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(31, Short.MAX_VALUE))
+		);
 		panelCampos.setLayout(gl_panelCampos);
 
 		// Boton Registrarse
