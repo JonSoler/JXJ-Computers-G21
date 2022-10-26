@@ -47,7 +47,7 @@ Badge | URL
 <h2> Antes que nada... </h2>
 
       Para poner en marcha la aplicación de JXJ Computers debemos dirigirnos a la carpeta 
-      ""
+      "App" y la clase "main.java"
    
       JXJ Computers se inicia desde VentanaInicial. Si tenemos cuenta, iniciamos sesión. 
       Si es nuestra primera vez en la aplicación, elegiremos la opcion de "Registrar Usuario".
