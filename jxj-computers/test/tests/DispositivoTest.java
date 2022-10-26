@@ -19,10 +19,11 @@ public class DispositivoTest {
 	 public void setUpDispositivo() {
 		try {
 			dis = new Dispositivo("dis01","iphone 12","movil", "apple", "2020-05-15", "ios", 1.500,"imagen");
-		} catch (ExcepcionExplicita e) {
-			
+		}catch(ExcepcionExplicita e){
 			e.printStackTrace();
-		}	
+		}
+			
+		
 		 dis1= new Dispositivo();
 	}
 
