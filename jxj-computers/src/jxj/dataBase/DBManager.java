@@ -267,7 +267,7 @@ public class DBManager {
 
 		} else {
 			try (PreparedStatement stmt = conn.prepareStatement(
-					"SELECT id, usuario, contrasenia, email FROM usuario WHERE ususario = ? AND contrasenia = ?")) {
+					"SELECT id, usuario, contrasenia, email FROM usuario WHERE usuario = ? AND contrasenia = ?")) {
 				stmt.setString(1, nomUsuario);
 				stmt.setString(2, contrasenia);
 
@@ -300,8 +300,8 @@ public class DBManager {
 		try {
 
 			// cambiar la conexion a la nueva bd
-			Connection con = initBD("EasyRentingMotors.db");
-			String sql = "INSERT INTO usuario (id, nombre,	apellidos, nickname, contrasenya, email) VALUES(?,?,?,?,?,?)";
+			Connection con = initBD("JXJComputers.db");
+			String sql = "INSERT INTO usuario (id, nombre,	apellidos, usuario, contrasenia, email) VALUES(?,?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, u.getId());
