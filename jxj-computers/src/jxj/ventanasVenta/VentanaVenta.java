@@ -38,7 +38,7 @@ public class VentanaVenta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaInicio frame = new VentanaInicio();
+					VentanaVenta frame = new VentanaVenta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
