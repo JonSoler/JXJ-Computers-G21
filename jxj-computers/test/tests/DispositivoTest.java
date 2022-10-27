@@ -29,7 +29,7 @@ public class DispositivoTest {
 
 	@Test
 	 public void testDispositivo() {
-		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 12", "movil", "apple", "2000-04-19", "ios", 1.500, "imagen");});
+		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 12", "movil", "apple", "1998-04-19", "ios", 1.500, "imagen");});
 		assertThrows(AssertionError.class, ()-> {
 			assertThrows(ExcepcionExplicita.class, () -> {	
 				new Dispositivo("dis01","iphone 12","movil", "apple", "2017-04-19", "ios", 1.500, "imagen");
