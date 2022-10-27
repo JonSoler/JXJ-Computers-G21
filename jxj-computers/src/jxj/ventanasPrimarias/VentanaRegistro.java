@@ -33,6 +33,7 @@ public class VentanaRegistro extends JFrame {
 	private JLabel labelApellido = new JLabel();
 	private JLabel labelEdad = new JLabel();
 	private JLabel labelEmail = new JLabel();
+	private JLabel labelNombreDeUsuario = new JLabel();
 	private JLabel labelContrasenya = new JLabel();
 	private JLabel labelConfirmarContrasenya = new JLabel();
 	private JTextField textoDNI = new JTextField();
@@ -40,6 +41,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField textoApellido = new JTextField();
 	private JTextField textoEdad = new JTextField();
 	private JTextField textoEmail = new JTextField();
+	private JTextField textoNombreDeUsuario = new JTextField();
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JPasswordField textoConfirmarContrasenya = new JPasswordField();
 
@@ -49,8 +51,7 @@ public class VentanaRegistro extends JFrame {
 	
 	public static Pattern patronEmail = Pattern
 			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-	private JTextField textoUsuario;
-	
+		
 	public static boolean comprobarEmail(String email, boolean showErrorWindow) {
 		if (patronEmail.matcher(email).matches()) {
 			return patronEmail.matcher(email).matches(); // email correcto
@@ -67,7 +68,6 @@ public class VentanaRegistro extends JFrame {
 	}
 
 	public VentanaRegistro() {
-
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentpane);
@@ -103,6 +103,10 @@ public class VentanaRegistro extends JFrame {
 		labelEmail.setText("Email:");
 		labelEmail.setOpaque(true);
 		labelEmail.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
+		
+		labelNombreDeUsuario.setText("Nombre de usuario:");
+		labelNombreDeUsuario.setOpaque(true);
+		labelNombreDeUsuario.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
 
 		labelContrasenya.setText("Contrase\u00F1a:");
 		labelContrasenya.setOpaque(true);
@@ -111,107 +115,101 @@ public class VentanaRegistro extends JFrame {
 		labelConfirmarContrasenya.setText("Confirmar contrase\u00F1a:");
 		labelConfirmarContrasenya.setOpaque(true);
 		labelConfirmarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 16));
-		
-		JLabel lblNewLabel = new JLabel("Nombre usuario");
-		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 16));
 
 		GroupLayout gl_panelDatos = new GroupLayout(panelDatos);
 		gl_panelDatos.setHorizontalGroup(
-			gl_panelDatos.createParallelGroup(Alignment.LEADING)
+			gl_panelDatos.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panelDatos.createSequentialGroup()
-					.addContainerGap(121, Short.MAX_VALUE)
-					.addComponent(labelNombre)
+					.addGroup(gl_panelDatos.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addContainerGap(148, Short.MAX_VALUE)
+							.addComponent(labelDNI))
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addContainerGap(115, Short.MAX_VALUE)
+							.addComponent(labelNombre))
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addContainerGap(136, Short.MAX_VALUE)
+							.addComponent(labelEdad))
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addGap(115)
+							.addComponent(labelApellido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addContainerGap(34, Short.MAX_VALUE)
+							.addComponent(labelNombreDeUsuario))
+						.addGroup(gl_panelDatos.createSequentialGroup()
+							.addContainerGap(16, Short.MAX_VALUE)
+							.addComponent(labelConfirmarContrasenya)))
 					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addGap(117)
-					.addComponent(labelApellido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addGap(64)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addContainerGap(129, Short.MAX_VALUE)
-					.addGroup(gl_panelDatos.createParallelGroup(Alignment.LEADING)
-						.addComponent(labelEmail)
-						.addComponent(labelEdad))
-					.addGap(18))
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addContainerGap(93, Short.MAX_VALUE)
+				.addGroup(gl_panelDatos.createSequentialGroup()
+					.addContainerGap(134, Short.MAX_VALUE)
+					.addComponent(labelEmail)
+					.addGap(12))
+				.addGroup(gl_panelDatos.createSequentialGroup()
+					.addContainerGap(92, Short.MAX_VALUE)
 					.addComponent(labelContrasenya)
 					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addContainerGap(14, Short.MAX_VALUE)
-					.addComponent(labelConfirmarContrasenya)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panelDatos.createSequentialGroup()
-					.addContainerGap(145, Short.MAX_VALUE)
-					.addComponent(labelDNI)
-					.addGap(19))
 		);
 		gl_panelDatos.setVerticalGroup(
 			gl_panelDatos.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelDatos.createSequentialGroup()
-					.addGap(38)
+					.addGap(20)
 					.addComponent(labelDNI)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(22)
 					.addComponent(labelNombre, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(24)
 					.addComponent(labelApellido, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(lblNewLabel)
-					.addGap(18)
+					.addGap(22)
 					.addComponent(labelEdad, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(24)
 					.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
+					.addGap(22)
+					.addComponent(labelNombreDeUsuario, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+					.addGap(22)
 					.addComponent(labelContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
+					.addGap(24)
 					.addComponent(labelConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(37, Short.MAX_VALUE))
+					.addGap(50))
 		);
 		panelDatos.setLayout(gl_panelDatos);
 
 		panelCampos.setBounds(208, 100, 174, 372);
 		contentpane.add(panelCampos);
-		
-		textoUsuario = new JTextField();
 		GroupLayout gl_panelCampos = new GroupLayout(panelCampos);
 		gl_panelCampos.setHorizontalGroup(
 			gl_panelCampos.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelCampos.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panelCampos.createParallelGroup(Alignment.LEADING)
+						.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textoNombre, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textoApellido, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textoUsuario, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textoContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textoNombreDeUsuario, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(21, Short.MAX_VALUE))
 		);
 		gl_panelCampos.setVerticalGroup(
 			gl_panelCampos.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelCampos.createSequentialGroup()
-					.addGap(36)
+					.addGap(23)
 					.addComponent(textoDNI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(23)
 					.addComponent(textoNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(23)
 					.addComponent(textoApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(textoUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(23)
 					.addComponent(textoEdad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addGap(23)
 					.addComponent(textoEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(27)
+					.addGap(23)
+					.addComponent(textoNombreDeUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(23)
 					.addComponent(textoContrasenya, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
+					.addGap(23)
 					.addComponent(textoConfirmarContrasenya, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(31, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		panelCampos.setLayout(gl_panelCampos);
 
@@ -232,7 +230,7 @@ public class VentanaRegistro extends JFrame {
 			boolean error = false;
 
 			if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
-					|| textoEmail.getText().equals("") || textoContrasenya.toString().equals("")
+					|| textoEmail.getText().equals("") || textoNombreDeUsuario.getText().equals("") || textoContrasenya.toString().equals("")
 					|| textoConfirmarContrasenya.toString().equals("")) {
 
 				JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos", "Error",
