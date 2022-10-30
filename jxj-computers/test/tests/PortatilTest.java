@@ -10,12 +10,11 @@ import jxj.seccionDisp.Portatil;
 public class PortatilTest {
 
 	private Portatil p;
-	private Portatil p1;
+	
 	@Before
 	public void setUp() throws Exception {
 	
 		p= new Portatil("01","mac pro","mac", "apple", "2020-05-13","128","ios","imagen",1450.0,true,"Keyboard Pro","multi-tactil");
-		p1= new Portatil();
 	}
 
 

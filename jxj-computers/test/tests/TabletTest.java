@@ -11,12 +11,11 @@ import jxj.seccionDisp.Tablet;
 public class TabletTest {
 
 	private Tablet t;
-	private Tablet t1;
+
 	@Before
 	public void setUp() throws Exception {
 	
 		t= new Tablet("t01","ipad pro","ipad", "apple", "2019-05-13","512 gb","ios","imagen",1450.0,"gris",true,12);
-		t1= new Tablet();
 	}
 
 	@Test

@@ -13,7 +13,6 @@ import jxj.seccionDisp.Dispositivo;
 public class DispositivoTest {
 
 	private Dispositivo dis;
-	private Dispositivo dis1;
 	
 	@Before
 	 public void setUpDispositivo() {
@@ -23,8 +22,6 @@ public class DispositivoTest {
 			e.printStackTrace();
 		}
 			
-		
-		 dis1= new Dispositivo();
 	}
 
 	@Test

@@ -11,12 +11,10 @@ import jxj.excepciones.ExcepcionExplicita;
 class CarritoTest {
 
 	private Carrito cdis;
-	private Carrito cdis1;
 
 	@BeforeEach
 	public void setUp() throws ExcepcionExplicita {
 		cdis = new Carrito("03", "2", "10-08-2011", 53);
-		cdis1= new Carrito();
 	}
 		
 	@Test

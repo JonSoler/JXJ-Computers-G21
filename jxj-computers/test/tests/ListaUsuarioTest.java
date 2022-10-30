@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 	
 		class ListaUsuarioTest {		
 			ListaUsuario listaUsuario = new ListaUsuario();
-			private ArrayList<Usuario> usuarios;
 			ArrayList<Usuario> lista = listaUsuario.getUsuarios();
 					
 			

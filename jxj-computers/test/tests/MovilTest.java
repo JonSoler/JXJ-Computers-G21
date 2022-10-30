@@ -10,13 +10,11 @@ import jxj.seccionDisp.Movil;
 public class MovilTest {
 
 	private Movil m;
-	private Movil m1;
 	
 	@Before
 	public void setUp() throws Exception {
 	
 		m= new Movil("m01","iphone 13","iphone", "apple", "2021-05-13","128 gb","ios","imagen",1400.0,true,"facial",100);
-		m1= new Movil();
 	}
 
 	@Test

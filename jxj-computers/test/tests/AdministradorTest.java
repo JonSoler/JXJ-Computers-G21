@@ -10,13 +10,10 @@ import jxj.clasesBasicas.Administrador;
 class AdministradorTest {
 
 	private Administrador admin;
-	private Administrador admin1;
-
 	
 	@BeforeEach
 	public void setUp() {
 		 admin = new Administrador(01,"x.g", "02", "x@gmail.com", "xabier", "garai", "12", "1", "2", "2");
-		 admin1 = new Administrador();
 	}
 
 	@Test
