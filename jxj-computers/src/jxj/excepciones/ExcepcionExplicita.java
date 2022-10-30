@@ -8,6 +8,11 @@ package jxj.excepciones;
 
 public class ExcepcionExplicita extends Exception{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String mensaje;
 	
 	public ExcepcionExplicita(String m) {

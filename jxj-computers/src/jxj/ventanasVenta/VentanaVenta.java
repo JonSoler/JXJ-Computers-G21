@@ -22,7 +22,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import jxj.dataBase.DBManager;
-import jxj.ventanasPrimarias.VentanaInicio;
 
 public class VentanaVenta extends JFrame {
 
@@ -47,6 +46,7 @@ public class VentanaVenta extends JFrame {
 		});
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public VentanaVenta() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -2,6 +2,11 @@ package jxj.seccionDisp;
 
 public class Portatil extends Dispositivo{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	public boolean webcam;
 	public String tipoTeclado;
 	public String touchpad;

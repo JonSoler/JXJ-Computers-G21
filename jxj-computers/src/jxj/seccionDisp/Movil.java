@@ -2,6 +2,11 @@ package jxj.seccionDisp;
 
 public class Movil extends Dispositivo {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private boolean tactil;
 	private String sensorReconocimiento;
 	private int bateria;

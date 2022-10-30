@@ -10,6 +10,11 @@ import jxj.excepciones.ExcepcionExplicita;
 public class Dispositivo implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto;
 	private double precio;
 	

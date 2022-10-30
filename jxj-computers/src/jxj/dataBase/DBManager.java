@@ -15,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import jxj.clasesBasicas.Usuario;
-import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 
 public class DBManager {
@@ -189,6 +188,7 @@ public class DBManager {
 	 * @param msg
 	 * @param exception
 	 */
+	@SuppressWarnings("static-access")
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;

@@ -2,6 +2,11 @@ package jxj.seccionDisp;
 
 public class Sobremesa extends Dispositivo{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String fuenteAlimentacion;
 	private String ventilador;
 	private int numPuertosUSB;

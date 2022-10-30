@@ -2,6 +2,11 @@ package jxj.seccionDisp;
 
 public class Tablet extends Dispositivo {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String color;
 	private boolean conectividadTeclado;
 	private int pixelesCamara;
