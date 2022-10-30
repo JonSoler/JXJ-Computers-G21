@@ -354,6 +354,32 @@ public class DBManager {
 		}
 
 	}
+	
+	public void eliminarUsuario(int idUsuario) throws DBException {
+		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
+			stmt.setInt(1, idUsuario);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	
+	public void actualizarPassword(Usuario usuario, String newPassword) {
+		//Se abre la conexión y se obtiene el Statement
+		try (Connection con = DriverManager.getConnection(newPassword);
+		     Statement stmt = con.createStatement()) {
+			//Se ejecuta la sentencia de borrado de datos
+			String sql = "UPDATE Usuario SET PASSWORD = '%s' WHERE ID = %d;";
+			
+			int result = stmt.executeUpdate(String.format(sql, newPassword, usuario.getId()));
+			
+			System.out.println(String.format("- Se ha actulizado %d usuario", result));
+		} catch (Exception ex) {
+			System.err.println(String.format("* Error actualizando datos de la BBDD: %s", ex.getMessage()));
+			ex.printStackTrace();						
+		}		
+	}
 
 	
 
