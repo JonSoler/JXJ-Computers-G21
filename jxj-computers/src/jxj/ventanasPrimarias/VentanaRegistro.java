@@ -327,14 +327,14 @@ public class VentanaRegistro extends JFrame {
 		lblRegistrarse.setForeground(new Color(51, 51, 204));
 		lblRegistrarse.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblRegistrarse.setEnabled(true);
-		lblRegistrarse.setBounds(305, 501, 92, 25);
+		lblRegistrarse.setBounds(302, 501, 92, 25);
 		contentpane.add(lblRegistrarse);
 
 		JLabel lblAtras = new JLabel("Atr\u00E1s");
 		lblAtras.setForeground(new Color(204, 102, 0));
 		lblAtras.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblAtras.setEnabled(true);
-		lblAtras.setBounds(67, 501, 92, 25);
+		lblAtras.setBounds(68, 501, 92, 25);
 		contentpane.add(lblAtras);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

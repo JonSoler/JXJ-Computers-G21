@@ -95,7 +95,7 @@ public class VentanaInicio extends JFrame {
 		lblIniciarSesion.setForeground(new Color(51, 51, 204));
 		lblIniciarSesion.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblIniciarSesion.setEnabled(true);
-		lblIniciarSesion.setBounds(349, 524, 92, 25);
+		lblIniciarSesion.setBounds(349, 524, 106, 25);
 		getContentPane().add(lblIniciarSesion);
 		
 		JLabel lblNuevoUsuario = new JLabel("Nuevo usuario");

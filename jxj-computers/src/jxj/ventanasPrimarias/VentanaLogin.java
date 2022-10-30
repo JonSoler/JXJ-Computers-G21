@@ -81,7 +81,7 @@ public class VentanaLogin extends JFrame {
 		lblContrasenya = new JLabel("Contrase\u00F1a");
 		lblContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		lblContrasenya.setEnabled(true);
-		lblContrasenya.setBounds(169, 130, 112, 25);
+		lblContrasenya.setBounds(169, 130, 118, 25);
 		panelCentral.add(lblContrasenya);
 
 		JLabel lblIconoUsuario = new JLabel("");
@@ -181,7 +181,7 @@ public class VentanaLogin extends JFrame {
 		lblIniciarSesion.setForeground(new Color(51, 51, 204));
 		lblIniciarSesion.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblIniciarSesion.setEnabled(true);
-		lblIniciarSesion.setBounds(405, 323, 92, 25);
+		lblIniciarSesion.setBounds(405, 323, 104, 25);
 		getContentPane().add(lblIniciarSesion);
 
 		JLabel lblAtras = new JLabel("Atr\u00e1s");
@@ -195,7 +195,7 @@ public class VentanaLogin extends JFrame {
 		lblAdmin.setForeground(new Color(51, 102, 51));
 		lblAdmin.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblAdmin.setEnabled(true);
-		lblAdmin.setBounds(228, 345, 99, 25);
+		lblAdmin.setBounds(228, 345, 109, 25);
 		getContentPane().add(lblAdmin);
 
 	}
