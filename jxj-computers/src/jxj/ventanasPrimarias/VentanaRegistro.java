@@ -3,6 +3,11 @@ package jxj.ventanasPrimarias;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 import javax.swing.GroupLayout;
@@ -343,4 +348,24 @@ public class VentanaRegistro extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Registrarse como nuevo cliente");
 	}
+	
+	//metodo que se encarga de escribir en el fichero usuarioRegistrados los usuarios que se registren
+		@SuppressWarnings("deprecation")
+		public void aniadirUsuarioAFichero() {
+		    File file = new File("usuarioRegistrados.txt");
+			try{	
+				FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //opciÛn append habilitada permite escribir sobre el fichero sin tener que borrarlo
+				BufferedWriter bw = new BufferedWriter(fw);
+
+				bw.write("\n" + textoNombre.getText() + "  " + textoApellido.getText() + " ha creado un usario con el nombre de "
+						+ textoNombreDeUsuario.getText() + " ,con contrasenia " + textoContrasenya.getPassword()+ " ,con la edad " + textoEdad.getText()+ " y con el email "+ 
+						textoEmail.getText());
+			
+				bw.close();
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
 }

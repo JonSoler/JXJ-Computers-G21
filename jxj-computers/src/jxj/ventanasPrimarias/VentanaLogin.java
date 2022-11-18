@@ -50,7 +50,7 @@ public class VentanaLogin extends JFrame {
 
 		panelCentral = new JPanel();
 		panelCentral.setBounds(0, 70, 557, 207);
-
+		
 		getContentPane().add(panelCentral, BorderLayout.CENTER);
 		getContentPane().setLayout(null);
 		getContentPane().add(panelTitulo);
@@ -113,7 +113,8 @@ public class VentanaLogin extends JFrame {
 			}
 
 		});
-
+		
+		
 		// Boton Iniciar Sesion
 		JButton btnIniciarSesion = new JButton("");
 		btnIniciarSesion.setBackground(SystemColor.control);
