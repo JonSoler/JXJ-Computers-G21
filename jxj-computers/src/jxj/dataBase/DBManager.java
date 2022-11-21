@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import jxj.clasesBasicas.Usuario;
-import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.seccionDisp.Movil;
 import jxj.seccionDisp.Portatil;
@@ -463,6 +462,11 @@ public class DBManager {
 		}
 	}
 
+	public static ArrayList<String> listarDispositvos() throws DBException{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public static ArrayList<Sobremesa> listarSobremesa() throws DBException  {
 		// TODO Auto-generated method stub
 		return null;
