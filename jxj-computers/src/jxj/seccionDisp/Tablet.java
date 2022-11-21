@@ -11,7 +11,7 @@ public class Tablet extends Dispositivo {
 	private boolean conectividadTeclado;
 	private int pixelesCamara;
 	
-	public Tablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion, String memoria,
+	public Tablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion, 
 			String sistemaOperativo, String rutaFoto, double precio, String color,
 			boolean conectividadTeclado, int pixelesCamara) {
 		

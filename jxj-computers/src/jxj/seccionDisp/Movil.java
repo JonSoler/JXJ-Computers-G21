@@ -14,7 +14,7 @@ public class Movil extends Dispositivo {
 	
 	
 	
-	public Movil(String id, String nombre, String seccion, String marca, String fecha_fabricacion, String memoria,
+	public Movil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistemaOperativo, String rutaFoto, double precio, boolean tactil, String sensorReconocimiento, int bateria) {
 		
 		this.tactil = tactil;

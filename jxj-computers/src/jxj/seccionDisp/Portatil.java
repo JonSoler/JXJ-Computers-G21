@@ -15,7 +15,7 @@ public class Portatil extends Dispositivo{
 
 
 
-	public Portatil(String id, String nombre, String seccion, String marca, String fecha_fabricacion, String memoria,
+	public Portatil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistemaOperativo, String rutaFoto, double precio, boolean webcam,
 			String tipoTeclado, String touchpad)  {
 		

@@ -11,7 +11,7 @@ public class Sobremesa extends Dispositivo{
 	private String ventilador;
 	private int numPuertosUSB;
 	
-	public Sobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion, String memoria,
+	public Sobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistemaOperativo, String rutaFoto, double precio, String fuenteAlimentacion, String ventilador, int numPuertosUSB)  {
 		
 		this.fuenteAlimentacion = fuenteAlimentacion;
