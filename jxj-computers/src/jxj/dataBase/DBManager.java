@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,10 @@ import java.util.logging.Logger;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
+import jxj.seccionDisp.Movil;
+import jxj.seccionDisp.Portatil;
+import jxj.seccionDisp.Sobremesa;
+import jxj.seccionDisp.Tablet;
 
 public class DBManager {
 	
@@ -457,4 +462,25 @@ public class DBManager {
 			logger.log(Level.WARNING, e.getMessage());
 		}
 	}
+
+	public static ArrayList<Sobremesa> listarSobremesa() throws DBException  {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static ArrayList<Movil> listarMovil() throws DBException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static ArrayList<Portatil> listarPortatil() throws DBException{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static ArrayList<Tablet> listarTablet() throws DBException{
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
