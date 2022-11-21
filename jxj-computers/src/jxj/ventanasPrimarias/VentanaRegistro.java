@@ -1,7 +1,8 @@
-package jxj.ventanasPrimarias;
+ package jxj.ventanasPrimarias;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,7 +23,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import jxj.ventanasPrimarias.*;
+import jxj.clasesBasicas.*;
 import jxj.dataBase.DBException;
+import jxj.dataBase.DBManager;
 
 public class VentanaRegistro extends JFrame {
 
@@ -283,10 +287,38 @@ public class VentanaRegistro extends JFrame {
 			} else if (!error) {
 
 				// Metodo registrar cliente
+				DBManager modSql = new DBManager();
+				
+				
+				Usuario mod = new Usuario();
+				mod.setApellidos(textoApellido.getText());
+				mod.setEmail(textoEmail.getText());
+				mod.setNombre(textoNombre.getText());
+				mod.setUsuario(textoNombreDeUsuario.getText());
+				mod.setContrasenia(textoContrasenya.getText());
+				
+				try {
+					if (modSql.registrar(mod)) {
+						aniadirUsuarioAFichero();
+						JOptionPane.showMessageDialog(null, "Registro realizado con exito");
+					} else {
+						JOptionPane.showMessageDialog(null, "No se ha podido registrar");
+					}
+				} catch (HeadlessException | DBException e2) {
+					e2.printStackTrace();
+				}
 
-				RegistroCorrecto = true;
+				JOptionPane.showMessageDialog(null, "Registro Completado");
+
+				VentanaLogin vL = new VentanaLogin();
+				vL.setVisible(true);
+				dispose();
 			}
 
+		});
+
+			/*	RegistroCorrecto = true;
+	
 			if (RegistroCorrecto) {
 				JOptionPane.showMessageDialog(null, "Cliente registrado correctamente", "Nuevo cliente",
 						JOptionPane.INFORMATION_MESSAGE);
@@ -300,7 +332,7 @@ public class VentanaRegistro extends JFrame {
 						JOptionPane.INFORMATION_MESSAGE);
 				VentanaRegistro.this.repaint();
 			}
-		});
+		});*/
 
 		btnRegistrarse.setBounds(384, 499, 30, 30);
 		contentpane.add(btnRegistrarse);

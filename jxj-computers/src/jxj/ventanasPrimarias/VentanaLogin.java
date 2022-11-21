@@ -21,7 +21,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBException;
+import jxj.dataBase.DBManager;
 
 public class VentanaLogin extends JFrame {
 	public static int idUsuario;
@@ -32,6 +35,7 @@ public class VentanaLogin extends JFrame {
 	private JLabel lblTitulo;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenya;
+	public static Usuario u;
 
 	/**
 	 * Create the frame
@@ -122,11 +126,39 @@ public class VentanaLogin extends JFrame {
 		btnIniciarSesion.setFocusPainted(false);
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
-		btnIniciarSesion.addActionListener(e -> {
 
-			//Metodo iniciar sesion
+		btnIniciarSesion.addActionListener( e-> {
+			DBManager conexion = new DBManager();
+			String usuario = txtNombre.getText();
+			@SuppressWarnings("deprecation")
+			String contrasenia = txtContrasenya.getText();
+			
+			try {
+				conexion.initBD("JXJComputers.db");
+				
+				if(conexion.loginUsuario(usuario, contrasenia)== true) {
+					idUsuario = conexion.obtenerId(usuario);
+					u = conexion.buscarUsuarioId(idUsuario);
+					JOptionPane.showMessageDialog(null, "BIENVENIDO A JXJ Computers", "BIENVENIDO",
+							JOptionPane.INFORMATION_MESSAGE);
+					
+					//VentanaPrincipal vi = new VnetnaPrincipal();
+					setVisible(false);
+					//vi.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
+					txtNombre.setText("");
+					txtContrasenya.setText("");
+				}
+				
+				conexion.disconnect();
+			} catch (DBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+		}
 
 		});
+		
 
 		btnIniciarSesion.setBounds(496, 321, 30, 30);
 		getContentPane().add(btnIniciarSesion);
@@ -200,6 +232,7 @@ public class VentanaLogin extends JFrame {
 		getContentPane().add(lblAdmin);
 
 	}
+	
 
 	/**
 	 * Este metodo se encarga de vaciar los campos

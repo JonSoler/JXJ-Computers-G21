@@ -210,6 +210,35 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
+	
+	public int obtenerId(String usuario) throws DBException {
+		int idUsuario = 0;
+		if (!usuario.contains("@")) {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE usuario = ?")) {
+				stmt.setString(1, usuario);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}
+		} else {
+			try (PreparedStatement stmt = conn.prepareStatement(
+					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE email = ?")) {
+				stmt.setString(1, usuario);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
+
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}
+		}
+
+		return idUsuario;
+	}
 	public Usuario buscarUsuarioId(int id) throws DBException {
 		try (PreparedStatement stmt = conn.prepareStatement(
 				"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE id = ?")) {
@@ -288,7 +317,7 @@ public class DBManager {
 	}
 
 	/**
-	 * Este metodo nos permitirá poder registrarnos como usuarios de ERM
+	 * Este metodo nos permitirï¿½ poder registrarnos como usuarios de ERM
 	 * 
 	 * @param u
 	 * @return
@@ -366,7 +395,7 @@ public class DBManager {
 	}
 	
 	public void actualizarPassword(Usuario usuario, String newPassword) {
-		//Se abre la conexión y se obtiene el Statement
+		//Se abre la conexiï¿½n y se obtiene el Statement
 		try (Connection con = DriverManager.getConnection(newPassword);
 		     Statement stmt = con.createStatement()) {
 			//Se ejecuta la sentencia de borrado de datos
