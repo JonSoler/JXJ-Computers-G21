@@ -21,7 +21,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
+
 import jxj.dataBase.DBManager;
+import jxj.ventanasPrimarias.VentanaInicio;
 
 public class VentanaVenta extends JFrame {
 
@@ -37,7 +39,7 @@ public class VentanaVenta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaVenta frame = new VentanaVenta();
+					VentanaInicio frame = new VentanaInicio();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -218,8 +220,11 @@ public class VentanaVenta extends JFrame {
 							String rutaFoto = im.getDescription();
 
 							if (seccion.equals("Movil")) {
-								DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+								
+									DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
 										precio, rutaFoto);
+								
+		
 								
 							}
 
