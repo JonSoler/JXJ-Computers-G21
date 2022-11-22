@@ -416,7 +416,7 @@ public class DBManager {
 	}
 	
 	/**
-	 * Metodo para insertar un coche en Movil
+	 * Metodo para insertar un dispositivo en Movil
 	 * 
 	 * @param id
 	 * @param nombre
@@ -448,7 +448,7 @@ public class DBManager {
 	}
 	
 	/**
-	 * Metodo para insertar un coche en Portatil
+	 * Metodo para insertar un dispositivo en Portatil
 	 * 
 	 * @param id
 	 * @param nombre
@@ -479,7 +479,7 @@ public class DBManager {
 	}
 	
 	/**
-	 * Metodo para insertar un coche en Sobremesa
+	 * Metodo para insertar un dipositivo en Sobremesa
 	 * 
 	 * @param id
 	 * @param nombre
@@ -510,7 +510,7 @@ public class DBManager {
 	}
 	
 	/**
-	 * Metodo para insertar un coche en Tablet
+	 * Metodo para insertar un dispositivo en Tablet
 	 * 
 	 * @param id
 	 * @param nombre
@@ -563,8 +563,59 @@ public class DBManager {
 	}
 
 	public static ArrayList<String> listarDispositvos() throws DBException{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> dispositivos = new ArrayList<>();
+		Connection con = initBD("JXJComputers.db");
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM Sobremesa");
+
+			while (rs.next()) {
+				String dispositivo = rs.getString("nombre");
+				dispositivos.add(dispositivo);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Sobremesa ", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM Movil");
+
+			while (rs.next()) {
+				String dispositivo = rs.getString("nombre");
+				dispositivos.add(dispositivo);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Movil", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM Portatil");
+
+			while (rs.next()) {
+				String dispositivo = rs.getString("nombre");
+				dispositivos.add(dispositivo);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Portatil", e);
+		}
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT nombre FROM Tablet");
+
+			while (rs.next()) {
+				String dispositivo = rs.getString("nombre");
+				dispositivos.add(dispositivo);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Tablet", e);
+		}
+
+		return dispositivos;
+
 	}
 	
 	public static ArrayList<Sobremesa> listarSobremesa() throws DBException  {
@@ -580,7 +631,7 @@ public class DBManager {
 				Sobremesa Sobremesas = new Sobremesa();
 				Sobremesas.setId(rs.getString("id"));
 				Sobremesas.setNombre(rs.getString("nombre"));
-				Sobremesas.setSeccion(rs.getString("Categoria"));
+				Sobremesas.setSeccion(rs.getString("seccion"));
 				Sobremesas.setMarca(rs.getString("marca"));
 				Sobremesas.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
 				Sobremesas.setSistemaOperativo(rs.getString("sistemaOperativo"));
@@ -616,7 +667,7 @@ public class DBManager {
 				Movil Movils = new Movil();
 				Movils.setId(rs.getString("id"));
 				Movils.setNombre(rs.getString("nombre"));
-				Movils.setSeccion(rs.getString("Categoria"));
+				Movils.setSeccion(rs.getString("seccion"));
 				Movils.setMarca(rs.getString("marca"));
 				Movils.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
 				Movils.setSistemaOperativo(rs.getString("sistemaOperativo"));
@@ -652,7 +703,7 @@ public class DBManager {
 				Portatil Portatils = new Portatil();
 				Portatils.setId(rs.getString("id"));
 				Portatils.setNombre(rs.getString("nombre"));
-				Portatils.setSeccion(rs.getString("Categoria"));
+				Portatils.setSeccion(rs.getString("seccion"));
 				Portatils.setMarca(rs.getString("marca"));
 				Portatils.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
 				Portatils.setSistemaOperativo(rs.getString("sistemaOperativo"));
@@ -687,7 +738,7 @@ public class DBManager {
 				Tablet Tablets = new Tablet();
 				Tablets.setId(rs.getString("id"));
 				Tablets.setNombre(rs.getString("nombre"));
-				Tablets.setSeccion(rs.getString("Categoria"));
+				Tablets.setSeccion(rs.getString("seccion"));
 				Tablets.setMarca(rs.getString("marca"));
 				Tablets.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
 				Tablets.setSistemaOperativo(rs.getString("sistemaOperativo"));
