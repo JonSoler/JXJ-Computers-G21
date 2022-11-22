@@ -15,10 +15,9 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import erm.dataBase.DBException;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBManager;
-import jxj.excepciones.ExcepcionExplicita;
+
 import jxj.seccionDisp.Movil;
 import jxj.seccionDisp.Portatil;
 import jxj.seccionDisp.Sobremesa;
@@ -644,7 +643,7 @@ public class DBManager {
 		ArrayList<Portatil> Portatil = new ArrayList<>();
 		Connection conn = initBD("JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
-				+ "bateria, sensorReconocimiento, tactil FROM Movil";
+				+ "bateria, sensorReconocimiento, tactil FROM Portatil";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
@@ -679,7 +678,7 @@ public class DBManager {
 		ArrayList<Tablet> Tablet = new ArrayList<>();
 		Connection conn = initBD("JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
-				+ "color, sensorReconocimiento, conectividadTeclado FROM Movil";
+				+ "color, sensorReconocimiento, conectividadTeclado FROM Tablet";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
