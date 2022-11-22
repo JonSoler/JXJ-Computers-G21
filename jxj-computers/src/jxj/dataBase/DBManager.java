@@ -468,23 +468,145 @@ public class DBManager {
 	}
 	
 	public static ArrayList<Sobremesa> listarSobremesa() throws DBException  {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Sobremesa> Sobremesa = new ArrayList<>();
+		Connection conn = initBD("JXJComputers.db");
+		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
+				+ "fuenteAlimentacion, ventilador, numPuertosUSB FROM Sobremesa";
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Sobremesa Sobremesas = new Sobremesa();
+				Sobremesas.setId(rs.getString("id"));
+				Sobremesas.setNombre(rs.getString("nombre"));
+				Sobremesas.setSeccion(rs.getString("Categoria"));
+				Sobremesas.setMarca(rs.getString("marca"));
+				Sobremesas.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
+				Sobremesas.setSistemaOperativo(rs.getString("sistemaOperativo"));
+				Sobremesas.setRutaFoto(rs.getString("rutaFoto"));
+				Sobremesas.setPrecio(rs.getInt("precio"));
+				Sobremesas.setFuenteAlimentacion(rs.getString("fuenteAlimentacion"));
+				Sobremesas.setVentilador(rs.getString("ventilador"));
+				if (rs.getInt("numPuertosUSB") == 1) {
+					Sobremesas.setNumPuertosUSB(1);
+				} else {
+					Sobremesas.setNumPuertosUSB(0);
+				}
+				Sobremesa.add(Sobremesas);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Sobremesa", e);
+		}
+		return Sobremesa;
+		
 	}
 
 	public static ArrayList<Movil> listarMovil() throws DBException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Movil> Movil = new ArrayList<>();
+		Connection conn = initBD("JXJComputers.db");
+		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
+				+ "bateria, sensorReconocimiento, tactil FROM Movil";
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Movil Movils = new Movil();
+				Movils.setId(rs.getString("id"));
+				Movils.setNombre(rs.getString("nombre"));
+				Movils.setSeccion(rs.getString("Categoria"));
+				Movils.setMarca(rs.getString("marca"));
+				Movils.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
+				Movils.setSistemaOperativo(rs.getString("sistemaOperativo"));
+				Movils.setRutaFoto(rs.getString("rutaFoto"));
+				Movils.setPrecio(rs.getInt("precio"));
+				Movils.setBateria(rs.getInt("bateria"));
+				Movils.setSensorReconocimiento(rs.getString("sensorReconocimiento"));
+				if (rs.getInt("tactil") == 1) {
+					Movils.setTactil(true);
+				} else {
+					Movils.setTactil(false);
+				}
+				Movil.add(Movils);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Movil", e);
+		}
+		return Movil;
+		
 	}
 
 	public static ArrayList<Portatil> listarPortatil() throws DBException{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Portatil> Portatil = new ArrayList<>();
+		Connection conn = initBD("JXJComputers.db");
+		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
+				+ "bateria, sensorReconocimiento, tactil FROM Movil";
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Portatil Portatils = new Portatil();
+				Portatils.setId(rs.getString("id"));
+				Portatils.setNombre(rs.getString("nombre"));
+				Portatils.setSeccion(rs.getString("Categoria"));
+				Portatils.setMarca(rs.getString("marca"));
+				Portatils.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
+				Portatils.setSistemaOperativo(rs.getString("sistemaOperativo"));
+				Portatils.setRutaFoto(rs.getString("rutaFoto"));
+				Portatils.setPrecio(rs.getInt("precio"));
+				Portatils.setTipoTeclado(rs.getString("tipoTeclado"));
+				Portatils.setTouchpad(rs.getString("touchpad"));
+				if (rs.getInt("webcam") == 1) {
+					Portatils.setWebcam(true);
+				} else {
+					Portatils.setWebcam(false);
+				}
+				Portatil.add(Portatils);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Portatil", e);
+		}
+		return Portatil;
 	}
 
 	public static ArrayList<Tablet> listarTablet() throws DBException{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Tablet> Tablet = new ArrayList<>();
+		Connection conn = initBD("JXJComputers.db");
+		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
+				+ "color, sensorReconocimiento, conectividadTeclado FROM Movil";
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Tablet Tablets = new Tablet();
+				Tablets.setId(rs.getString("id"));
+				Tablets.setNombre(rs.getString("nombre"));
+				Tablets.setSeccion(rs.getString("Categoria"));
+				Tablets.setMarca(rs.getString("marca"));
+				Tablets.setFecha_fabricacion(rs.getString("fecha_fabricacion"));
+				Tablets.setSistemaOperativo(rs.getString("sistemaOperativo"));
+				Tablets.setRutaFoto(rs.getString("rutaFoto"));
+				Tablets.setPrecio(rs.getInt("precio"));
+				Tablets.setColor(rs.getString("color"));
+				Tablets.setPixelesCamara(rs.getInt("pixelesCamara"));
+				if (rs.getInt("conectividadTeclado") == 1) {
+					Tablets.setConectividadTeclado(true);
+				} else {
+					Tablets.setConectividadTeclado(false);
+				}
+				Tablet.add(Tablets);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los dispositivos de Tablet", e);
+		}
+		return Tablet;
 	}
 	
 }
