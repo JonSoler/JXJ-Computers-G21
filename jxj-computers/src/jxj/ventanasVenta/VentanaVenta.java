@@ -213,30 +213,30 @@ public class VentanaVenta extends JFrame {
 							String marca = textoPrecio.getText();
 							String precio = textoFechaF.getText();
 							String fecha_fabricacion = textoSOP.getText();
-							String sistema_operativo = textoMarca.getText();
+							String sistemaOperativo = textoMarca.getText();
 							ImageIcon im = (ImageIcon) Foto.getIcon();
 							String rutaFoto = im.getDescription();
 
 							if (seccion.equals("Movil")) {
-								DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistema_operativo,
+								DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
 										precio, rutaFoto);
 								
 							}
 
 							if (seccion.equals("Portatil")) {
-								DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistema_operativo,
+								DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
 										precio, rutaFoto);
 								
 							}
 
 							if (seccion.equals("Sobremesa")) {
-								DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistema_operativo,
+								DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
 										precio, rutaFoto);
 								
 							}
 
 							if (seccion.equals("Tablet")) {
-								DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistema_operativo,
+								DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
 										precio, rutaFoto);
 								
 							}

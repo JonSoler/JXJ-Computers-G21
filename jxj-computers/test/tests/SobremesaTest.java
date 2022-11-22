@@ -13,7 +13,7 @@ public class SobremesaTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		sm= new Sobremesa("sm01","msi mag meta 5","sobremesa", "msi", "2021-05-13","1 tb","windows 11","imagen",1600.0,"500 W 80 plus bronze","ventilador cpu",4);
+		sm= new Sobremesa("sm01","msi mag meta 5","sobremesa", "msi", "2021-05-13","windows 11","imagen",1600.0,"500 W 80 plus bronze","ventilador cpu",4);
 	}
 
 	@Test

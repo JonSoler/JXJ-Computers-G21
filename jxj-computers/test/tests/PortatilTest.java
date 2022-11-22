@@ -14,7 +14,7 @@ public class PortatilTest {
 	@Before
 	public void setUp() throws Exception {
 	
-		p= new Portatil("01","mac pro","mac", "apple", "2020-05-13","128","ios","imagen",1450.0,true,"Keyboard Pro","multi-tactil");
+		p= new Portatil("01","mac pro","mac", "apple", "2020-05-13","ios","imagen",1450.0,true,"Keyboard Pro","multi-tactil");
 	}
 
 

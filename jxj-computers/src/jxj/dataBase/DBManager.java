@@ -430,7 +430,7 @@ public class DBManager {
 	 */
 	
 	public static void insertarMovil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
 		
 		String s = "INSERT INTO Movil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
@@ -461,7 +461,7 @@ public class DBManager {
 	 * @throws DBException
 	 */
 	public static void insertarPortatil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
 		
 		String s = "INSERT INTO Portatil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
@@ -491,8 +491,8 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	public static void insertSobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+	public static void insertarSobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
 		
 		String s = "INSERT INTO Sobremesa (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
@@ -523,7 +523,7 @@ public class DBManager {
 	 * @throws DBException
 	 */
 	public static void insertarTablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
 		
 		String s = "INSERT INTO Tablet (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
