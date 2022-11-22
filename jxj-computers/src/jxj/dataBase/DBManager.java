@@ -15,8 +15,10 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import erm.dataBase.DBException;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBManager;
+import jxj.excepciones.ExcepcionExplicita;
 import jxj.seccionDisp.Movil;
 import jxj.seccionDisp.Portatil;
 import jxj.seccionDisp.Sobremesa;
@@ -413,30 +415,129 @@ public class DBManager {
 			ex.printStackTrace();						
 		}		
 	}
-
 	
-
+	/**
+	 * Metodo para insertar un coche en Movil
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param seccion
+	 * @param marca
+	 * @param fecha_fabricacion
+	 * @param sistemaOperativo
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
+	
 	public static void insertarMovil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistema_operativo, String precio, String rutaFoto) {
-		// TODO Auto-generated method stub
+			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+		
+		String s = "INSERT INTO Movil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
+				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("JXJComputers.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
 		
 	}
-
-	public static void insertarPortatil(String id, String nombre, String seccion, String marca,
-			String fecha_fabricacion, String sistema_operativo, String precio, String rutaFoto) {
-		// TODO Auto-generated method stub
+	
+	/**
+	 * Metodo para insertar un coche en Portatil
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param seccion
+	 * @param marca
+	 * @param fecha_fabricacion
+	 * @param sistemaOperativo
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
+	public static void insertarPortatil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+		
+		String s = "INSERT INTO Portatil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
+				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("JXJComputers.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
 		
 	}
-
-	public static void insertarSobremesa(String id, String nombre, String seccion, String marca,
-			String fecha_fabricacion, String sistema_operativo, String precio, String rutaFoto) {
-		// TODO Auto-generated method stub
+	
+	/**
+	 * Metodo para insertar un coche en Sobremesa
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param seccion
+	 * @param marca
+	 * @param fecha_fabricacion
+	 * @param sistemaOperativo
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
+	public static void insertSobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+		
+		String s = "INSERT INTO Sobremesa (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
+				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("JXJComputers.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
 		
 	}
-
+	
+	/**
+	 * Metodo para insertar un coche en Tablet
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param seccion
+	 * @param marca
+	 * @param fecha_fabricacion
+	 * @param sistemaOperativo
+	 * @param precio
+	 * @param rutaFoto
+	 * @throws DBException
+	 */
 	public static void insertarTablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistema_operativo, String precio, String rutaFoto) {
-		// TODO Auto-generated method stub
+			String sistemaOperativo, double precio, String rutaFoto) throws DBException {
+		
+		String s = "INSERT INTO Tablet (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
+				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
+				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
+		Connection c = DBManager.initBD("JXJComputers.db");
+		try {
+			Statement st = c.createStatement();
+			st.executeUpdate(s);
+			cerrarBD(c, st);
+			logger.log(Level.INFO, "Statement correctamente");
+		} catch (SQLException e) {
+			logger.log(Level.WARNING, e.getMessage());
+		}
 		
 	}
 
