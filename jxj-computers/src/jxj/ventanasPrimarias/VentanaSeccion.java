@@ -102,7 +102,7 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnMovil);
 
 		btnMovil.addActionListener(e -> {
-				//VentanaMovil.main();
+				VentanaMovil.main();
 				dispose();
 		});
 
@@ -121,7 +121,7 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnPortatil);
 
 		btnPortatil.addActionListener(e -> {
-				//VentanaPortatil.main();
+				VentanaPortatil.main();
 				dispose();
 		});
 
@@ -141,7 +141,7 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnSobremesa);
 
 		btnSobremesa.addActionListener(e -> {
-				//VentanaSobremesa.main();
+				VentanaSobremesa.main();
 				dispose();
 		});
 
@@ -161,7 +161,7 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnTablet);
 
 		btnTablet.addActionListener(e -> {
-				//VentanaTablet.main();
+				VentanaTablet.main();
 				dispose();
 		});
 
@@ -185,8 +185,8 @@ public class VentanaSeccion extends JFrame {
 		});
 		menuBar.add(mntmCerrarSesion);
 		
-		
-		/*JButton btnPerfil = new JButton("");
+		/*
+		JButton btnPerfil = new JButton("");
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
 		btnPerfil.setFocusPainted(false);
 		btnPerfil.setContentAreaFilled(false);

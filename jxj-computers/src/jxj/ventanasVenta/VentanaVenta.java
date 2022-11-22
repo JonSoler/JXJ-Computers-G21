@@ -22,6 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
+import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
 
@@ -221,28 +222,83 @@ public class VentanaVenta extends JFrame {
 
 							if (seccion.equals("Movil")) {
 								
-									DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-										precio, rutaFoto);
+									try {
+										DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+											precio, rutaFoto);
+									} catch (DBException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+									VentanaInicio vi = null;
+									try {
+										vi = new VentanaInicio();
+									} catch (DBException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+									vi.setVisible(true);
+									setVisible(false);
 								
 		
 								
 							}
 
 							if (seccion.equals("Portatil")) {
-								DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-										precio, rutaFoto);
+								try {
+									DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+											precio, rutaFoto);
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								VentanaInicio vi = null;
+								try {
+									vi = new VentanaInicio();
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								vi.setVisible(true);
+								setVisible(false);
 								
 							}
 
 							if (seccion.equals("Sobremesa")) {
-								DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-										precio, rutaFoto);
-								
+								try {
+									DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+											precio, rutaFoto);
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								VentanaInicio vi = null;
+								try {
+									vi = new VentanaInicio();
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								vi.setVisible(true);
+								setVisible(false);
 							}
 
 							if (seccion.equals("Tablet")) {
-								DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-										precio, rutaFoto);
+								try {
+									DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+											precio, rutaFoto);
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								VentanaInicio vi = null;
+								try {
+									vi = new VentanaInicio();
+								} catch (DBException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								vi.setVisible(true);
+								setVisible(false);
 								
 							}
 
