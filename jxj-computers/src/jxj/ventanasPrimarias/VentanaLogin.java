@@ -142,9 +142,9 @@ public class VentanaLogin extends JFrame {
 					JOptionPane.showMessageDialog(null, "BIENVENIDO A JXJ Computers", "BIENVENIDO",
 							JOptionPane.INFORMATION_MESSAGE);
 					
-					//VentanaPrincipal vi = new VnetnaPrincipal();
+					VentanaSeccion vs = new VentanaSeccion();
 					setVisible(false);
-					//vi.setVisible(true);
+					vs.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
 					txtNombre.setText("");

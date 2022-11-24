@@ -334,7 +334,7 @@ public class DBManager {
 		try {
 
 			// cambiar la conexion a la nueva bd
-			Connection con = initBD("JXJComputers.db");
+			Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 			String sql = "INSERT INTO usuario (id, nombre,	apellidos, usuario, contrasenia, email) VALUES(?,?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
