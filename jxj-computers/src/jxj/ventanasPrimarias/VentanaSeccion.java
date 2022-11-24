@@ -90,7 +90,7 @@ public class VentanaSeccion extends JFrame {
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setBounds(83, 62, 126, 77);
 		getContentPane().add(lblMovil);
-		ImageIcon ico3 = new ImageIcon("");
+		ImageIcon ico3 = new ImageIcon("imagenes/Movil.jpg");
 		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblMovil.getWidth(), lblMovil.getHeight(), Image.SCALE_SMOOTH));
 		lblMovil.setIcon(img3);
 		
@@ -110,7 +110,7 @@ public class VentanaSeccion extends JFrame {
 		lblPortatil.setBounds(275, 62, 126, 77);
 		getContentPane().add(lblPortatil);
 
-		ImageIcon ico2 = new ImageIcon("");
+		ImageIcon ico2 = new ImageIcon("imagenes/Portatil.jpg");
 		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblPortatil.getWidth(), lblPortatil.getHeight(), Image.SCALE_SMOOTH));
 		lblPortatil.setIcon(img2);
 		
@@ -130,7 +130,7 @@ public class VentanaSeccion extends JFrame {
 		lblSobremesa.setBounds(83, 239, 126, 77);
 		getContentPane().add(lblSobremesa);
 
-		ImageIcon ico4 = new ImageIcon("");
+		ImageIcon ico4 = new ImageIcon("imagenes/Sobremesa.jpg");
 		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblSobremesa.getWidth(), lblSobremesa.getHeight(), Image.SCALE_SMOOTH));
 		lblSobremesa.setIcon(img4);
 
@@ -150,7 +150,7 @@ public class VentanaSeccion extends JFrame {
 		lblTablet.setBounds(275, 239, 126, 77);
 		getContentPane().add(lblTablet);
 
-		ImageIcon ico5 = new ImageIcon("");
+		ImageIcon ico5 = new ImageIcon("imagenes/Tablet.jpg");
 		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblTablet.getWidth(),lblTablet.getHeight(), Image.SCALE_SMOOTH));
 		lblTablet.setIcon(img5);
 
