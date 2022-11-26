@@ -94,7 +94,7 @@ public class DBManager {
 				statement.executeUpdate("create table if not exists Movil " + "(id String, " + " nombre string, "
 						+ " seccion string, " + " marca string, " + " fecha_fabricacion string, "
 						+ " sistemaOperativo string," + " precio double," + " rutaFoto string," + " tactil integer,"
-						+ " sensorReconocimiento string, " + " bateria integer)");
+						+ " sensorReconocimiento integer, " + " bateria integer)");
 
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Movil ya existente");
