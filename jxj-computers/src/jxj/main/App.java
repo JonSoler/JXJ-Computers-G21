@@ -20,6 +20,7 @@ public class App {
 			@Override
 			public void run() {
 				try {
+					jxj.dataBase.DBManager.usarCrearTablasBD();
 					VentanaInicio vi = new VentanaInicio();
 					vi.setVisible(true);
 

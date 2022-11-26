@@ -308,8 +308,6 @@ public class VentanaRegistro extends JFrame {
 					e2.printStackTrace();
 				}
 
-				JOptionPane.showMessageDialog(null, "Registro Completado");
-
 				VentanaLogin vL = new VentanaLogin();
 				vL.setVisible(true);
 				dispose();

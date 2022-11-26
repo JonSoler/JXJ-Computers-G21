@@ -25,7 +25,6 @@ import jxj.seccionDisp.Tablet;
 
 public class DBManager {
 	
-	private static Connection conn = null;
 	private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
@@ -52,8 +51,8 @@ public class DBManager {
 		    } 
 		try {
 			Class.forName(properties.getProperty("DRIVER"));		
-			conn = DriverManager.getConnection(properties.getProperty("jdbc"));
-			return conn;
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			return initBD;
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
 		} catch (SQLException e) {
@@ -71,7 +70,7 @@ public class DBManager {
 	 * @throws DBException
 	 */
 	
-	public static Statement usarCrearTablasBD(Connection con) throws DBException {
+	public static Statement usarCrearTablasBD() throws DBException {
 
 		// statement.executeUpdate : Cuando queramos hacer create, insert, delete,
 		// update, drop
@@ -79,12 +78,13 @@ public class DBManager {
 
 		logger.log(Level.INFO, "Creando tablas...");
 		try {
-			Statement statement = con.createStatement();
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			Statement statement = initBD.createStatement();
 			try {
 				statement.executeUpdate("create table if not exists Dispositivo " + "(id string, " + " nombre string, "
 						+ " seccion string, " + " marca string, " + " fecha_fabricacion string, "
 						+ " sistemaOperativo string," + " precio double," + " rutaFoto string");
-
+				logger.log(Level.INFO, "Tabla Dispositivo creada");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Dispositivo ya existente");
 				throw new DBException("Error creando tabla de Dispositivo a la BD", ex);
@@ -167,7 +167,7 @@ public class DBManager {
 	 *         error
 	 * @throws DBException
 	 */
-	public static Statement reiniciarBD(Connection con) throws DBException {
+	/*public static Statement reiniciarBD(Connection con) throws DBException {
 		logger.log(Level.INFO, "Reiniciando la base de datos...");
 
 		try {
@@ -185,7 +185,7 @@ public class DBManager {
 			throw new DBException("Error al reiniciar la BD", e);
 
 		}
-	}
+	}*/
 
 	/**
 	 * Logging
@@ -214,12 +214,14 @@ public class DBManager {
 	 * @param id
 	 * @return
 	 * @throws DBException
+	 * @throws SQLException 
 	 */
 	
-	public int obtenerId(String usuario) throws DBException {
+	public int obtenerId(String usuario) throws DBException, SQLException {
 		int idUsuario = 0;
 		if (!usuario.contains("@")) {
-			try (PreparedStatement stmt = conn.prepareStatement(
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			try (PreparedStatement stmt = initBD.prepareStatement(
 					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE usuario = ?")) {
 				stmt.setString(1, usuario);
 				ResultSet rs = stmt.executeQuery();
@@ -230,7 +232,8 @@ public class DBManager {
 				throw new DBException("Error obteniendo todos los usuarios'", e);
 			}
 		} else {
-			try (PreparedStatement stmt = conn.prepareStatement(
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			try (PreparedStatement stmt = initBD.prepareStatement(
 					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE email = ?")) {
 				stmt.setString(1, usuario);
 				ResultSet rs = stmt.executeQuery();
@@ -244,8 +247,9 @@ public class DBManager {
 
 		return idUsuario;
 	}
-	public Usuario buscarUsuarioId(int id) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement(
+	public Usuario buscarUsuarioId(int id) throws DBException, SQLException {
+		Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+		try (PreparedStatement stmt = initBD.prepareStatement(
 				"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario WHERE id = ?")) {
 			stmt.setInt(1, id);
 
@@ -276,13 +280,15 @@ public class DBManager {
 	 * @param contrasenia
 	 * @return
 	 * @throws DBException
+	 * @throws SQLException 
 	 */
-	public boolean loginUsuario(String nomUsuario, String contrasenia) throws DBException {
+	public boolean loginUsuario(String nomUsuario, String contrasenia) throws DBException, SQLException {
 
 		boolean acceso = false;
 
 		if (nomUsuario.contains("@")) {
-			try (PreparedStatement stmt = conn.prepareStatement(
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			try (PreparedStatement stmt = initBD.prepareStatement(
 					"SELECT id, usuario, contrasenia, email FROM usuario WHERE email = ? AND contrasenia = ?")) {
 				stmt.setString(1, nomUsuario);
 				stmt.setString(2, contrasenia);
@@ -300,7 +306,8 @@ public class DBManager {
 			} 
 
 		} else {
-			try (PreparedStatement stmt = conn.prepareStatement(
+			Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+			try (PreparedStatement stmt = initBD.prepareStatement(
 					"SELECT id, usuario, contrasenia, email FROM usuario WHERE usuario = ? AND contrasenia = ?")) {
 				stmt.setString(1, nomUsuario);
 				stmt.setString(2, contrasenia);
@@ -389,8 +396,9 @@ public class DBManager {
 
 	}
 	
-	public void eliminarUsuario(int idUsuario) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
+	public void eliminarUsuario(int idUsuario) throws DBException, SQLException {
+		Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
+		try (PreparedStatement stmt = initBD.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
 			stmt.setInt(1, idUsuario);
 			stmt.executeUpdate();
 
@@ -540,10 +548,11 @@ public class DBManager {
 		
 	}
 
-	public static void disconnect() throws DBException {
+	public static void disconnect() throws DBException, SQLException {
+		Connection initBD = DriverManager.getConnection(properties.getProperty("jdbc"));
 		try {
-			conn = initBD("JXJComputers.db");
-			conn.close();
+			initBD = initBD("JXJComputers.db");
+			initBD.close();
 		} catch (SQLException e) {
 			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
