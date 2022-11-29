@@ -30,6 +30,7 @@ import javax.swing.JMenuItem;
 import jxj.clasesBasicas.ListaDispositivo;
 import jxj.dataBase.DBException;
 import jxj.seccionDisp.Dispositivo;
+import jxj.ventanasSecundarias.VentanaAjustes;
 
 
 
@@ -184,8 +185,8 @@ public class VentanaSeccion extends JFrame {
 				dispose();
 		});
 		menuBar.add(mntmCerrarSesion);
+	
 		
-		/*
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
 		btnPerfil.setFocusPainted(false);
@@ -194,9 +195,9 @@ public class VentanaSeccion extends JFrame {
 		
 		btnPerfil.addActionListener(e -> {
 			
-			VentanaPerfil v2 = new VentanaPerfil(VentanaLogIn.u);
+			/*VentanaPerfil v2 = new VentanaPerfil(VentanaLogIn.u);
 			v2.setVisible(true);
-			dispose();
+			dispose(); */
 		});
 
 		JButton btnAjustes = new JButton("");
@@ -210,7 +211,7 @@ public class VentanaSeccion extends JFrame {
 				VentanaAjustes v1 = new VentanaAjustes();
 				v1.setVisible(true);
 				dispose();
-		});*/
+		});
 	}
 
 }

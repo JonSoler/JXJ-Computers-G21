@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
+import jxj.ventanasSecundarias.VentanaAjustes;
 
 public class VentanaVenta extends JFrame {
 
@@ -173,7 +174,7 @@ public class VentanaVenta extends JFrame {
 
 			JFileChooser fc = new JFileChooser();
 			fc.setCurrentDirectory(new File(".")); 
-			//fc.setCurrentDirectory(new File("src"));  carpeta
+			fc.setCurrentDirectory(new File("src"));  
 			int seleccionado = fc.showOpenDialog(null);
 			if (seleccionado == JFileChooser.APPROVE_OPTION) {
 				File ficheroSeleccionado = fc.getSelectedFile();
@@ -310,6 +311,10 @@ public class VentanaVenta extends JFrame {
 				btnGuardar.setBounds(395, 266, 128, 29);
 				
 						btnAtras.addActionListener(e -> {
+							VentanaAjustes va = new VentanaAjustes();
+							va.setVisible(true);
+							dispose();
+							
 						});
 		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 
