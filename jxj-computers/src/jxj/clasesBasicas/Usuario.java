@@ -107,7 +107,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "   Nombre: "+nombre+ " | Usuario: " + usuario+ " | Contraseña: " + contrasenia;
+		return "   Nombre: "+nombre+ " | Usuario: " + usuario+ " | ContraseÃ±a: " + contrasenia;
 	}
 	
 	

@@ -1,48 +1,36 @@
 package jxj.ventanasPrimarias;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import jxj.clasesBasicas.ListaDispositivo;
 import jxj.dataBase.DBException;
 import jxj.seccionDisp.Dispositivo;
 import jxj.ventanasSecundarias.VentanaAjustes;
-
-
+import jxj.ventanasSecundarias.VentanaCuentaUsuario;
 
 public class VentanaSeccion extends JFrame {
-	private JFrame frame;
+	/**
+	 * 
+	 */
+
+	private static final long serialVersionUID = 1L;
 	JPanel pCentral, pSur;
-	private JButton btnSalir, btnFinalizarCompra;
-	private JFrame ventana, ventanaAnterior;
+
 	public static ArrayList<Dispositivo> carrito = new ArrayList<Dispositivo>();
 	ListaDispositivo listaDispositivo = new ListaDispositivo();
 
-	
 	/**
 	 * Launch the application
 	 */
@@ -61,10 +49,7 @@ public class VentanaSeccion extends JFrame {
 		});
 	}
 
-	
-
 	VentanaLogin vl = new VentanaLogin();
-	private JLabel lblMovil;
 
 	/**
 	 * Create the application.
@@ -92,9 +77,9 @@ public class VentanaSeccion extends JFrame {
 		lblMovil.setBounds(83, 62, 126, 77);
 		getContentPane().add(lblMovil);
 		ImageIcon ico3 = new ImageIcon("imagenes/Movil.jpg");
-		ImageIcon img3 = new ImageIcon(ico3.getImage().getScaledInstance(lblMovil.getWidth(), lblMovil.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon img3 = new ImageIcon(
+				ico3.getImage().getScaledInstance(lblMovil.getWidth(), lblMovil.getHeight(), Image.SCALE_SMOOTH));
 		lblMovil.setIcon(img3);
-		
 
 		JButton btnMovil = new JButton("Movil");
 		btnMovil.setForeground(Color.WHITE);
@@ -103,8 +88,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnMovil);
 
 		btnMovil.addActionListener(e -> {
-				VentanaMovil.main();
-				dispose();
+			VentanaMovil.main();
+			dispose();
 		});
 
 		JLabel lblPortatil = new JLabel("Portatil");
@@ -112,9 +97,10 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(lblPortatil);
 
 		ImageIcon ico2 = new ImageIcon("imagenes/Portatil.jpg");
-		ImageIcon img2 = new ImageIcon(ico2.getImage().getScaledInstance(lblPortatil.getWidth(), lblPortatil.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon img2 = new ImageIcon(
+				ico2.getImage().getScaledInstance(lblPortatil.getWidth(), lblPortatil.getHeight(), Image.SCALE_SMOOTH));
 		lblPortatil.setIcon(img2);
-		
+
 		JButton btnPortatil = new JButton("Portatil");
 		btnPortatil.setForeground(Color.WHITE);
 		btnPortatil.setBackground(new Color(255, 165, 0));
@@ -122,8 +108,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnPortatil);
 
 		btnPortatil.addActionListener(e -> {
-				VentanaPortatil.main();
-				dispose();
+			VentanaPortatil.main();
+			dispose();
 		});
 
 		JLabel lblSobremesa = new JLabel("Sobremesa");
@@ -132,7 +118,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(lblSobremesa);
 
 		ImageIcon ico4 = new ImageIcon("imagenes/Sobremesa.jpg");
-		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblSobremesa.getWidth(), lblSobremesa.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblSobremesa.getWidth(),
+				lblSobremesa.getHeight(), Image.SCALE_SMOOTH));
 		lblSobremesa.setIcon(img4);
 
 		JButton btnSobremesa = new JButton("Sobremesa");
@@ -142,8 +129,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnSobremesa);
 
 		btnSobremesa.addActionListener(e -> {
-				VentanaSobremesa.main();
-				dispose();
+			VentanaSobremesa.main();
+			dispose();
 		});
 
 		JLabel lblTablet = new JLabel("Tablet");
@@ -152,7 +139,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(lblTablet);
 
 		ImageIcon ico5 = new ImageIcon("imagenes/Tablet.jpg");
-		ImageIcon img5 = new ImageIcon(ico5.getImage().getScaledInstance(lblTablet.getWidth(),lblTablet.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon img5 = new ImageIcon(
+				ico5.getImage().getScaledInstance(lblTablet.getWidth(), lblTablet.getHeight(), Image.SCALE_SMOOTH));
 		lblTablet.setIcon(img5);
 
 		JButton btnTablet = new JButton("Tablet");
@@ -162,8 +150,8 @@ public class VentanaSeccion extends JFrame {
 		getContentPane().add(btnTablet);
 
 		btnTablet.addActionListener(e -> {
-				VentanaTablet.main();
-				dispose();
+			VentanaTablet.main();
+			dispose();
 		});
 
 		JMenuBar menuBar = new JMenuBar();
@@ -181,23 +169,22 @@ public class VentanaSeccion extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-				v3.setVisible(true);
-				dispose();
+			v3.setVisible(true);
+			dispose();
 		});
 		menuBar.add(mntmCerrarSesion);
-	
-		
+
 		JButton btnPerfil = new JButton("");
 		btnPerfil.setIcon(new ImageIcon("imagenes/iconoPerfil.png"));
 		btnPerfil.setFocusPainted(false);
 		btnPerfil.setContentAreaFilled(false);
 		menuBar.add(btnPerfil);
-		
+
 		btnPerfil.addActionListener(e -> {
-			
-			/*VentanaPerfil v2 = new VentanaPerfil(VentanaLogIn.u);
-			v2.setVisible(true);
-			dispose(); */
+
+			VentanaCuentaUsuario vU = new VentanaCuentaUsuario(VentanaLogin.u);
+			vU.setVisible(true);
+			dispose();
 		});
 
 		JButton btnAjustes = new JButton("");
@@ -207,10 +194,10 @@ public class VentanaSeccion extends JFrame {
 		menuBar.add(btnAjustes);
 
 		btnAjustes.addActionListener(e -> {
-			
-				VentanaAjustes v1 = new VentanaAjustes();
-				v1.setVisible(true);
-				dispose();
+
+			VentanaAjustes v1 = new VentanaAjustes();
+			v1.setVisible(true);
+			dispose();
 		});
 	}
 
