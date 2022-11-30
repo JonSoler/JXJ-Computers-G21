@@ -214,10 +214,10 @@ public class VentanaVenta extends JFrame {
 							String id = textoId.getText();
 							String nombre = textoNombre.getText();
 							String seccion = comboBox_seccion.getSelectedItem().toString();
-							String marca = textoPrecio.getText();
-							String precio = textoFechaF.getText();
-							String fecha_fabricacion = textoSOP.getText();
-							String sistemaOperativo = textoMarca.getText();
+							String marca = textoMarca.getText();
+							String precio = textoPrecio.getText();
+							String fecha_fabricacion = textoFechaF.getText();
+							String sistemaOperativo = textoSOP.getText();
 							ImageIcon im = (ImageIcon) Foto.getIcon();
 							String rutaFoto = im.getDescription();
 
