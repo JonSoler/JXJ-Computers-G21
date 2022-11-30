@@ -85,7 +85,7 @@ public class VentanaSeccion extends JFrame {
 
 		JLabel lblSeccionesDispositivos = new JLabel("Categorias de los Dispositivos");
 		lblSeccionesDispositivos.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
-		lblSeccionesDispositivos.setBounds(83, 11, 242, 26);
+		lblSeccionesDispositivos.setBounds(106, 11, 295, 26);
 		getContentPane().add(lblSeccionesDispositivos);
 
 		JLabel lblMovil = new JLabel("Movil");
