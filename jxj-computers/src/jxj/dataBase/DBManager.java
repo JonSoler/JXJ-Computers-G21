@@ -751,7 +751,7 @@ public class DBManager {
 		ArrayList<Tablet> Tablet = new ArrayList<>();
 		Connection conn = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
-				+ "color, sensorReconocimiento, conectividadTeclado FROM Tablet";
+				+ "color, pixelesCamara, conectividadTeclado FROM Tablet";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
