@@ -16,6 +16,7 @@ import javax.swing.UIManager;
 import jxj.dataBase.DBException;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaLogin;
+import jxj.ventanasPrimarias.VentanaSeccion;
 import jxj.ventanasVenta.VentanaVenta;
 
 import java.awt.SystemColor;
@@ -135,13 +136,8 @@ public class VentanaAjustes extends JFrame {
 
 		btnvlvAtras.addActionListener(e -> {
 			
-				VentanaInicio vs = null;
-				try {
-					vs = new VentanaInicio();
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				VentanaSeccion vs = null;
+				vs = new VentanaSeccion();
 				vs.setVisible(true);
 				setVisible(false);
 
