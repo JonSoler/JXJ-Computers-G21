@@ -12,9 +12,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import jxj.dataBase.*;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBManager;
 
@@ -781,5 +783,62 @@ public class DBManager {
 		}
 		return Tablet;
 	}
+	
+	public static void ponerCategoriaAEnOferta() throws SQLException {
+		Connection c;
+		try {
+			c = DBManager.initBD("JXJComputers.db");
+			Statement statement = c.createStatement();
+			String sent = "update Movil set precio = precio - 1000";
+			statement.executeUpdate(sent);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Se encarga de quitar la oferta que hay en la categoriaA
+	 * 
+	 * @throws SQLException
+	 */
+	public static void seAcabaLaOferta() throws SQLException {
+		Connection c;
+		try {
+			c = DBManager.initBD("JXJComputers.db");
+			Statement statement = c.createStatement();
+			String sent = "update Movil set precio = precio + 1000";
+			statement.executeUpdate(sent);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
+
+		Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
+		Statement st = con.createStatement();
+
+		int max = carrito.size();
+		for (int i = 0; i < max; i++) {
+			String id = (String) carrito.elementAt(i).elementAt(0);
+			String nombre = (String) carrito.elementAt(i).elementAt(1);
+			String fecha = (String) (carrito.elementAt(i).elementAt(2));
+			String precio = String.valueOf(carrito.elementAt(i).elementAt(3));
+
+			String sql = "INSERT INTO Carrito (id, nombre, fecha, precio) VALUES('" + id + "','" + nombre + "','"
+					+ fecha + "','" + precio + "')";
+			st.executeUpdate(sql);
+
+			System.out.println("llega");
+		}
+		
+		
+	}
+
 	
 }
