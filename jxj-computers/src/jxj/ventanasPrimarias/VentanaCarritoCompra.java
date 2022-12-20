@@ -185,8 +185,8 @@ import jxj.seccionDisp.Dispositivo;
 			lblPremium.setBounds(199, 475, 145, 29);
 			frame.getContentPane().add(lblPremium);
 			
-			//Hilo h = new Hilo();
-	       // h.start();
+			Hilo h = new Hilo();
+	        h.start();
 
 			JCheckBox chckbxContratoTarifa = new JCheckBox("Contratar tarifa premium");
 			chckbxContratoTarifa.setBounds(176, 526, 188, 23);
