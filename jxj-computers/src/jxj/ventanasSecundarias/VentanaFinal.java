@@ -43,7 +43,7 @@ public class VentanaFinal extends JFrame{
 		getContentPane().add(lblCaja);
 		
 		JLabel lblCoche = new JLabel("");
-		lblCoche.setIcon(new ImageIcon("imagenes/iconoCocche.png"));
+		lblCoche.setIcon(new ImageIcon(""));
 		lblCoche.setBounds(44, 107, 145, 128);
 		getContentPane().add(lblCoche);
 		
