@@ -30,6 +30,7 @@ import jxj.clasesBasicas.ListaDispositivo;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.seccionDisp.Dispositivo;
+import jxj.ventanasSecundarias.VentanaPago;
 
 
 	public class VentanaCarritoCompra extends JFrame {
@@ -198,9 +199,9 @@ import jxj.seccionDisp.Dispositivo;
 			frame.getContentPane().add(btnRealizarPedido);
 			btnRealizarPedido.addActionListener(e -> {
 				// TODO Auto-generated method stub
-				/*VentanaPago vp = new VentanaPago();
+				VentanaPago vp = new VentanaPago();
 				setVisible(false);
-				vp.setVisible(true);*/
+				vp.setVisible(true);
 			});
 
 			frame.getContentPane().add(tablePanel);

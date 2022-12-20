@@ -839,6 +839,8 @@ public class DBManager {
 			System.out.println("llega");
 		}
 	}
+	
+		//HAY QUE MIRAR ESTE MÉTODO
 		public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
 			Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 			try (Statement stmt = con.createStatement()) {
