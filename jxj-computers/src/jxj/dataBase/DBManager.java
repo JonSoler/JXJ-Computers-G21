@@ -16,7 +16,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+import jxj.dataBase.DBException;
 import jxj.dataBase.*;
 import jxj.clasesBasicas.Tarjeta;
 import jxj.clasesBasicas.Usuario;
@@ -33,7 +33,7 @@ public class DBManager {
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
 	private static Properties properties = new Properties();
-	
+	private static Connection conn = null;
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
@@ -868,10 +868,18 @@ public class DBManager {
 			} catch (SQLException e) {
 				throw new DBException("No ha sido posible ejecutar la query");
 			}
-		
-		
-		
+
 	}
 
+		public void cambiarContrasenia(Usuario user) throws DBException {
+
+			try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET contrasenia= ? WHERE nombre ='" + user.getNombre() + "'")) {
+				stmt.setString(1, user.getContrasenia());
+				stmt.executeUpdate();
+
+			} catch (SQLException e) {
+				throw new DBException("No ha sido posible ejecutar la query");
+			}
+		}
 	
 }
