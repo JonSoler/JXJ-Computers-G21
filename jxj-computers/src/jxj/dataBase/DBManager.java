@@ -16,7 +16,9 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 import jxj.dataBase.*;
+import jxj.clasesBasicas.Tarjeta;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBManager;
 
@@ -836,6 +838,35 @@ public class DBManager {
 
 			System.out.println("llega");
 		}
+	}
+		public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
+			Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
+			try (Statement stmt = con.createStatement()) {
+
+				int idUsuario = tarjeta.getidUsuario();
+				String tipo = tarjeta.getTipo();
+				String numeroTarjeta = tarjeta.getNumeroTarjeta();
+				String fecha = tarjeta.getFecha();
+				String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
+				String codigoPostal2 = tarjeta.getCodigoPostal2();
+				String nombreCompleto = tarjeta.getNombreCompleto();
+				String direccion = tarjeta.getDireccion();
+				String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
+				String ciudad = tarjeta.getCiudad();
+				String estadoProvincia = tarjeta.getEstadoProvincia();
+				String codigoPostal = tarjeta.getCodigoPostal();
+
+				stmt.executeUpdate(
+						"INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('"
+								+ idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
+								+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion
+								+ "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '"
+								+ codigoPostal + "')");
+
+			} catch (SQLException e) {
+				throw new DBException("No ha sido posible ejecutar la query");
+			}
+		
 		
 		
 	}

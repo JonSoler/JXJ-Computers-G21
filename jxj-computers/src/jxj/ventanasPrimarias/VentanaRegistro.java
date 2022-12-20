@@ -29,7 +29,7 @@ import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 
 public class VentanaRegistro extends JFrame {
-
+	public static int idUsuario;
 	/**
 	 * 
 	 */
@@ -397,5 +397,8 @@ public class VentanaRegistro extends JFrame {
 				e.printStackTrace();
 			}
 
+		}
+		public static int getUsuarioId() {
+			return idUsuario;
 		}
 }
