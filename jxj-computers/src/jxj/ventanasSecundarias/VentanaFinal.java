@@ -98,7 +98,7 @@ public class VentanaFinal extends JFrame{
 		lblNewLabel_7.setBounds(44, 368, 387, 14);
 		getContentPane().add(lblNewLabel_7);
 		
-		JButton btnNewButton_1 = new JButton("Volver a ERM");
+		JButton btnNewButton_1 = new JButton("Volver a JXJ Computers");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaSeccion vp = new VentanaSeccion();
