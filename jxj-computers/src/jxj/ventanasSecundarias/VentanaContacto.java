@@ -62,7 +62,7 @@ public class VentanaContacto extends JFrame {
 		
 		JButton btnGmail = new JButton("");
 		btnGmail.setBackground(new Color(255, 255, 255));
-		btnGmail.setIcon(new ImageIcon("imagenes/iconoGmail.png"));
+		btnGmail.setIcon(new ImageIcon("imagenes/iconoEmail.png"));
 		btnGmail.setFocusPainted(false);
 		btnGmail.setBorderPainted(false);
 		btnGmail.setContentAreaFilled(false);
@@ -87,7 +87,7 @@ public class VentanaContacto extends JFrame {
 		
 		JButton btnLinkedin = new JButton("");
 		btnLinkedin.setBackground(new Color(255, 255, 255));
-		btnLinkedin.setIcon(new ImageIcon("imagenes/iconoLinkedin.png"));
+		btnLinkedin.setIcon(new ImageIcon("imagenes/iconoLikedin.png"));
 		btnLinkedin.setFocusPainted(false);
 		btnLinkedin.setBorderPainted(false);
 		btnLinkedin.setContentAreaFilled(false);
