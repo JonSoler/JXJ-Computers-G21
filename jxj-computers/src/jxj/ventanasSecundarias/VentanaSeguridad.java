@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import jxj.ventanasPrimarias.VentanaLogin;
 import jxj.clasesBasicas.Usuario;
@@ -102,7 +103,13 @@ public class VentanaSeguridad extends JFrame{
 				try {
 					
 					dbm.initBD("JXJComputers.db");
-					Usuario user = dbm.buscarUsuarioId(l);
+					Usuario user = null;
+					try {
+						user = dbm.buscarUsuarioId(l);
+					} catch (SQLException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
 					if (user.getContrasenia().equals(pfActual.getText()) && pfNueva.getText().equals(pfConfirmarNueva.getText())) {
 						user.setContrasenia(pfNueva.getText());
 						dbm.cambiarContrasenia(user);
@@ -113,7 +120,12 @@ public class VentanaSeguridad extends JFrame{
 					}else {
 						JOptionPane.showMessageDialog(null, "Los campos no coinciden o contraseña incorrecta", "Error", 0);
 					}
-					dbm.disconnect();
+					try {
+						dbm.disconnect();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				} catch (DBException e1) {
 					
 					e1.printStackTrace();

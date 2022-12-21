@@ -101,13 +101,13 @@ public class VentanaAjustes extends JFrame {
 		
 	});		
 
-		/*botonPrivacidad.addActionListener(e -> {
+		botonPrivacidad.addActionListener(e -> {
 			
 				VentanaPrivacidad v2 = new VentanaPrivacidad();
 				v2.setVisible(true);
 				dispose();
 
-		});*/
+		});
 
 		botonCerrarSesion.addActionListener(e -> {
 			
@@ -121,7 +121,7 @@ public class VentanaAjustes extends JFrame {
 				System.exit(-1);
 		});
 
-		/*botonContacto.addActionListener(e -> {
+		botonContacto.addActionListener(e -> {
 				VentanaContacto v4 = new VentanaContacto();
 				v4.setVisible(true);
 				dispose();
@@ -132,7 +132,7 @@ public class VentanaAjustes extends JFrame {
 				VentanaSeguridad vs = new VentanaSeguridad();
 				vs.setVisible(true);
 				setVisible(false);
-		})*/
+		});
 
 		btnvlvAtras.addActionListener(e -> {
 			

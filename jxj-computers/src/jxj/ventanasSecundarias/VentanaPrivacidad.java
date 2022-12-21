@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -90,11 +91,16 @@ public class VentanaPrivacidad extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DBManager dbm = new DBManager();
-					if (JOptionPane.showConfirmDialog(null, "�Desea eliminar permanentemente su cuenta?", "Eliminacion de cuenta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+					if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar permanentemente su cuenta?", "Eliminacion de cuenta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
 						try {
 							
 							
-							dbm.eliminarUsuario(idUser);
+							try {
+								dbm.eliminarUsuario(idUser);
+							} catch (SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							dispose();
 							VentanaInicio vl = new VentanaInicio();
 							vl.setVisible(true);

@@ -11,7 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import jxj.dataBase.DBException;
 import jxj.ventanasPrimarias.VentanaInicio;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VentanaContacto extends JFrame {
 
@@ -24,17 +28,17 @@ public class VentanaContacto extends JFrame {
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 		
-		JLabel lblproblemas = new JLabel("¿Problemas? ¿Algunas Dudas? Contactanos !!!");
-		lblproblemas.setForeground(new Color(255, 165, 0));
+		JLabel lblproblemas = new JLabel("¿Algunas Dudas? Contactanos !!!");
+		lblproblemas.setForeground(new Color(0, 0, 0));
 		lblproblemas.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
-		lblproblemas.setBounds(27, 11, 379, 38);
+		lblproblemas.setBounds(45, 6, 403, 38);
 		getContentPane().add(lblproblemas);
 
 		JLabel lblGmail = new JLabel();
 		lblGmail.setText("JXJComputers@gmail.es");
 		lblGmail.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblGmail.setFocusable(false);
-		lblGmail.setBounds(166, 77, 240, 41);
+		lblGmail.setBounds(152, 77, 240, 41);
 		getContentPane().add(lblGmail);
 	
 		
@@ -42,14 +46,14 @@ public class VentanaContacto extends JFrame {
 		lblLinkedin.setText("JXJComputers Linkedin");
 		lblLinkedin.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblLinkedin.setFocusable(false);
-		lblLinkedin.setBounds(166, 152, 300, 41);
+		lblLinkedin.setBounds(152, 143, 300, 41);
 		getContentPane().add(lblLinkedin);
 		
 		JTextArea txtDispositivo = new JTextArea();
-		txtDispositivo.setText("\"Consigue el dispositivo que quieras a traves de nuestra pagina, a un precio unico\"");
+		txtDispositivo.setText("\"Consigue el dispositivo que quieras a traves de \n nuestra pagina, a un precio unico\"");
 		txtDispositivo.setOpaque(false);
 		txtDispositivo.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		txtDispositivo.setBounds(27, 256, 397, 81);
+		txtDispositivo.setBounds(27, 256, 403, 81);
 		getContentPane().add(txtDispositivo);
 		
 		JButton btnVolver = new JButton("Atras");
@@ -78,7 +82,7 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 		
-		btnGmail.setBounds(72, 89, 42, 29);
+		btnGmail.setBounds(56, 89, 42, 29);
 		getContentPane().add(btnGmail);
 		
 		JButton btnLinkedin = new JButton("");
@@ -103,14 +107,24 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 		
-		btnLinkedin.setBounds(71, 155, 43, 38);
+		btnLinkedin.setBounds(68, 143, 43, 38);
 		getContentPane().add(btnLinkedin);
 		
-		JButton btnCerrarSesion = new JButton("Cerrar sesi\u00F3n");
-		btnCerrarSesion.addActionListener(e -> {
-			VentanaInicio v1 = new VentanaInicio();
-			v1.setVisible(true);
+		JButton btnCerrarSesion = new JButton("Cerrar sesion");
+		btnCerrarSesion.addActionListener(e->{
+			
+			VentanaInicio vi;
+			try {
+				vi = new VentanaInicio();
+				vi.setVisible(true);
+			} catch (DBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
 			dispose();
+			
 		});
 		btnCerrarSesion.setBounds(223, 371, 136, 29);
 		getContentPane().add(btnCerrarSesion);
