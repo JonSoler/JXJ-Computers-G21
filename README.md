@@ -83,8 +83,8 @@ Badge | URL
 
 Tipos de Usuario|Usuario normal | Administrador
 -------------|------------- | -------------
-Usuario|Jon23  | ""
-Contraseña|123  | ""
+Usuario|Jon23  | admin
+Contraseña|123  | admin123
 
 *Es una cuenta que te recomendamos para iniciar sesión. Si esta no te convence, puedes registrarte en nuestra aplicación con tus 
 credenciales.
