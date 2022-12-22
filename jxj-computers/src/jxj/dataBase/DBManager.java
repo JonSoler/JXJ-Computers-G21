@@ -165,7 +165,7 @@ public class DBManager {
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Opinion ya existente");
 				throw new DBException("Error creando tabla de Ventas a la BD", ex);
-			} // Si la tabla ya existe, no hacemos nad*/
+			} // Si la tabla ya existe, no hacemos nada*/
 
 			
 		} catch (SQLException e) {
@@ -186,7 +186,7 @@ public class DBManager {
 	 *         error
 	 * @throws DBException
 	 */
-	/*public static Statement reiniciarBD(Connection con) throws DBException {
+	public static Statement reiniciarBD(Connection con) throws DBException {
 		logger.log(Level.INFO, "Reiniciando la base de datos...");
 
 		try {
@@ -198,13 +198,13 @@ public class DBManager {
 			statement.executeUpdate("drop table if exists Tablet");
 			statement.executeUpdate("drop table if exists usuario");
 			//statement.executeUpdate("drop table if exists opinion");
-			return usarCrearTablasBD(con);
+			return usarCrearTablasBD();
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
 			throw new DBException("Error al reiniciar la BD", e);
 
 		}
-	}*/
+	}
 
 	/**
 	 * Logging

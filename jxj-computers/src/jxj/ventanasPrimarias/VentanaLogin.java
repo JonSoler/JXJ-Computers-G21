@@ -184,8 +184,8 @@ public class VentanaLogin extends JFrame {
 			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales de seguridad a continuaci\u00F3n", "Administrador - Iniciar sesi\u00F3n",
 					JOptionPane.INFORMATION_MESSAGE, icon);
 			
-			jxj.ventanasAdministrador.VentanaLoginAdmin vi = null;
-			vi = new jxj.ventanasAdministrador.VentanaLoginAdmin();
+			jxj.ventanasAdministrador.VentanaInicioAdmin vi = null;
+			vi = new jxj.ventanasAdministrador.VentanaInicioAdmin();
 			vi.setVisible(true);
 			dispose();
 
