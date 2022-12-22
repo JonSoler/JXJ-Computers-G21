@@ -76,7 +76,7 @@ public class VentanaAdmin extends JFrame{
 		JButton btnVlvAtras = new JButton("Volver atras");
 		btnVlvAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaLoginAdmin v1 = new VentanaLoginAdmin();
+				VentanaInicioAdmin v1 = new VentanaInicioAdmin();
 				v1.setVisible(true);
 				dispose();
 			}
