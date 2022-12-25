@@ -786,7 +786,62 @@ public class DBManager {
 		return Tablet;
 	}
 	
-	public static void ponerCategoriaAEnOferta() throws SQLException {
+	public static ArrayList<Usuario> listarUsuarios() throws DBException {
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+		Connection con = initBD("JXJComputers.db");
+
+		try (Statement stmt = con.createStatement()) {
+			ResultSet rs = stmt.executeQuery(
+					"SELECT id, nombre, apellido, usuario, contrasenia, email FROM usuario");
+
+			while (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(Integer.parseInt(rs.getString("id")));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setApellidos(rs.getString("apellidos"));
+				usuario.setUsuario(rs.getString("nickname"));
+				usuario.setContrasenia(rs.getString("contrasenya"));
+				usuario.setEmail(rs.getString("email"));
+				usuarios.add(usuario);
+			}
+
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo los usuarios", e);
+		}
+
+		return usuarios;
+
+	}
+
+	public static void borrarUsuarioGestion(Usuario u) throws SQLException, DBException {
+		Connection con = initBD("JXJComputers.db");
+		PreparedStatement ps = con.prepareStatement("DELETE FROM usuario WHERE email = ?");
+		ps.setString(1, u.getEmail());
+		ps.execute();
+
+	}
+
+	public static void borrarDispositivo(String d) throws SQLException, DBException {
+		Connection con = initBD("JXJComputers.db");
+		PreparedStatement ps = con.prepareStatement("DELETE FROM Sobremesa WHERE nombre = ?");
+		ps.setString(1, d);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM Movil WHERE nombre = ?");
+		ps.setString(1, d);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM Portatil WHERE nombre = ?");
+		ps.setString(1, d);
+		ps.execute();
+
+		ps = con.prepareStatement("DELETE FROM Tablet WHERE nombre = ?");
+		ps.setString(1, d);
+		ps.execute();
+
+	}
+	
+	public static void ponerMovilEnOferta() throws SQLException {
 		Connection c;
 		try {
 			c = DBManager.initBD("JXJComputers.db");
@@ -801,7 +856,7 @@ public class DBManager {
 	}
 
 	/**
-	 * Se encarga de quitar la oferta que hay en la categoriaA
+	 * Se encarga de quitar la oferta que hay 
 	 * 
 	 * @throws SQLException
 	 */

@@ -42,10 +42,10 @@ public class VentanaFinal extends JFrame{
 		lblCaja.setBounds(234, 171, 75, 88);
 		getContentPane().add(lblCaja);
 		
-		JLabel lblCoche = new JLabel("");
-		lblCoche.setIcon(new ImageIcon(""));
-		lblCoche.setBounds(44, 107, 145, 128);
-		getContentPane().add(lblCoche);
+		JLabel lblDispositivo = new JLabel("");
+		lblDispositivo.setIcon(new ImageIcon(""));
+		lblDispositivo.setBounds(44, 107, 145, 128);
+		getContentPane().add(lblDispositivo);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("imagenes/icons8-flecha-16.png"));
@@ -106,7 +106,7 @@ public class VentanaFinal extends JFrame{
 				vp.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(279, 511, 116, 58);
+		btnNewButton_1.setBounds(279, 511, 166, 58);
 		getContentPane().add(btnNewButton_1);
 		setBounds(100, 100, 638, 639);
 		

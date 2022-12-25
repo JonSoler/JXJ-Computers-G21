@@ -287,7 +287,7 @@ import jxj.ventanasSecundarias.VentanaPago;
 						// if(d.getMinutes() == 53) && d.getSeconds()==0) {
 						if (d.getHours() == 19 && d.getMinutes() == 30 && d.getSeconds() == 0) {
 							try {
-								DBManager.ponerCategoriaAEnOferta();
+								DBManager.ponerMovilEnOferta();
 								setTableContent(carrito);
 
 								fin = true;
@@ -348,7 +348,7 @@ import jxj.ventanasSecundarias.VentanaPago;
 		
 
 		/**
-		 * Se suman los precios de los coches que se encuentran en la tabla
+		 * Se suman los precios de los dispositivos que se encuentran en la tabla
 		 */
 
 		private void updatePrecioTotal() {
