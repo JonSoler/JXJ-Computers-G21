@@ -27,7 +27,7 @@ public class VentanaPoliticaPrivacidad extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblPoliticaPrivacidad = new JLabel("Politica de privacidad");
-		lblPoliticaPrivacidad.setForeground(new Color(255, 165, 0));
+		lblPoliticaPrivacidad.setForeground(new Color(99, 121, 194));
 		lblPoliticaPrivacidad.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPoliticaPrivacidad.setBounds(128, 11, 160, 29);
 		getContentPane().add(lblPoliticaPrivacidad);

@@ -19,6 +19,7 @@ import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class VentanaSeguridad extends JFrame{
 	
@@ -44,6 +45,7 @@ public class VentanaSeguridad extends JFrame{
 		panelCentro = new JPanel();
 		
 		JLabel lblCambiarContrasenia = new JLabel("Cambiar contraseña");
+		lblCambiarContrasenia.setForeground(new Color(99, 121, 194));
 		lblCambiarContrasenia.setBounds(128, 23, 223, 20);
 		panelNorte.add(lblCambiarContrasenia);
 		getContentPane().add(panelNorte, BorderLayout.NORTH);

@@ -31,6 +31,7 @@ public class VentanaCuentaUsuario extends JFrame {
 
 		panelBotonera = new JPanel();
 		panelNorte = new JPanel();
+		panelNorte.setForeground(Color.BLACK);
 		panelCentro = new JPanel();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,7 +39,7 @@ public class VentanaCuentaUsuario extends JFrame {
 		getContentPane().setBackground(new Color(245, 245, 245));
 
 		JLabel lblMiCuenta = new JLabel("MI CUENTA");
-		lblMiCuenta.setForeground(new Color(255, 165, 0));
+		lblMiCuenta.setForeground(new Color(99, 121, 194));
 		lblMiCuenta.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblMiCuenta.setBounds(151, 11, 147, 40);
 		panelNorte.add(lblMiCuenta);

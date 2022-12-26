@@ -40,6 +40,7 @@ public class VentanaPrivacidad extends JFrame{
 		panelBotones = new JPanel();
 		
 		JLabel lblPrivacidad = new JLabel("Privacidad");
+		lblPrivacidad.setForeground(new Color(99, 121, 194));
 		lblPrivacidad.setBounds(160, 30, 90, 15);
 		panel.add(lblPrivacidad);
 		

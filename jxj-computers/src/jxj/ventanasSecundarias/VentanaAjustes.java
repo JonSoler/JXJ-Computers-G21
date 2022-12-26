@@ -34,7 +34,7 @@ public class VentanaAjustes extends JFrame {
 		getContentPane().setLayout(null);
 
 		JLabel lblConfiguracion = new JLabel("Configuracion");
-		lblConfiguracion.setForeground(new Color(255, 165, 0));
+		lblConfiguracion.setForeground(new Color(99, 121, 194));
 		lblConfiguracion.setBackground(new Color(255, 255, 255));
 		lblConfiguracion.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 22));
 		lblConfiguracion.setBounds(10, 22, 297, 29);
