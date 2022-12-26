@@ -67,7 +67,7 @@ public class VentanaAdmin extends JFrame{
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 
 		JLabel lblTitulo = new JLabel("MEN\u00DA");
-		lblTitulo.setForeground(new Color(255, 165, 0));
+		lblTitulo.setForeground(new Color(99, 121, 194));
 		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		panelNorte.add(lblTitulo);
