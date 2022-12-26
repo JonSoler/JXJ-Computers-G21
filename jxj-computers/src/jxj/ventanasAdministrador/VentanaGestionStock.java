@@ -75,6 +75,7 @@ private static final long serialVersionUID = 1L;
 		contentPane.add(btnEliminar);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setForeground(new Color(99, 121, 194));
 		menuBar.setBounds(0, 0, 584, 22);
 		getContentPane().add(menuBar);
 		

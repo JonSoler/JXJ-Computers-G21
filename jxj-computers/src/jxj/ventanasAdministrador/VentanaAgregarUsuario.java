@@ -53,7 +53,7 @@ public class VentanaAgregarUsuario extends JFrame{
 		contentPane.setLayout(null);
 		
 		JLabel lblNuevoUsuario = new JLabel("Nuevo usuario");
-		lblNuevoUsuario.setForeground(new Color(255, 165, 0));
+		lblNuevoUsuario.setForeground(new Color(99, 121, 194));
 		lblNuevoUsuario.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNuevoUsuario.setBounds(106, 45, 230, 39);
 		contentPane.add(lblNuevoUsuario);

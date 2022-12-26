@@ -42,9 +42,9 @@ public class VentanaAgregarDispositivo extends JFrame{
 		contentPane.setLayout(null);
 		
 		JLabel lblNuevoDispositivo = new JLabel("Nuevo Dispositivo");
-		lblNuevoDispositivo.setForeground(new Color(255, 165, 0));
+		lblNuevoDispositivo.setForeground(new Color(86, 109, 201));
 		lblNuevoDispositivo.setFont(new Font("Tahoma", Font.BOLD, 26));
-		lblNuevoDispositivo.setBounds(106, 45, 230, 39);
+		lblNuevoDispositivo.setBounds(106, 45, 286, 39);
 		contentPane.add(lblNuevoDispositivo);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -105,7 +105,7 @@ public class VentanaAgregarDispositivo extends JFrame{
 		
 		JLabel lblSistemaOperativo = new JLabel("SistemaOperativo");
 		lblSistemaOperativo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSistemaOperativo.setBounds(32, 439, 88, 32);
+		lblSistemaOperativo.setBounds(32, 439, 147, 32);
 		contentPane.add(lblSistemaOperativo);
 		
 		textSistemaOperativo = new JTextField();

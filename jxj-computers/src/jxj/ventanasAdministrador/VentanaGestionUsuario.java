@@ -41,6 +41,7 @@ public class VentanaGestionUsuario extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(99, 121, 194));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -67,10 +68,12 @@ public class VentanaGestionUsuario extends JFrame{
 		contentPane.add(btnEliminar);
 	
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setForeground(new Color(99, 121, 194));
 		menuBar.setBounds(0, 0, 584, 22);
 		getContentPane().add(menuBar);
 
 		JMenu mnGestion = new JMenu("Gestion");
+		mnGestion.setForeground(Color.BLACK);
 		menuBar.add(mnGestion);
 
 		JMenuItem mnStock = new JMenuItem("Stock");
