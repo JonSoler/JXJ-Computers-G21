@@ -5,3 +5,5 @@ Antonio  Pagudo ha creado un usuario con el nombre de anto, con contrasenia [C@1
 Xabi  Garai ha creado un usuario con el nombre de xg, con contrasenia [C@1c0d4b5f, con la edad 22 y con el email xg@gmail.com
 Iker  Tobal ha creado un usuario con el nombre de t, con contrasenia [C@2cc86181, con la edad 22 y con el email t@gmail.com
 Mariano  Delgado ha creado un usuario con el nombre de MyP, con contraseña [C@66e55393, con la edad 58 y con el email Mariano@hotmail.es
+X  G ha iniciado sesion con el usuario xg con contrasenia 123
+Cristiano  Ronaldo ha iniciado sesion con el usuario cr con contrasenia 123

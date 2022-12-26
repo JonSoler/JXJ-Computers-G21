@@ -785,6 +785,13 @@ public class DBManager {
 		}
 		return Tablet;
 	}
+	/**
+	 * Metodo para obtener un ArrayList de los usuarios guardados en la base de
+	 * datos
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 	
 	public static ArrayList<Usuario> listarUsuarios() throws DBException {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
@@ -792,15 +799,15 @@ public class DBManager {
 
 		try (Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery(
-					"SELECT id, nombre, apellido, usuario, contrasenia, email FROM usuario");
+					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario");
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
 				usuario.setId(Integer.parseInt(rs.getString("id")));
 				usuario.setNombre(rs.getString("nombre"));
 				usuario.setApellidos(rs.getString("apellidos"));
-				usuario.setUsuario(rs.getString("nickname"));
-				usuario.setContrasenia(rs.getString("contrasenya"));
+				usuario.setUsuario(rs.getString("usuario"));
+				usuario.setContrasenia(rs.getString("contrasenia"));
 				usuario.setEmail(rs.getString("email"));
 				usuarios.add(usuario);
 			}
