@@ -590,7 +590,7 @@ public class DBManager {
 
 	public static ArrayList<String> listarDispositvos() throws DBException{
 		ArrayList<String> dispositivos = new ArrayList<>();
-		Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
+		Connection con = initBD("JXJComputers.db");
 
 		try (Statement stmt = con.createStatement()) {
 			ResultSet rs = stmt.executeQuery("SELECT nombre FROM Sobremesa");
