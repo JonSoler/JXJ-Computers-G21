@@ -37,7 +37,7 @@ public class VentanaAdmin extends JFrame{
 		JButton btnStock = new JButton("STOCK DISPONIBLE");
 		btnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGesStock vgs = new VentanaGesStock();
+				VentanaGestionStock vgs = new VentanaGestionStock();
 				vgs.setVisible(true);
 				dispose();
 			}

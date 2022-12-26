@@ -76,7 +76,7 @@ public class VentanaGestionUsuario extends JFrame{
 		JMenuItem mnStock = new JMenuItem("Stock");
 		mnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaGesStock vgs = new VentanaGesStock();
+				VentanaGestionStock vgs = new VentanaGestionStock();
 				vgs.setVisible(true);
 				dispose();
 			}
