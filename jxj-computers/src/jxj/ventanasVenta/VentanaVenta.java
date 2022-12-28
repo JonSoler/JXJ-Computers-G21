@@ -26,6 +26,7 @@ import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasSecundarias.VentanaAjustes;
+import jxj.ventanasVenta.*;
 
 public class VentanaVenta extends JFrame {
 
@@ -198,6 +199,14 @@ public class VentanaVenta extends JFrame {
 				panelCentro.add(btnAtras);
 				btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				btnAtras.setBounds(126, 266, 128, 29);
+				
+				btnAtras.addActionListener(e -> {
+
+					VentanaVentasInformacion v4 = new VentanaVentasInformacion();
+					v4.setVisible(true);
+					dispose();
+
+				});
 				
 
 				JButton btnGuardar = new JButton("Guardar");

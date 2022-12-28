@@ -16,8 +16,10 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 import jxj.dataBase.DBException;
 import jxj.dataBase.*;
+import jxj.clasesBasicas.Opinion;
 import jxj.clasesBasicas.Tarjeta;
 import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBManager;
@@ -159,12 +161,22 @@ public class DBManager {
 				//throw new DBException("Error creando tabla de Usuarios a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada
 
-			/*try {
+			try {
 				statement.executeUpdate("CREATE TABLE if not exists opinion "
-						+ "(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, titulo string, descripcion string");
+						+ "idUsuario integer, titulo string, descripcion string");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Opinion ya existente");
-				throw new DBException("Error creando tabla de Ventas a la BD", ex);
+				//throw new DBException("Error creando tabla de opinion a la BD", ex);
+			} // Si la tabla ya existe, no hacemos nada*/
+			
+			try {
+				statement.executeUpdate("CREATE TABLE if not exists Tarjeta "
+						+ "idUsuario integer, idTarjeta integer, tipo string, numeroTarjeta string, fecha string, codigoDeSeguridad string, "
+						+ "codigoPostal2 string, nombreCompleto string, direccion string, lineaSegundaDireccion string, ciudad string, "
+						+ "estadoProvincia string, codigoPostal string");
+			}  catch (SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Tarjeta ya existente");
+				//throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
 
 			
@@ -902,12 +914,37 @@ public class DBManager {
 		}
 	}
 	
+	/**
+	 * Inserta una nueva opinion
+	 * 
+	 * @param opinion
+	 * @throws DBException
+	 */
+
+	public static void insertarOpinion(Opinion opinion) throws DBException {
+
+		Connection conn = initBD("EasyRentingMotors.db");
+		try (Statement stmt = conn.createStatement()) {
+
+			int idUsuario = opinion.getIdUsuario();
+			String titulo = opinion.getTitulo();
+			String descripcion = opinion.getDescripcion();
+
+			stmt.executeUpdate("INSERT INTO opinion (idUsuario, titulo, descripcion) VALUES ('" + idUsuario + "', '"
+					+ titulo + "', '" + descripcion + "')");
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	
 		//HAY QUE MIRAR ESTE MÉTODO
 		public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
 			Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 			try (Statement stmt = con.createStatement()) {
 
 				int idUsuario = tarjeta.getidUsuario();
+				int idTarjeta = tarjeta.getidTarjeta();
 				String tipo = tarjeta.getTipo();
 				String numeroTarjeta = tarjeta.getNumeroTarjeta();
 				String fecha = tarjeta.getFecha();
@@ -920,12 +957,12 @@ public class DBManager {
 				String estadoProvincia = tarjeta.getEstadoProvincia();
 				String codigoPostal = tarjeta.getCodigoPostal();
 
-				stmt.executeUpdate(
-						"INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('"
-								+ idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
+				stmt.executeUpdate("INSERT INTO Tarjeta (idUsuario, idTarjeta, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES"
+						        + " ('"+ idUsuario + "', '" + idTarjeta + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
 								+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion
 								+ "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '"
 								+ codigoPostal + "')");
+								
 
 			} catch (SQLException e) {
 				throw new DBException("No ha sido posible ejecutar la query");

@@ -18,6 +18,7 @@ import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaLogin;
 import jxj.ventanasPrimarias.VentanaSeccion;
 import jxj.ventanasVenta.VentanaVenta;
+import jxj.ventanasVenta.VentanaVentasInformacion;
 
 import java.awt.SystemColor;
 
@@ -95,7 +96,7 @@ public class VentanaAjustes extends JFrame {
 
 		btnVentasEInformacion.addActionListener(e -> {
 			
-			VentanaVenta v1 = new VentanaVenta();
+			VentanaVentasInformacion v1 = new VentanaVentasInformacion();
 			v1.setVisible(true);
 			dispose();
 		
