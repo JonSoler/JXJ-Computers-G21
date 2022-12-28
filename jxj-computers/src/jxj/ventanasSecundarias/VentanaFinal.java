@@ -81,7 +81,7 @@ public class VentanaFinal extends JFrame{
 		lblNewLabel_6.setBounds(44, 325, 570, 32);
 		getContentPane().add(lblNewLabel_6);
 		
-		/*JButton btnNewButton = new JButton("Dejar mi opinion");
+		JButton btnNewButton = new JButton("Dejar mi opinion");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaCrearOpinion vo = new VentanaCrearOpinion();
@@ -90,7 +90,7 @@ public class VentanaFinal extends JFrame{
 			}
 		});
 		btnNewButton.setBounds(435, 394, 145, 23);
-		getContentPane().add(btnNewButton);*/
+		getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_7 = new JLabel("GRACIAS");
 		lblNewLabel_7.setForeground(new Color(255, 165, 0));
