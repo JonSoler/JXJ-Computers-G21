@@ -33,7 +33,7 @@ public class VentanaVentasInformacion extends JFrame {
 
 		JLabel lblVentas = new JLabel("Ventas ");
 		lblVentas.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblVentas.setForeground(new Color(255, 165, 0));
+		lblVentas.setForeground(new Color(99, 121, 194));
 		lblVentas.setBounds(172, 28, 90, 20);
 		panelNorte.add(lblVentas);
 		

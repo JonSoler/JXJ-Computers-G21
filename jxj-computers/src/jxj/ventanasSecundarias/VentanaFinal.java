@@ -26,7 +26,7 @@ public class VentanaFinal extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("Compra realizada con exito");
-		lblTitulo.setForeground(new Color(255, 165, 0));
+		lblTitulo.setForeground(new Color(99, 121, 194));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
 		lblTitulo.setBounds(20, 21, 594, 58);
@@ -93,9 +93,9 @@ public class VentanaFinal extends JFrame{
 		getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_7 = new JLabel("GRACIAS");
-		lblNewLabel_7.setForeground(new Color(255, 165, 0));
+		lblNewLabel_7.setForeground(new Color(99, 121, 194));
 		lblNewLabel_7.setFont(new Font("Tw Cen MT Condensed", Font.BOLD, 20));
-		lblNewLabel_7.setBounds(44, 368, 387, 14);
+		lblNewLabel_7.setBounds(44, 368, 387, 32);
 		getContentPane().add(lblNewLabel_7);
 		
 		JButton btnNewButton_1 = new JButton("Volver a JXJ Computers");
