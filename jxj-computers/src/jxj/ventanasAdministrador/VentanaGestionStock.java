@@ -176,7 +176,7 @@ private static final long serialVersionUID = 1L;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String desktopPath = System.getProperty("user.home") + "/github/JXJ-Computers-G21" + "/dispositivo.csv";
+				String desktopPath = System.getProperty("user.home") + "/git/JXJ-Computers-G21" + "/dispositivo.csv";
 				String ruta = desktopPath.replace("\\", "/");
 	
 				File archivo = new File(ruta);

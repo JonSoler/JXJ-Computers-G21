@@ -7,3 +7,4 @@ Iker  Tobal ha creado un usuario con el nombre de t, con contrasenia [C@2cc86181
 Mariano  Delgado ha creado un usuario con el nombre de MyP, con contraseña [C@66e55393, con la edad 58 y con el email Mariano@hotmail.es
 X  G ha iniciado sesion con el usuario xg con contrasenia 123
 Cristiano  Ronaldo ha iniciado sesion con el usuario cr con contrasenia 123
+X  G ha iniciado sesion con el usuario xg con contrasenia 123

@@ -178,6 +178,14 @@ public class DBManager {
 				logger.log(Level.WARNING, "Tabla Tarjeta ya existente");
 				//throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
+			
+			try {
+				statement.executeUpdate("CREATE TABLE  if not exists Carrito "
+						+ "id string, nombre string, fecha string, precio double");
+			}  catch (SQLException ex) {
+				logger.log(Level.WARNING, "Tabla Carrito ya existente");
+				//throw new DBException("Error creando tabla de tarjeta a la BD", ex);
+			} // Si la tabla ya existe, no hacemos nada*/
 
 			
 		} catch (SQLException e) {
