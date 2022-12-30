@@ -434,14 +434,14 @@ public class VentanaPago extends javax.swing.JFrame {
 		btnAtras.setContentAreaFilled(false);
 		contentPane.add(btnAtras);
 
-		JLabel lblTitulo = new JLabel("Pago con Tarjeta de Credito o Debito");
-		lblTitulo.setForeground(new Color(255, 165, 0));
-		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
-		lblTitulo.setBounds(23, 49, 297, 26);
+		JLabel lblTitulo = new JLabel("Pago con Tarjeta ");
+		lblTitulo.setForeground(new Color(99, 121, 194));
+		lblTitulo.setFont(new Font("Dialog", Font.PLAIN, 21));
+		lblTitulo.setBounds(76, 36, 187, 36);
 		contentPane.add(lblTitulo);
 
 		JLabel lblTituloFacturacion = new JLabel("Direccion de facturacion");
-		lblTituloFacturacion.setForeground(new Color(255, 165, 0));
+		lblTituloFacturacion.setForeground(new Color(99, 121, 194));
 		lblTituloFacturacion.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 18));
 		lblTituloFacturacion.setBounds(23, 222, 297, 26);
 		contentPane.add(lblTituloFacturacion);
