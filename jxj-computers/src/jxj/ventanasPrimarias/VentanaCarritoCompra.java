@@ -261,6 +261,7 @@ import jxj.ventanasSecundarias.VentanaPago;
 				precioTotal += Dispositivo.getPrecio();
 			}
 			updatePrecioTotal();
+			
 			/*
 			 * Hilo que hace que los productos se pongan en oferta a las 18:04:00 y que
 			 * dejen de estar en oferta a las 18:05:00
@@ -283,7 +284,7 @@ import jxj.ventanasSecundarias.VentanaPago;
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						// if(f.equals("30-11-21 15:55:00")) {
+						if(f.equals("30-12-22 14:19:00")) {
 						// if(d.getMinutes() == 53) && d.getSeconds()==0) {
 						if (d.getHours() == 19 && d.getMinutes() == 30 && d.getSeconds() == 0) {
 							try {
@@ -300,16 +301,13 @@ import jxj.ventanasSecundarias.VentanaPago;
 
 					fin = false;
 					while (fin == false) {
-						long milis = System.currentTimeMillis();
-						Date d = new Date(milis);
-						String f = sdf.format(d);
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						// if(f.equals("30-11-21 15:55:00")) {
+						//if(f.equals("30-11-21 15:55:00")) {
 						// if(d.getMinutes() == 53) && d.getSeconds()==0) {
 						if (d.getHours() == 20 && d.getMinutes() == 30 && d.getSeconds() == 0) {
 							try {
@@ -324,9 +322,9 @@ import jxj.ventanasSecundarias.VentanaPago;
 						}
 					}
 				}
-			};
-
-		
+				}
+			
+			};		
 		}
 		
 		
@@ -363,6 +361,8 @@ import jxj.ventanasSecundarias.VentanaPago;
 		private void updatePrecioTotal() {
 			this.lblTotal.setText("TOTAL:   " + this.precioTotal + " �");
 		}	
+		
+		
 
 
 }

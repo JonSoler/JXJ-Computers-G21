@@ -873,7 +873,7 @@ public class DBManager {
 		try {
 			c = DBManager.initBD("JXJComputers.db");
 			Statement statement = c.createStatement();
-			String sent = "update Movil set precio = precio - 1000";
+			String sent = "update Movil set precio = precio - 100";
 			statement.executeUpdate(sent);
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
@@ -892,7 +892,7 @@ public class DBManager {
 		try {
 			c = DBManager.initBD("JXJComputers.db");
 			Statement statement = c.createStatement();
-			String sent = "update Movil set precio = precio + 1000";
+			String sent = "update Movil set precio = precio + 100";
 			statement.executeUpdate(sent);
 		} catch (DBException e) {
 			// TODO Auto-generated catch block
