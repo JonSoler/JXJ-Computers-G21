@@ -328,6 +328,15 @@ import jxj.ventanasSecundarias.VentanaPago;
 
 		
 		}
+		
+		
+		/**
+		 * Metodo recursivo, encargado de recojer la informacion de la DefaultTableModel y escribirla en el fichero
+		 * @param fila
+		 * @param carritoModeloTabla
+		 * @param pw
+		 */
+		
 		private void escribirProductosEnFichero(int fila, DefaultTableModel carritoModeloTabla, PrintWriter pw) {
 			if (fila < carritoModeloTabla.getRowCount()) {
 				String id = (String) carritoModeloTabla.getValueAt(fila, 0);
