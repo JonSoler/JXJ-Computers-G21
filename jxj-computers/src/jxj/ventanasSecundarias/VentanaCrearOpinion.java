@@ -50,10 +50,10 @@ public class VentanaCrearOpinion extends JFrame {
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
 		
-		JLabel lblOpinion = new JLabel("Dejanos la opinion acerca de tu\r\n compra ");
-		lblOpinion.setForeground(new Color(255, 165, 0));
-		lblOpinion.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 22));
-		lblOpinion.setBounds(10, 0, 424, 107);
+		JLabel lblOpinion = new JLabel("Dejanos la opinion acerca de tu compra ");
+		lblOpinion.setForeground(new Color(99, 121, 194));
+		lblOpinion.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblOpinion.setBounds(29, 6, 405, 88);
 		getContentPane().add(lblOpinion);
 		
 		JLabel lblTitulo = new JLabel("Titulo");
