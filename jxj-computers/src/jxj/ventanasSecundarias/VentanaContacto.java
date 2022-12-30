@@ -28,8 +28,8 @@ public class VentanaContacto extends JFrame {
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 		
-		JLabel lblproblemas = new JLabel("¿Algunas Dudas? Contactanos !!!");
-		lblproblemas.setForeground(new Color(0, 0, 0));
+		JLabel lblproblemas = new JLabel("¿Alguna Duda? Contactanos !!!");
+		lblproblemas.setForeground(new Color(99, 121, 194));
 		lblproblemas.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 24));
 		lblproblemas.setBounds(45, 6, 403, 38);
 		getContentPane().add(lblproblemas);
