@@ -2,10 +2,10 @@ package jxj.clasesBasicas;
 
 public class Tarjeta {
 
-	private String tipo,numeroTarjeta,fecha,codigoDeSeguridad,codigoPostal2,nombreCompleto,direccion,lineaSegundaDireccion,ciudad,estadoProvincia,codigoPostal;	
+	private String tipo,numeroTarjeta,fecha,codigoDeSeguridad,nombreTarjeta,nombreCompleto,direccion,lineaSegundaDireccion,ciudad,estadoProvincia,codigoPostal;	
 	private int idUsuario,idTarjeta;
 
-	public Tarjeta(String tipo, String numeroTarjeta, String fecha, String codigoDeSeguridad, String codigoPostal2,
+	public Tarjeta(String tipo, String numeroTarjeta, String fecha, String codigoDeSeguridad, String nombreTarjeta,
 			String nombreCompleto, String direccion, String lineaSegundaDireccion, String ciudad,
 			String estadoProvincia, String codigoPostal, int idUsuario) {
 
@@ -14,7 +14,7 @@ public class Tarjeta {
 		this.numeroTarjeta = numeroTarjeta;
 		this.fecha = fecha;
 		this.codigoDeSeguridad = codigoDeSeguridad;
-		this.codigoPostal2 = codigoPostal2;
+		this.nombreTarjeta = nombreTarjeta;
 		this.nombreCompleto = nombreCompleto;
 		this.direccion = direccion;
 		this.lineaSegundaDireccion = lineaSegundaDireccion;
@@ -30,7 +30,7 @@ public class Tarjeta {
 		this.numeroTarjeta = "";
 		this.fecha = "";
 		this.codigoDeSeguridad = "";
-		this.codigoPostal2 = "";
+		this.nombreTarjeta = "";
 		this.nombreCompleto = "";
 		this.direccion = "";
 		this.lineaSegundaDireccion = "";
@@ -71,12 +71,12 @@ public class Tarjeta {
 		this.codigoDeSeguridad = codigoDeSeguridad;
 	}
 
-	public String getCodigoPostal2() {
-		return codigoPostal2;
+	public String getNombreTarjeta() {
+		return nombreTarjeta;
 	}
 
-	public void setCodigoPostal2(String codigoPostal2) {
-		this.codigoPostal2 = codigoPostal2;
+	public void setNombreTarjeta(String nombreTarjeta) {
+		this.nombreTarjeta = nombreTarjeta;
 	}
 
 	public String getNombreCompleto() {

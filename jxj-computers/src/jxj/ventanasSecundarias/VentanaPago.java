@@ -38,7 +38,7 @@ public class VentanaPago extends javax.swing.JFrame {
 	private JTextField TextoNTarjeta;
 	private JTextField Textocaducidad;
 	private JTextField TextoCodigodeSeguridad;
-	private JTextField txtCodigoPostal;
+	private JTextField txtnombreTarjeta;
 	private JTextField txtNombreCompleto;
 	private JTextField txtDireccin;
 	private JTextField txtLneaDeDireccin;
@@ -83,12 +83,12 @@ public class VentanaPago extends javax.swing.JFrame {
 		contentPane.add(TextoCodigodeSeguridad);
 		TextoCodigodeSeguridad.setColumns(10);
 
-		txtCodigoPostal = new JTextField();
-		txtCodigoPostal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCodigoPostal.setText("Codigo Postal");
-		txtCodigoPostal.setBounds(58, 172, 106, 26);
-		contentPane.add(txtCodigoPostal);
-		txtCodigoPostal.setColumns(10);
+		txtnombreTarjeta = new JTextField();
+		txtnombreTarjeta.setHorizontalAlignment(SwingConstants.CENTER);
+		txtnombreTarjeta.setText("Nombre Tarjeta");
+		txtnombreTarjeta.setBounds(58, 172, 106, 26);
+		contentPane.add(txtnombreTarjeta);
+		txtnombreTarjeta.setColumns(10);
 
 		txtNombreCompleto = new JTextField();
 		txtNombreCompleto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -247,7 +247,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 			}
 		});
-		txtCodigoPostal.addMouseListener(new MouseListener() {
+		txtnombreTarjeta.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -255,7 +255,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				txtCodigoPostal.setText("");
+				txtnombreTarjeta.setText("");
 			}
 
 			@Override
@@ -268,7 +268,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtCodigoPostal.setText("");
+				txtnombreTarjeta.setText("");
 
 			}
 		});
@@ -497,7 +497,7 @@ public class VentanaPago extends javax.swing.JFrame {
 				String numeroTarjeta = TextoNTarjeta.getText();
 				String fecha = Textocaducidad.getText();
 				String codigoDeSeguridad = TextoCodigodeSeguridad.getText();
-				String codigoPostal2 = txtCodigoPostal.getText();
+				String nombreTarjeta = txtnombreTarjeta.getText();
 				String nombreCompleto = txtNombreCompleto.getText();
 				String direccion = txtDireccin.getText();
 				String lineaSegundaDireccion = txtLneaDeDireccin.getText();
@@ -512,7 +512,7 @@ public class VentanaPago extends javax.swing.JFrame {
 				tarjeta.setNumeroTarjeta(numeroTarjeta);
 				tarjeta.setFecha(fecha);
 				tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
-				tarjeta.setCodigoPostal2(codigoPostal2);
+				tarjeta.setNombreTarjeta(nombreTarjeta);
 				tarjeta.setNombreCompleto(nombreCompleto);
 				tarjeta.setDireccion(direccion);
 				tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);

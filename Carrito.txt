@@ -1,3 +1,1 @@
-M2 Samsung Galaxy S3 339.0 14/01/2022
-M1 Xiaomi Readme Note 199.0 17/11/2021
-M3 Realme Narzo 129.0 23/12/2021
+M4 Poco M4 Pro 179.0 10/08/2022

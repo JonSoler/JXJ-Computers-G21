@@ -957,7 +957,7 @@ public class DBManager {
 				String numeroTarjeta = tarjeta.getNumeroTarjeta();
 				String fecha = tarjeta.getFecha();
 				String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
-				String codigoPostal2 = tarjeta.getCodigoPostal2();
+				String nombreTarjeta = tarjeta.getNombreTarjeta();
 				String nombreCompleto = tarjeta.getNombreCompleto();
 				String direccion = tarjeta.getDireccion();
 				String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
@@ -965,11 +965,11 @@ public class DBManager {
 				String estadoProvincia = tarjeta.getEstadoProvincia();
 				String codigoPostal = tarjeta.getCodigoPostal();
 
-				stmt.executeUpdate("INSERT INTO Tarjeta (idUsuario, idTarjeta, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES"
+				stmt.executeUpdate("INSERT INTO Tarjeta (idUsuario, idTarjeta, tipo, numeroTarjeta, fecha, codigoDeSeguridad, nombreCompleto, direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal,  nombreTarjeta) VALUES"
 						        + " ('"+ idUsuario + "', '" + idTarjeta + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
-								+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion
+								+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + direccion
 								+ "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '"
-								+ codigoPostal + "')");
+								+ codigoPostal + "', '" + nombreTarjeta + "' )");
 								
 
 			} catch (SQLException e) {
