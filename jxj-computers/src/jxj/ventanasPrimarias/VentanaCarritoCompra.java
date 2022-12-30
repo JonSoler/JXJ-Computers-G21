@@ -183,7 +183,7 @@ import jxj.ventanasSecundarias.VentanaPago;
 			});
 
 			lblPremium = new JLabel("*Gastos de envio gratis");
-			lblPremium.setBounds(199, 475, 145, 29);
+			lblPremium.setBounds(186, 474, 165, 29);
 			frame.getContentPane().add(lblPremium);
 			
 			Hilo h = new Hilo();
@@ -207,8 +207,8 @@ import jxj.ventanasSecundarias.VentanaPago;
 			frame.getContentPane().add(tablePanel);
 
 			JLabel lblResumenCompra = new JLabel("Resumen Compra");
-			lblResumenCompra.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
-			lblResumenCompra.setBounds(63, 28, 261, 43);
+			lblResumenCompra.setFont(new Font("Dialog", Font.PLAIN, 30));
+			lblResumenCompra.setBounds(63, 28, 301, 43);
 			frame.getContentPane().add(lblResumenCompra);
 
 			JButton btnGuardarFichero = new JButton("Guardar fichero");
