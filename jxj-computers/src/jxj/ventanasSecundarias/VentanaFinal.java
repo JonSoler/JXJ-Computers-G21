@@ -43,8 +43,8 @@ public class VentanaFinal extends JFrame{
 		getContentPane().add(lblCaja);
 		
 		JLabel lblDispositivo = new JLabel("");
-		lblDispositivo.setIcon(new ImageIcon(""));
-		lblDispositivo.setBounds(44, 107, 145, 128);
+		lblDispositivo.setIcon(new ImageIcon("imagenes/dis.png"));
+		lblDispositivo.setBounds(141, 162, 99, 115);
 		getContentPane().add(lblDispositivo);
 		
 		JLabel lblNewLabel = new JLabel("");
