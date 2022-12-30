@@ -40,12 +40,12 @@ public class VentanaVentasInformacion extends JFrame {
 		getContentPane().add(panelNorte, BorderLayout.NORTH);
 		panelBotonera.setLayout(null);
 
-		JButton btnVenderCoche = new JButton("Vender coche");
-		btnVenderCoche.setBackground(UIManager.getColor("CheckBox.background"));
-		btnVenderCoche.setBounds(67, 77, 297, 29);
-		panelBotonera.add(btnVenderCoche);
+		JButton btnVenderDispositivo = new JButton("Vender dispositivo");
+		btnVenderDispositivo.setBackground(UIManager.getColor("CheckBox.background"));
+		btnVenderDispositivo.setBounds(67, 77, 297, 29);
+		panelBotonera.add(btnVenderDispositivo);
 		
-		btnVenderCoche.addActionListener(e -> {
+		btnVenderDispositivo.addActionListener(e -> {
 				 VentanaVenta v2 = new VentanaVenta();
 				 v2.setVisible(true);
 					dispose();
