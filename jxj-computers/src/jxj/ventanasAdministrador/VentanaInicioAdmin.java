@@ -108,7 +108,7 @@ public class VentanaInicioAdmin extends JFrame {
 					// checkbox has been selected
 					// do something...
 				} else {// checkbox has been deselected
-					textoContrasenya.setEchoChar('*');
+					textoContrasenya.setEchoChar('•');
 				}
 				;
 			}

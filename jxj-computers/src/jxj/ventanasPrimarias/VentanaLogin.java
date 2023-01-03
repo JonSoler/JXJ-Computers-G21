@@ -115,7 +115,7 @@ public class VentanaLogin extends JFrame {
 					// checkbox has been selected
 					// do something...
 				} else {// checkbox has been deselected
-					txtContrasenya.setEchoChar('*');
+					txtContrasenya.setEchoChar('•');
 				}
 				;
 			}
