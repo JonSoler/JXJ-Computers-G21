@@ -7,6 +7,8 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -59,7 +61,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField textoNombreDeUsuario = new JTextField();
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JPasswordField textoConfirmarContrasenya = new JPasswordField();
-	private final Action action = new generarContrasenya();
+	private final Action generarContrasenyaSegura = new generarContrasenya();
 
 	private final JPanel panelTitulo = new JPanel();
 	private final JPanel panelDatos = new JPanel();
@@ -236,91 +238,9 @@ public class VentanaRegistro extends JFrame {
 		btnRegistrarse.setFocusPainted(false);
 		btnRegistrarse.setBorderPainted(false);
 		btnRegistrarse.setContentAreaFilled(false);
+		
 		btnRegistrarse.addActionListener(e -> {
-
-			String dni = textoDNI.getText().toString();
-			String nombre = textoNombre.getText().toString();
-			String apellido = textoApellido.getText().toString();
-			String edad = textoEdad.getText().toString();
-			boolean RegistroCorrecto = false;
-			boolean error = false;
-
-			if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
-					|| textoEmail.getText().equals("") || textoNombreDeUsuario.getText().equals("") || textoContrasenya.toString().equals("")
-					|| textoConfirmarContrasenya.toString().equals("")) {
-
-				JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos", "Error",
-						JOptionPane.INFORMATION_MESSAGE);
-				VentanaRegistro.this.repaint();
-				error = true;
-
-			} else if (dni.matches("^[a-zA-Z]+$")) {
-
-				JOptionPane.showMessageDialog(null, "DNI no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
-				error = true;
-				VentanaRegistro.this.repaint();
-
-			} else if (nombre.matches("^[0-9]+$")) {
-
-				JOptionPane.showMessageDialog(null, "Nombre no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
-				error = true;
-				VentanaRegistro.this.repaint();
-
-			} else if (apellido.matches("^[0-9]+$")) {
-
-				JOptionPane.showMessageDialog(null, "Apellido no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
-				error = true;
-				VentanaRegistro.this.repaint();
-
-			} else if (edad.matches("^[a-zA-Z]+$")) {
-
-				JOptionPane.showMessageDialog(null, "Edad no v\u00e1lida", "Error", JOptionPane.INFORMATION_MESSAGE);
-				error = true;
-				VentanaRegistro.this.repaint();
-
-			} else if (!comprobarEmail(textoEmail.getText(), false)) {
-				comprobarEmail(textoEmail.getText(), true);
-
-				error = true;
-				VentanaRegistro.this.repaint();
-
-			} else if (!String.valueOf(textoContrasenya.getPassword())
-					.equals(String.valueOf(textoConfirmarContrasenya.getPassword()))) {
-
-				JOptionPane.showMessageDialog(null, "Las contrase\u00F1as no coinciden", "Error",
-						JOptionPane.INFORMATION_MESSAGE);
-				VentanaRegistro.this.repaint();
-				error = true;
-
-			} else if (!error) {
-
-				// Metodo registrar cliente
-				DBManager modSql = new DBManager();
-				
-				
-				Usuario mod = new Usuario();
-				mod.setApellidos(textoApellido.getText());
-				mod.setEmail(textoEmail.getText());
-				mod.setNombre(textoNombre.getText());
-				mod.setUsuario(textoNombreDeUsuario.getText());
-				mod.setContrasenia(textoContrasenya.getText());
-				
-				try {
-					if (modSql.registrar(mod)) {
-						aniadirUsuarioAFichero();
-						JOptionPane.showMessageDialog(null, "Registro realizado con exito");
-					} else {
-						JOptionPane.showMessageDialog(null, "No se ha podido registrar");
-					}
-				} catch (HeadlessException | DBException e2) {
-					e2.printStackTrace();
-				}
-
-				VentanaLogin vL = new VentanaLogin();
-				vL.setVisible(true);
-				dispose();
-			}
-
+			registrarUsuario();
 		});
 
 			/*	RegistroCorrecto = true;
@@ -382,7 +302,7 @@ public class VentanaRegistro extends JFrame {
 		
 		JButton generarContrasenya = new JButton("Generar contrase\u00F1a segura");
 		generarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
-		generarContrasenya.setAction(action);
+		generarContrasenya.setAction(generarContrasenyaSegura);
 		generarContrasenya.setBounds(47, 445, 190, 23);
 		contentpane.add(generarContrasenya);
 		
@@ -413,9 +333,114 @@ public class VentanaRegistro extends JFrame {
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setTitle("Registrarse como nuevo cliente");
+		
+		// Funcionalidad de registrar usuario pulsando Enter
+				textoConfirmarContrasenya.addKeyListener(new KeyListener() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+
+					}
+
+					@Override
+					public void keyPressed(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+							registrarUsuario();
+						}
+					}
+
+					@Override
+					public void keyReleased(KeyEvent e) {
+
+					}
+				});
+											
 	}
 	
 	
+	public void registrarUsuario() {
+		String dni = textoDNI.getText().toString();
+		String nombre = textoNombre.getText().toString();
+		String apellido = textoApellido.getText().toString();
+		String edad = textoEdad.getText().toString();
+		boolean RegistroCorrecto = false;
+		boolean error = false;
+
+		if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
+				|| textoEmail.getText().equals("") || textoNombreDeUsuario.getText().equals("") || textoContrasenya.toString().equals("")
+				|| textoConfirmarContrasenya.toString().equals("")) {
+
+			JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos", "Error",
+					JOptionPane.INFORMATION_MESSAGE);
+			VentanaRegistro.this.repaint();
+			error = true;
+
+		} else if (dni.matches("^[a-zA-Z]+$")) {
+
+			JOptionPane.showMessageDialog(null, "DNI no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+			error = true;
+			VentanaRegistro.this.repaint();
+
+		} else if (nombre.matches("^[0-9]+$")) {
+
+			JOptionPane.showMessageDialog(null, "Nombre no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+			error = true;
+			VentanaRegistro.this.repaint();
+
+		} else if (apellido.matches("^[0-9]+$")) {
+
+			JOptionPane.showMessageDialog(null, "Apellido no v\u00e1lido", "Error", JOptionPane.INFORMATION_MESSAGE);
+			error = true;
+			VentanaRegistro.this.repaint();
+
+		} else if (edad.matches("^[a-zA-Z]+$")) {
+
+			JOptionPane.showMessageDialog(null, "Edad no v\u00e1lida", "Error", JOptionPane.INFORMATION_MESSAGE);
+			error = true;
+			VentanaRegistro.this.repaint();
+
+		} else if (!comprobarEmail(textoEmail.getText(), false)) {
+			comprobarEmail(textoEmail.getText(), true);
+
+			error = true;
+			VentanaRegistro.this.repaint();
+
+		} else if (!String.valueOf(textoContrasenya.getPassword())
+				.equals(String.valueOf(textoConfirmarContrasenya.getPassword()))) {
+
+			JOptionPane.showMessageDialog(null, "Las contrase\u00F1as no coinciden", "Error",
+					JOptionPane.INFORMATION_MESSAGE);
+			VentanaRegistro.this.repaint();
+			error = true;
+
+		} else if (!error) {
+
+			// Metodo registrar cliente
+			DBManager modSql = new DBManager();
+			
+			
+			Usuario mod = new Usuario();
+			mod.setApellidos(textoApellido.getText());
+			mod.setEmail(textoEmail.getText());
+			mod.setNombre(textoNombre.getText());
+			mod.setUsuario(textoNombreDeUsuario.getText());
+			mod.setContrasenia(textoContrasenya.getText());
+			
+			try {
+				if (modSql.registrar(mod)) {
+					aniadirUsuarioAFichero();
+					JOptionPane.showMessageDialog(null, "Registro realizado con exito");
+				} else {
+					JOptionPane.showMessageDialog(null, "No se ha podido registrar");
+				}
+			} catch (HeadlessException | DBException e2) {
+				e2.printStackTrace();
+			}
+
+			VentanaLogin vL = new VentanaLogin();
+			vL.setVisible(true);
+			dispose();
+		}
+	}
 	
 	//metodo que se encarga de escribir en el fichero usuarioRegistrados los usuarios que se registren
 		@SuppressWarnings("deprecation")

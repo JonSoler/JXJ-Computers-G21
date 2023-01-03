@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -122,24 +124,8 @@ public class VentanaInicioAdmin extends JFrame {
 		btnIniciarSesion.setFocusPainted(false);
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
-		btnIniciarSesion.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String usuario = textoUsuario.getText();
-				String contrasenya = textoContrasenya.getText();
-				
-				if(usuario.equals("admin")&& contrasenya.equals("admin123")) {
-
-					JOptionPane.showMessageDialog(null, "Bienvenido al modo administrador", "Aceptado", JOptionPane.INFORMATION_MESSAGE);
-					VentanaAdmin vl = new VentanaAdmin();
-					vl.setVisible(true);
-					dispose();
-					
-				}else{
-					JOptionPane.showMessageDialog(null, "No has introducido los datos correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
+		btnIniciarSesion.addActionListener(e -> {
+			iniciarSesion();
 		});
 
 		btnIniciarSesion.setBounds(477, 298, 36, 33);
@@ -178,11 +164,50 @@ public class VentanaInicioAdmin extends JFrame {
 		lblAtras.setBounds(62, 300, 92, 25);
 		getContentPane().add(lblAtras);
 
+		// Funcionalidad de iniciar sesión pulsando Enter
+		textoContrasenya.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					iniciarSesion();
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+			}
+		});
+
 	}
 
 	/**
 	 * Este metodo se encarga de vaciar los campos
 	 */
+
+	public void iniciarSesion() {
+		String usuario = textoUsuario.getText();
+		String contrasenya = textoContrasenya.getText();
+
+		if (usuario.equals("admin") && contrasenya.equals("admin123")) {
+
+			JOptionPane.showMessageDialog(null, "Bienvenido al modo administrador", "Aceptado",
+					JOptionPane.INFORMATION_MESSAGE);
+			VentanaAdmin vl = new VentanaAdmin();
+			vl.setVisible(true);
+			dispose();
+
+		} else {
+			JOptionPane.showMessageDialog(null, "No has introducido los datos correctamente", "ERROR",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
 	public void vaciarCampos() {
 		textoUsuario.setText("");
 		textoContrasenya.setText("");
