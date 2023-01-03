@@ -32,10 +32,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import jxj.ventanasPrimarias.*;
-import jxj.Recursividad.RecursividadGenerarContrasenyas;
 import jxj.clasesBasicas.*;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
+import jxj.recursividad.RecursividadGenerarContrasenyas;
 
 public class VentanaRegistro extends JFrame {
 	public static int idUsuario;
