@@ -91,10 +91,10 @@ public class VentanaAgregarUsuario extends JFrame{
 		textEmail.setBounds(192, 260, 190, 32);
 		contentPane.add(textEmail);
 		
-		JLabel lblContraseña = new JLabel("Contrase�a");
-		lblContraseña.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblContraseña.setBounds(69, 369, 88, 32);
-		contentPane.add(lblContraseña);
+		JLabel lblContrasenya = new JLabel("Contraseña");
+		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblContrasenya.setBounds(69, 369, 88, 32);
+		contentPane.add(lblContrasenya);
 		
 		textContrasenia = new JTextField();
 		textContrasenia.setColumns(10);
@@ -201,7 +201,7 @@ public class VentanaAgregarUsuario extends JFrame{
 				FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //opci�n append habilitada permite escribir sobre el fichero sin tener que borrarlo
 				BufferedWriter bw = new BufferedWriter(fw);
 				bw.write("\n" + textNombre.getText() + "  " + textApellidos.getText() + " ha iniciado sesion con el usuario "
-						+ textUsuario.getText() + " con contrasenia " + textContrasenia.getText());
+						+ textUsuario.getText() + " con contraseña " + textContrasenia.getText());
 				
 				bw.close();
 				fw.close();
