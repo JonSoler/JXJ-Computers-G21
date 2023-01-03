@@ -11,6 +11,8 @@ import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
@@ -56,7 +58,7 @@ public class VentanaLogin extends JFrame {
 
 		panelCentral = new JPanel();
 		panelCentral.setBounds(0, 70, 557, 207);
-		
+
 		getContentPane().add(panelCentral, BorderLayout.CENTER);
 		getContentPane().setLayout(null);
 		getContentPane().add(panelTitulo);
@@ -119,8 +121,7 @@ public class VentanaLogin extends JFrame {
 			}
 
 		});
-		
-		
+
 		// Boton Iniciar Sesion
 		JButton btnIniciarSesion = new JButton("");
 		btnIniciarSesion.setBackground(SystemColor.control);
@@ -129,44 +130,9 @@ public class VentanaLogin extends JFrame {
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
 
-		btnIniciarSesion.addActionListener( e-> {
-			DBManager conexion = new DBManager();
-			String usuario = txtNombre.getText();
-			@SuppressWarnings("deprecation")
-			String contrasenia = txtContrasenya.getText();
-			
-			try {
-				conexion.initBD("JXJComputers.db");
-				
-				if(conexion.loginUsuario(usuario, contrasenia)== true) {
-					idUsuario = conexion.obtenerId(usuario);
-					u = conexion.buscarUsuarioId(idUsuario);
-					JOptionPane.showMessageDialog(null, "BIENVENIDO A JXJ Computers", "BIENVENIDO",
-							JOptionPane.INFORMATION_MESSAGE);
-					
-					VentanaSeccion vs = new VentanaSeccion();
-					setVisible(false);
-					vs.setVisible(true);
-				} else {
-					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
-					txtNombre.setText("");
-					txtContrasenya.setText("");
-				}
-				
-				conexion.disconnect();
-			} catch (DBException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-		} catch (HeadlessException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
+		btnIniciarSesion.addActionListener(e -> {
+			iniciarSesion();
 		});
-		
 
 		btnIniciarSesion.setBounds(496, 321, 30, 30);
 		getContentPane().add(btnIniciarSesion);
@@ -179,11 +145,11 @@ public class VentanaLogin extends JFrame {
 		btnAdmin.setBorderPainted(false);
 		btnAdmin.setContentAreaFilled(false);
 		btnAdmin.addActionListener(e -> {
-			
+
 			ImageIcon icon = new ImageIcon("imagenes/Seguridad.png");
-			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales de seguridad a continuaci\u00F3n", "Administrador - Iniciar sesi\u00F3n",
-					JOptionPane.INFORMATION_MESSAGE, icon);
-			
+			JOptionPane.showMessageDialog(null, "Introduzca sus credenciales de seguridad a continuaci\u00F3n",
+					"Administrador - Iniciar sesi\u00F3n", JOptionPane.INFORMATION_MESSAGE, icon);
+
 			jxj.ventanasAdministrador.VentanaInicioAdmin vi = null;
 			vi = new jxj.ventanasAdministrador.VentanaInicioAdmin();
 			vi.setVisible(true);
@@ -239,8 +205,27 @@ public class VentanaLogin extends JFrame {
 		lblAdmin.setBounds(228, 345, 109, 25);
 		getContentPane().add(lblAdmin);
 
+		// Funcionalidad de iniciar sesión pulsando Enter
+		txtContrasenya.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					iniciarSesion();
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+			}
+		});
+
 	}
-	
 
 	/**
 	 * Este metodo se encarga de vaciar los campos
@@ -248,6 +233,43 @@ public class VentanaLogin extends JFrame {
 	public void vaciarCampos() {
 		txtNombre.setText("");
 		txtContrasenya.setText("");
+	}
+
+	public void iniciarSesion() {
+		DBManager conexion = new DBManager();
+		String usuario = txtNombre.getText();
+		@SuppressWarnings("deprecation")
+		String contrasenia = txtContrasenya.getText();
+
+		try {
+			conexion.initBD("JXJComputers.db");
+
+			if (conexion.loginUsuario(usuario, contrasenia) == true) {
+				idUsuario = conexion.obtenerId(usuario);
+				u = conexion.buscarUsuarioId(idUsuario);
+				JOptionPane.showMessageDialog(null, "BIENVENIDO A JXJ Computers", "BIENVENIDO",
+						JOptionPane.INFORMATION_MESSAGE);
+
+				VentanaSeccion vs = new VentanaSeccion();
+				setVisible(false);
+				vs.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
+				txtNombre.setText("");
+				txtContrasenya.setText("");
+			}
+
+			conexion.disconnect();
+		} catch (DBException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (HeadlessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	/**
