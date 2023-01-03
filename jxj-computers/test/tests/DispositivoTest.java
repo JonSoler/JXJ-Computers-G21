@@ -1,6 +1,5 @@
 package tests;
 
-
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,25 +12,27 @@ import jxj.seccionDisp.Dispositivo;
 public class DispositivoTest {
 
 	private Dispositivo dis;
-	
+
 	@Before
-	 public void setUpDispositivo() {
+	public void setUpDispositivo() {
 		try {
-			dis = new Dispositivo("dis01","iphone 12","movil", "apple", "2020-05-15", "ios", 1.500,"imagen");
-		}catch(ExcepcionExplicita e){
+			dis = new Dispositivo("dis01", "iphone 12", "movil", "apple", "2020-05-15", "ios", 1.500, "imagen");
+		} catch (ExcepcionExplicita e) {
 			e.printStackTrace();
 		}
-			
+
 	}
 
 	@Test
-	 public void testDispositivo() {
-		assertThrows(ExcepcionExplicita.class, ()->{new Dispositivo("dis01","iphone 12", "movil", "apple", "1998-04-19", "ios", 1.500, "imagen");});
-		assertThrows(AssertionError.class, ()-> {
-			assertThrows(ExcepcionExplicita.class, () -> {	
-				new Dispositivo("dis01","iphone 12","movil", "apple", "2017-04-19", "ios", 1.500, "imagen");
+	public void testDispositivo() {
+		assertThrows(ExcepcionExplicita.class, () -> {
+			new Dispositivo("dis01", "iphone 12", "movil", "apple", "1998-04-19", "ios", 1.500, "imagen");
+		});
+		assertThrows(AssertionError.class, () -> {
+			assertThrows(ExcepcionExplicita.class, () -> {
+				new Dispositivo("dis01", "iphone 12", "movil", "apple", "2017-04-19", "ios", 1.500, "imagen");
 			});
-							
+
 		});
 	}
 
@@ -39,66 +40,71 @@ public class DispositivoTest {
 	public void testGetId() {
 		assertEquals("dis01", dis.getId());
 	}
+
 	@Test
 	public void testSetId() {
 		dis.setId("02");
-		assertEquals("02", dis.getId());		
+		assertEquals("02", dis.getId());
 	}
-	
+
 	@Test
 	public void testGetNombre() {
 		assertEquals("iphone 12", dis.getNombre());
 	}
-	
+
 	@Test
 	public void testSetNombre() {
 		dis.setNombre("13");
-		assertEquals("13", dis.getNombre());		
+		assertEquals("13", dis.getNombre());
 	}
+
 	@Test
 	public void testGetSeccion() {
 		assertEquals("movil", dis.getSeccion());
 	}
-	
+
 	@Test
 	public void testSetSeccion() {
-		dis.setSeccion("tablet");;
-		assertEquals("tablet", dis.getSeccion());		
+		dis.setSeccion("tablet");
+		;
+		assertEquals("tablet", dis.getSeccion());
 	}
-	
+
 	@Test
 	public void testGetMarca() {
 		assertEquals("apple", dis.getMarca());
 	}
-	
+
 	@Test
 	public void testSetMarca() {
-		dis.setMarca("samsung");;
-		assertEquals("samsung", dis.getMarca());		
+		dis.setMarca("samsung");
+		;
+		assertEquals("samsung", dis.getMarca());
 	}
-	
+
 	@Test
 	public void testGetFecha_fabricacion() {
 		assertEquals("2020-05-15", dis.getFecha_fabricacion());
 	}
-	
+
 	@Test
 	public void testSetFecha_fabricacion() {
-		dis.setFecha_fabricacion("2015-06-20");;
-		assertEquals("2015-06-20", dis.getFecha_fabricacion());		
+		dis.setFecha_fabricacion("2015-06-20");
+		;
+		assertEquals("2015-06-20", dis.getFecha_fabricacion());
 	}
-	
+
 	@Test
 	public void testGetSistemaOperativo() {
 		assertEquals("ios", dis.getSistemaOperativo());
 	}
-	
+
 	@Test
 	public void testSetSistemaOperativo() {
 		dis.setSistemaOperativo("android");
-		assertEquals("android", dis.getSistemaOperativo());		
+		assertEquals("android", dis.getSistemaOperativo());
 	}
-	
+
 	@Test
 	public void testGetPrecio() {
 		assertEquals(1.500, dis.getPrecio());
@@ -109,20 +115,23 @@ public class DispositivoTest {
 		dis.setPrecio(1);
 		assertEquals(1.000, dis.getPrecio());
 	}
+
 	@Test
 	public void testGetRutaFoto() {
 		assertEquals("imagen", dis.getRutaFoto());
 	}
-	
+
 	@Test
 	public void testSetRutaFoto() {
 		dis.setRutaFoto("imagen1");
 		assertEquals("imagen1", dis.getRutaFoto());
 	}
-	
+
 	@Test
 	public void testToString() {
-		assertEquals("Dispositivo [id=dis01, nombre=iphone 12, seccion=movil, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.5, rutaFoto=imagen]", dis.toString());
+		assertEquals(
+				"Dispositivo [id=dis01, nombre=iphone 12, seccion=movil, marca=apple, fecha_fabricacion=2020-05-15, sistemaOperativo=ios, precio=1.5, rutaFoto=imagen]",
+				dis.toString());
 	}
-	
+
 }

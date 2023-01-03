@@ -14,30 +14,30 @@ import jxj.seccionDisp.Dispositivo;
 class ListaDispositivoTest {
 
 	ListaDispositivo listaDisp = new ListaDispositivo();
-	Map<Integer,Dispositivo> listaD = listaDisp.getDispositivos();
+	Map<Integer, Dispositivo> listaD = listaDisp.getDispositivos();
 	private Dispositivo disp;
-	
+
 	@Before
 	public void setUp() {
 		listaD.put(01, disp);
 		listaD.get(01);
 		try {
-		disp = new Dispositivo("01", "Samsung Z4", "Tablet", "Samsung", "2020-03-10", "Windows",2.000,"imagenes");
-	
-	} catch (ExcepcionExplicita e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+			disp = new Dispositivo("01", "Samsung Z4", "Tablet", "Samsung", "2020-03-10", "Windows", 2.000, "imagenes");
+
+		} catch (ExcepcionExplicita e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	}
+
 	@Test
 	public void testGetDispositivos() {
 		assertNotEquals(null, listaDisp.getDispositivos());
 	}
-	
+
 	@Test
 	public void testSetCoches() {
 		listaDisp.setProductos(listaD);
-		assertNotNull( listaDisp.getDispositivos());
-	}				
+		assertNotNull(listaDisp.getDispositivos());
 	}
-
+}

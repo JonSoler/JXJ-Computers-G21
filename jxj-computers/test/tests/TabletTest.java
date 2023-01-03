@@ -1,6 +1,5 @@
 package tests;
 
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -14,8 +13,8 @@ public class TabletTest {
 
 	@Before
 	public void setUp() throws Exception {
-	
-		t= new Tablet("t01","ipad pro","ipad", "apple", "2019-05-13","ios","imagen",1450.0,"gris",true,12);
+
+		t = new Tablet("t01", "ipad pro", "ipad", "apple", "2019-05-13", "ios", "imagen", 1450.0, "gris", true, 12);
 	}
 
 	@Test
@@ -29,44 +28,43 @@ public class TabletTest {
 		t.setNombre("ipad");
 		assertEquals("ipad", t.getNombre());
 	}
-	
+
 	@Test
-	public void testGetColor() {	
+	public void testGetColor() {
 		assertEquals("gris", t.getColor());
 	}
-	
+
 	@Test
-	public void testSetColor() {	
+	public void testSetColor() {
 		t.setColor("negro");
 		assertEquals("negro", t.getColor());
 	}
-	
+
 	@Test
-	public void testGetConectividadTeclado() {	
+	public void testGetConectividadTeclado() {
 		assertEquals(true, t.isConectividadTeclado());
 	}
-	
+
 	@Test
-	public void testSetConectividadTeclado() {	
+	public void testSetConectividadTeclado() {
 		t.setConectividadTeclado(false);
 		assertEquals(false, t.isConectividadTeclado());
 	}
-	
+
 	@Test
-	public void testGetPixelesCamara() {	
+	public void testGetPixelesCamara() {
 		assertEquals(12, t.getPixelesCamara());
 	}
-	
+
 	@Test
-	public void testSetPixelesCamara() {	
+	public void testSetPixelesCamara() {
 		t.setPixelesCamara(20);
 		assertEquals(20, t.getPixelesCamara());
 	}
-	
+
 	@Test
 	public void testToString() {
-		assertEquals("Tablet [color=gris, conectividadTeclado=true, pixelesCamara=12]",t.toString());
+		assertEquals("Tablet [color=gris, conectividadTeclado=true, pixelesCamara=12]", t.toString());
 	}
-	
-	
+
 }
