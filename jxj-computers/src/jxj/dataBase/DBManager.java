@@ -16,47 +16,43 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-import jxj.dataBase.DBException;
-import jxj.dataBase.*;
 import jxj.clasesBasicas.Opinion;
 import jxj.clasesBasicas.Tarjeta;
 import jxj.clasesBasicas.Usuario;
-import jxj.dataBase.DBManager;
-
 import jxj.seccionDisp.Movil;
 import jxj.seccionDisp.Portatil;
 import jxj.seccionDisp.Sobremesa;
 import jxj.seccionDisp.Tablet;
 
 public class DBManager {
-	
+
 	private static Logger logger = Logger.getLogger(DBManager.class.getName());
 	private static boolean LOGGING = true;
 	private static PreparedStatement ps = null;
 	private static Properties properties = new Properties();
 	private static Connection conn = null;
+
 	/**
 	 * Inicializa una BD SQLITE y devuelve una conexion con ella
 	 * 
 	 * @param nombre Nombre de fichero de la base de datos
 	 * @return Conexion con la base de datos indicada. Si hay algún error, se
-	 *         devuelve null 
+	 *         devuelve null
 	 * @throws DBException Excepcion de la BD
 	 */
-	
+
 	public static Connection initBD(String nombre) throws DBException {
 		try {
-		      properties.load(new FileInputStream(new File("config.properties")));
-		    } catch (FileNotFoundException e) {
-		      // TODO Auto-generated catch block
-		      e.printStackTrace();
-		    } catch (IOException e) {
-		      // TODO Auto-generated catch block
-		      e.printStackTrace();
-		    } 
+			properties.load(new FileInputStream(new File("config.properties")));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
-			Class.forName(properties.getProperty("DRIVER"));		
+			Class.forName(properties.getProperty("DRIVER"));
 			Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 			return initBD;
 		} catch (ClassNotFoundException e) {
@@ -75,29 +71,29 @@ public class DBManager {
 	 *         error
 	 * @throws DBException
 	 */
-	
+
 	public static Statement usarCrearTablasBD() throws DBException {
 		// statement.executeUpdate : Cuando queramos hacer create, insert, delete,
 		// update, drop
 		// statement.executeQuery : Cuando queramos hacer select
 		Statement statement = null;
 		logger.log(Level.INFO, "Creando las tablas necesarias en la BD...");
-		
+
 		try {
 			Class.forName("org.sqlite.JDBC");
 			Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 			statement = initBD.createStatement();
-			
+
 			try {
 				statement.executeUpdate("create table if not exists Dispositivo " + "id string, " + " nombre string, "
 						+ " seccion string, " + " marca string, " + " fecha_fabricacion string, "
 						+ " sistemaOperativo string," + " precio double," + " rutaFoto string");
 				logger.log(Level.INFO, "Tabla Dispositivo creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Dispositivo ya existente");
-				//throw new DBException("Error creando tabla de Dispositivo a la BD", ex);
-				
+				// throw new DBException("Error creando tabla de Dispositivo a la BD", ex);
+
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
@@ -106,10 +102,10 @@ public class DBManager {
 						+ " sistemaOperativo string," + " precio double," + " rutaFoto string," + " tactil integer,"
 						+ " sensorReconocimiento integer, " + " bateria integer");
 				logger.log(Level.INFO, "Tabla Movil creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Movil ya existente");
-				//throw new DBException("Error creando tabla de Movil a la BD", ex);
+				// throw new DBException("Error creando tabla de Movil a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
 
@@ -119,35 +115,37 @@ public class DBManager {
 						+ " sistemaOperativo string," + " precio double," + " rutaFoto string," + " webcam integer,"
 						+ " tipoTeclado string, " + " touchpad string");
 				logger.log(Level.WARNING, "Tabla Portatil creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Portatil ya existente");
-				//throw new DBException("Error creando tabla de Portatil a la BD", ex);
+				// throw new DBException("Error creando tabla de Portatil a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
 				statement.executeUpdate("create table if not exists Sobremesa " + "id String, " + " nombre string, "
 						+ " seccion string, " + " marca string, " + " fecha_fabricacion string, "
-						+ " sistemaOperativo string," + " precio double," + " rutaFoto string," + " fuenteAlimentacion string,"
-						+ " ventilador string,"+ " numPuertosUSB integer");
+						+ " sistemaOperativo string," + " precio double," + " rutaFoto string,"
+						+ " fuenteAlimentacion string," + " ventilador string," + " numPuertosUSB integer");
 				logger.log(Level.WARNING, "Tabla Sobremesa creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Sobremesa ya existente");
-				//throw new DBException("Error creando tabla de Sobremesa a la BD", ex);
+				// throw new DBException("Error creando tabla de Sobremesa a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
-				statement.executeUpdate("create table if not exists Tablet " + "id String, nombre string, seccion string, " + " marca string, " + " fecha_fabricacion string, "
-						+ " sistemaOperativo string," + " precio double," + " rutaFoto string," + " color string,"
-						+ " conectividadTeclado integer, pixelesCamara integer");
+				statement.executeUpdate(
+						"create table if not exists Tablet " + "id String, nombre string, seccion string, "
+								+ " marca string, " + " fecha_fabricacion string, " + " sistemaOperativo string,"
+								+ " precio double," + " rutaFoto string," + " color string,"
+								+ " conectividadTeclado integer, pixelesCamara integer");
 				logger.log(Level.WARNING, "Tabla Tablet creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Tablet ya existente");
-				//throw new DBException("Error creando tabla de Tablet a la BD", ex);
+				// throw new DBException("Error creando tabla de Tablet a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
 
@@ -155,39 +153,38 @@ public class DBManager {
 				statement.executeUpdate("CREATE TABLE if not exists usuario "
 						+ "id integer, nombre string, apellidos string, usuario string, contrasenia string, email string");
 				logger.log(Level.WARNING, "Tabla usuario creada");
-				
+
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Usuario ya existente");
-				//throw new DBException("Error creando tabla de Usuarios a la BD", ex);
+				// throw new DBException("Error creando tabla de Usuarios a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada
 
 			try {
-				statement.executeUpdate("CREATE TABLE if not exists opinion "
-						+ "idUsuario integer, titulo string, descripcion string");
+				statement.executeUpdate(
+						"CREATE TABLE if not exists opinion " + "idUsuario integer, titulo string, descripcion string");
 			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Opinion ya existente");
-				//throw new DBException("Error creando tabla de opinion a la BD", ex);
+				// throw new DBException("Error creando tabla de opinion a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
-			
+
 			try {
 				statement.executeUpdate("CREATE TABLE if not exists Tarjeta "
 						+ "idUsuario integer, idTarjeta integer, tipo string, numeroTarjeta string, fecha string, codigoDeSeguridad string, "
 						+ "codigoPostal2 string, nombreCompleto string, direccion string, lineaSegundaDireccion string, ciudad string, "
 						+ "estadoProvincia string, codigoPostal string");
-			}  catch (SQLException ex) {
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Tarjeta ya existente");
-				//throw new DBException("Error creando tabla de tarjeta a la BD", ex);
+				// throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
-			
+
 			try {
 				statement.executeUpdate("CREATE TABLE  if not exists Carrito "
 						+ "id string, nombre string, fecha string, precio double");
-			}  catch (SQLException ex) {
+			} catch (SQLException ex) {
 				logger.log(Level.WARNING, "Tabla Carrito ya existente");
-				//throw new DBException("Error creando tabla de tarjeta a la BD", ex);
+				// throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
 
-			
 		} catch (SQLException e) {
 			return null;
 		} catch (ClassNotFoundException e) {
@@ -195,8 +192,8 @@ public class DBManager {
 			e.printStackTrace();
 		}
 		return statement;
-	} 
-	
+	}
+
 	/**
 	 * Reinicia en blanco las tablas de la base de datos. UTILIZAR ESTE MËTODO CON
 	 * PRECAUCIÓN. Borra todos los datos que hubiera ya en las tablas
@@ -217,7 +214,7 @@ public class DBManager {
 			statement.executeUpdate("drop table if exists Sobremesa");
 			statement.executeUpdate("drop table if exists Tablet");
 			statement.executeUpdate("drop table if exists usuario");
-			//statement.executeUpdate("drop table if exists opinion");
+			// statement.executeUpdate("drop table if exists opinion");
 			return usarCrearTablasBD();
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "No se ha podido reiniar la base de datos");
@@ -233,6 +230,7 @@ public class DBManager {
 	 * @param msg
 	 * @param exception
 	 */
+	@SuppressWarnings("static-access")
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
 			return;
@@ -247,15 +245,16 @@ public class DBManager {
 			logger.log(level, msg, exception);
 		}
 	}
+
 	/**
 	 * Busca el usuario por su id
 	 * 
 	 * @param id
 	 * @return
 	 * @throws DBException
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
-	
+
 	public int obtenerId(String usuario) throws DBException, SQLException {
 		int idUsuario = 0;
 		if (!usuario.contains("@")) {
@@ -286,6 +285,7 @@ public class DBManager {
 
 		return idUsuario;
 	}
+
 	public Usuario buscarUsuarioId(int id) throws DBException, SQLException {
 		Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		try (PreparedStatement stmt = initBD.prepareStatement(
@@ -311,7 +311,7 @@ public class DBManager {
 			throw new DBException("Error obteniendo el usuario con id " + id, e);
 		}
 	}
-	
+
 	/**
 	 * Nos permite iniciar sesion en ERM
 	 * 
@@ -319,7 +319,7 @@ public class DBManager {
 	 * @param contrasenia
 	 * @return
 	 * @throws DBException
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public boolean loginUsuario(String nomUsuario, String contrasenia) throws DBException, SQLException {
 
@@ -341,7 +341,7 @@ public class DBManager {
 
 			} catch (SQLException e) {
 				throw new DBException("Error obteniendo datos de la query", e);
-			} 
+			}
 
 		} else {
 			try (PreparedStatement stmt = initBD.prepareStatement(
@@ -388,7 +388,6 @@ public class DBManager {
 			ps.setString(4, u.getUsuario());
 			ps.setString(5, u.getContrasenia());
 			ps.setString(6, u.getEmail());
-			
 
 			ps.execute();
 			System.out.println("Usuario registrado");
@@ -404,7 +403,8 @@ public class DBManager {
 		}
 
 	}
-/**
+
+	/**
 	 * Insertar un usuario en la base de datos
 	 * 
 	 * @param id
@@ -419,8 +419,8 @@ public class DBManager {
 	public static void insertarUsuario(String id, String nombre, String apellidos, String usuario, String email,
 			String contrasenia) throws DBException {
 
-		String s = "INSERT INTO usuario VALUES(" + id + ",'" + nombre + "','" + apellidos + "','"
-				+ usuario + "','" + contrasenia + "','" + email + "')";
+		String s = "INSERT INTO usuario VALUES(" + id + ",'" + nombre + "','" + apellidos + "','" + usuario + "','"
+				+ contrasenia + "','" + email + "')";
 		Connection c = DBManager.initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		try {
 			Statement st = c.createStatement();
@@ -432,7 +432,7 @@ public class DBManager {
 		}
 
 	}
-	
+
 	public void eliminarUsuario(int idUsuario) throws DBException, SQLException {
 		Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		try (PreparedStatement stmt = initBD.prepareStatement("DELETE FROM usuario WHERE id = ?")) {
@@ -443,23 +443,22 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
-	
+
 	public void actualizarPassword(Usuario usuario, String newPassword) {
-		//Se abre la conexi�n y se obtiene el Statement
-		try (Connection con = DriverManager.getConnection(newPassword);
-		     Statement stmt = con.createStatement()) {
-			//Se ejecuta la sentencia de borrado de datos
+		// Se abre la conexi�n y se obtiene el Statement
+		try (Connection con = DriverManager.getConnection(newPassword); Statement stmt = con.createStatement()) {
+			// Se ejecuta la sentencia de borrado de datos
 			String sql = "UPDATE Usuario SET contrasenia = '%s' WHERE id = %d;";
-			
+
 			int result = stmt.executeUpdate(String.format(sql, newPassword, usuario.getId()));
-			
+
 			System.out.println(String.format("- Se ha actulizado %d usuario", result));
 		} catch (Exception ex) {
 			System.err.println(String.format("* Error actualizando datos de la BBDD: %s", ex.getMessage()));
-			ex.printStackTrace();						
-		}		
+			ex.printStackTrace();
+		}
 	}
-	
+
 	/**
 	 * Metodo para insertar un dispositivo en Movil
 	 * 
@@ -473,10 +472,10 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	
+
 	public static void insertarMovil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
-		
+
 		String s = "INSERT INTO Movil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
 				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
@@ -489,9 +488,9 @@ public class DBManager {
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}
-		
+
 	}
-	
+
 	/**
 	 * Metodo para insertar un dispositivo en Portatil
 	 * 
@@ -505,9 +504,9 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	public static void insertarPortatil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
-		
+	public static void insertarPortatil(String id, String nombre, String seccion, String marca,
+			String fecha_fabricacion, String sistemaOperativo, String precio, String rutaFoto) throws DBException {
+
 		String s = "INSERT INTO Portatil (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
 				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
@@ -520,9 +519,9 @@ public class DBManager {
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}
-		
+
 	}
-	
+
 	/**
 	 * Metodo para insertar un dipositivo en Sobremesa
 	 * 
@@ -536,9 +535,9 @@ public class DBManager {
 	 * @param rutaFoto
 	 * @throws DBException
 	 */
-	public static void insertarSobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
-		
+	public static void insertarSobremesa(String id, String nombre, String seccion, String marca,
+			String fecha_fabricacion, String sistemaOperativo, String precio, String rutaFoto) throws DBException {
+
 		String s = "INSERT INTO Sobremesa (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
 				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
@@ -551,9 +550,9 @@ public class DBManager {
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}
-		
+
 	}
-	
+
 	/**
 	 * Metodo para insertar un dispositivo en Tablet
 	 * 
@@ -569,7 +568,7 @@ public class DBManager {
 	 */
 	public static void insertarTablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
 			String sistemaOperativo, String precio, String rutaFoto) throws DBException {
-		
+
 		String s = "INSERT INTO Tablet (id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, precio, rutaFoto) VALUES('"
 				+ id + "','" + nombre + "','" + seccion + "', '" + marca + "','" + fecha_fabricacion + "', '"
 				+ sistemaOperativo + "', '" + precio + "','" + rutaFoto + "')";
@@ -582,7 +581,7 @@ public class DBManager {
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}
-		
+
 	}
 
 	public static void disconnect() throws DBException, SQLException {
@@ -594,8 +593,7 @@ public class DBManager {
 			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
 	}
-	
-	
+
 	public static void cerrarBD(Connection con, Statement st) {
 		try {
 			if (st != null)
@@ -608,7 +606,7 @@ public class DBManager {
 		}
 	}
 
-	public static ArrayList<String> listarDispositvos() throws DBException{
+	public static ArrayList<String> listarDispositvos() throws DBException {
 		ArrayList<String> dispositivos = new ArrayList<>();
 		Connection con = initBD("JXJComputers.db");
 
@@ -663,8 +661,8 @@ public class DBManager {
 		return dispositivos;
 
 	}
-	
-	public static ArrayList<Sobremesa> listarSobremesa() throws DBException  {
+
+	public static ArrayList<Sobremesa> listarSobremesa() throws DBException {
 		ArrayList<Sobremesa> Sobremesa = new ArrayList<>();
 		Connection conn = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
@@ -697,7 +695,7 @@ public class DBManager {
 			throw new DBException("Error obteniendo todos los dispositivos de Sobremesa", e);
 		}
 		return Sobremesa;
-		
+
 	}
 
 	public static ArrayList<Movil> listarMovil() throws DBException {
@@ -733,10 +731,10 @@ public class DBManager {
 			throw new DBException("Error obteniendo todos los dispositivos de Movil", e);
 		}
 		return Movil;
-		
+
 	}
 
-	public static ArrayList<Portatil> listarPortatil() throws DBException{
+	public static ArrayList<Portatil> listarPortatil() throws DBException {
 		ArrayList<Portatil> Portatil = new ArrayList<>();
 		Connection conn = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
@@ -771,7 +769,7 @@ public class DBManager {
 		return Portatil;
 	}
 
-	public static ArrayList<Tablet> listarTablet() throws DBException{
+	public static ArrayList<Tablet> listarTablet() throws DBException {
 		ArrayList<Tablet> Tablet = new ArrayList<>();
 		Connection conn = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		String sql = "Select id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto, precio, "
@@ -805,6 +803,7 @@ public class DBManager {
 		}
 		return Tablet;
 	}
+
 	/**
 	 * Metodo para obtener un ArrayList de los usuarios guardados en la base de
 	 * datos
@@ -812,14 +811,13 @@ public class DBManager {
 	 * @return
 	 * @throws DBException
 	 */
-	
+
 	public static ArrayList<Usuario> listarUsuarios() throws DBException {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		Connection con = initBD("JXJComputers.db");
 
 		try (Statement stmt = con.createStatement()) {
-			ResultSet rs = stmt.executeQuery(
-					"SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario");
+			ResultSet rs = stmt.executeQuery("SELECT id, nombre, apellidos, usuario, contrasenia, email FROM usuario");
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
@@ -867,7 +865,7 @@ public class DBManager {
 		ps.execute();
 
 	}
-	
+
 	public static void ponerMovilEnOferta() throws SQLException {
 		Connection c;
 		try {
@@ -883,7 +881,7 @@ public class DBManager {
 	}
 
 	/**
-	 * Se encarga de quitar la oferta que hay 
+	 * Se encarga de quitar la oferta que hay
 	 * 
 	 * @throws SQLException
 	 */
@@ -901,8 +899,7 @@ public class DBManager {
 
 	}
 
-	
-	public static void insetarCarrito(Vector<Vector> carrito) throws SQLException, DBException {
+	public static void insetarCarrito(@SuppressWarnings("rawtypes") Vector<Vector> carrito) throws SQLException, DBException {
 
 		Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		Statement st = con.createStatement();
@@ -921,7 +918,7 @@ public class DBManager {
 			System.out.println("llega");
 		}
 	}
-	
+
 	/**
 	 * Inserta una nueva opinion
 	 * 
@@ -945,48 +942,49 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
-	
-		//HAY QUE MIRAR ESTE MÉTODO
-		public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
-			Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
-			try (Statement stmt = con.createStatement()) {
 
-				int idUsuario = tarjeta.getidUsuario();
-				int idTarjeta = tarjeta.getidTarjeta();
-				String tipo = tarjeta.getTipo();
-				String numeroTarjeta = tarjeta.getNumeroTarjeta();
-				String fecha = tarjeta.getFecha();
-				String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
-				String nombreTarjeta = tarjeta.getNombreTarjeta();
-				String nombreCompleto = tarjeta.getNombreCompleto();
-				String direccion = tarjeta.getDireccion();
-				String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
-				String ciudad = tarjeta.getCiudad();
-				String estadoProvincia = tarjeta.getEstadoProvincia();
-				String codigoPostal = tarjeta.getCodigoPostal();
+	// HAY QUE MIRAR ESTE MÉTODO
+	public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
+		Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
+		try (Statement stmt = con.createStatement()) {
 
-				stmt.executeUpdate("INSERT INTO Tarjeta (idUsuario, idTarjeta, tipo, numeroTarjeta, fecha, codigoDeSeguridad, nombreCompleto, direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal,  nombreTarjeta) VALUES"
-						        + " ('"+ idUsuario + "', '" + idTarjeta + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '"
-								+ codigoDeSeguridad + "', '" + nombreCompleto + "', '" + direccion
-								+ "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '"
-								+ codigoPostal + "', '" + nombreTarjeta + "' )");
-								
+			int idUsuario = tarjeta.getidUsuario();
+			int idTarjeta = tarjeta.getidTarjeta();
+			String tipo = tarjeta.getTipo();
+			String numeroTarjeta = tarjeta.getNumeroTarjeta();
+			String fecha = tarjeta.getFecha();
+			String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
+			String nombreTarjeta = tarjeta.getNombreTarjeta();
+			String nombreCompleto = tarjeta.getNombreCompleto();
+			String direccion = tarjeta.getDireccion();
+			String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
+			String ciudad = tarjeta.getCiudad();
+			String estadoProvincia = tarjeta.getEstadoProvincia();
+			String codigoPostal = tarjeta.getCodigoPostal();
 
-			} catch (SQLException e) {
-				throw new DBException("No ha sido posible ejecutar la query");
-			}
+			stmt.executeUpdate(
+					"INSERT INTO Tarjeta (idUsuario, idTarjeta, tipo, numeroTarjeta, fecha, codigoDeSeguridad, nombreCompleto, direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal,  nombreTarjeta) VALUES"
+							+ " ('" + idUsuario + "', '" + idTarjeta + "', '" + tipo + "' , '" + numeroTarjeta + "', '"
+							+ fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + direccion + "', '"
+							+ lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal
+							+ "', '" + nombreTarjeta + "' )");
+
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
 
 	}
 
-		public void cambiarContrasenia(Usuario user) throws DBException {
+	public void cambiarContrasenia(Usuario user) throws DBException {
 
-			try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET contrasenia= ? WHERE nombre ='" + user.getNombre() + "'")) {
-				stmt.setString(1, user.getContrasenia());
-				stmt.executeUpdate();
+		try (PreparedStatement stmt = conn
+				.prepareStatement("UPDATE usuario SET contrasenia= ? WHERE nombre ='" + user.getNombre() + "'")) {
+			stmt.setString(1, user.getContrasenia());
+			stmt.executeUpdate();
 
-			} catch (SQLException e) {
-				throw new DBException("No ha sido posible ejecutar la query");
-			}
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
 		}
-	
+	}
+
 }

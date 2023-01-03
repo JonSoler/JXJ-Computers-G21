@@ -32,8 +32,7 @@ public class VentanaMovil {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	
-	
+
 	public static void main() {
 		// TODO Auto-generated method stub
 		EventQueue.invokeLater(new Runnable() {
@@ -47,7 +46,7 @@ public class VentanaMovil {
 			}
 		});
 	}
-	
+
 	public VentanaMovil() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -58,9 +57,8 @@ public class VentanaMovil {
 		initialize();
 	}
 
-	
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
@@ -77,73 +75,74 @@ public class VentanaMovil {
 
 		JPanel MovilPanel = new JPanel(new FlowLayout());
 		cargarRecursivamente(MovilPanel, Movil, 0);
-		
+
 		MovilPanel.setBounds(50, 100, 500, 700);
-		JScrollPane scrollPane = new JScrollPane(MovilPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(MovilPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		frame.getContentPane().add(scrollPane);
 		frame.getContentPane().add(MovilPanel);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 99, 22);
 		frame.getContentPane().add(menuBar);
 
 		JMenu mnSec = new JMenu("Secciones");
 		menuBar.add(mnSec);
-		
+
 		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
 		mntmSobremesa.addActionListener(e -> {
-				VentanaSobremesa.main();
-				frame.dispose();
+			VentanaSobremesa.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmSobremesa);
-		
+
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
-				VentanaMovil.main();
-				frame.dispose();
+			VentanaMovil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmMovil);
-		
+
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
-				VentanaPortatil.main();
-				frame.dispose();
+			VentanaPortatil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmPortatil);
-		
+
 		JMenuItem mntmTablet = new JMenuItem("Tablet");
 		mntmTablet.addActionListener(e -> {
-				VentanaTablet.main();
-				frame.dispose();
+			VentanaTablet.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
-		
+
 		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
 		mntmSecInicio.addActionListener(e -> {
-				VentanaSeccion.main(null);
-				frame.dispose();
+			VentanaSeccion.main(null);
+			frame.dispose();
 		});
 		mnSec.add(mntmSecInicio);
-		
+
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblMovil.setBounds(194, 34, 178, 43);
 		frame.getContentPane().add(lblMovil);
-		
+
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main();
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
-		
+
 	}
-	
+
 	private void cargarRecursivamente(JPanel MovilPanel, ArrayList<Movil> Movil, int i) {
-		if(i<Movil.size()) {
+		if (i < Movil.size()) {
 			JPanel MovilsPanel = DispositivoPanel(Movil.get(i), VentanaSeccion.carrito);
 			MovilPanel.add(MovilsPanel);
-			cargarRecursivamente(MovilPanel, Movil, i+1);
+			cargarRecursivamente(MovilPanel, Movil, i + 1);
 		}
 	}
 
@@ -161,7 +160,7 @@ public class VentanaMovil {
 		lblImagen.setIcon(img1);
 		lblImagen.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblImagen);
-		
+
 		JLabel lblNombre = new JLabel(movil.getNombre());
 		lblNombre.setBackground(Color.WHITE);
 		lblNombre.setToolTipText("");
@@ -169,7 +168,7 @@ public class VentanaMovil {
 		lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblNombre);
 
-		JLabel lblPrecio = new JLabel(String.valueOf(movil.getPrecio()+"€"));
+		JLabel lblPrecio = new JLabel(String.valueOf(movil.getPrecio() + "€"));
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblPrecio);
@@ -183,13 +182,11 @@ public class VentanaMovil {
 			Dispositivos.getDispositivos().put(new Random().nextInt(), movil);
 			carrito.add(movil);
 		});
-		
+
 		btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(btnAnadirAlCarrito);
 
 		return panel;
 	}
-
-	
 
 }

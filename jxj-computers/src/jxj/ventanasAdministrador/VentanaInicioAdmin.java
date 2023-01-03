@@ -8,8 +8,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
@@ -40,7 +38,6 @@ public class VentanaInicioAdmin extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	@SuppressWarnings("static-access")
 	public VentanaInicioAdmin() {
 		super();
 
@@ -166,7 +163,7 @@ public class VentanaInicioAdmin extends JFrame {
 		getContentPane().add(lblAtras);
 
 		// Funcionalidad de iniciar sesión pulsando Enter
-		KeyListener keyListener = new KeyAdapter() {			
+		KeyListener keyListener = new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -174,8 +171,8 @@ public class VentanaInicioAdmin extends JFrame {
 				}
 			}
 		};
-		
-		//Asociamos el listener de teclado a todos los componentes de la ventana
+
+		// Asociamos el listener de teclado a todos los componentes de la ventana
 		this.textoUsuario.addKeyListener(keyListener);
 		this.textoContrasenya.addKeyListener(keyListener);
 
@@ -187,6 +184,7 @@ public class VentanaInicioAdmin extends JFrame {
 
 	public void iniciarSesion() {
 		String usuario = textoUsuario.getText();
+		@SuppressWarnings("deprecation")
 		String contrasenya = textoContrasenya.getText();
 
 		if (usuario.equals("admin") && contrasenya.equals("admin123")) {

@@ -7,14 +7,12 @@ import jxj.main.App;
 import jxj.ventanasPrimarias.VentanaInicio;
 
 public class App {
-	
+
 	public static Logger logger = Logger.getLogger(App.class.getName());
 
 	public static void main(String[] args) {
-		
+
 		logger.info("Programa comenzado");
-		
-	
 
 		EventQueue.invokeLater(new Runnable() {
 			@Override
@@ -30,7 +28,7 @@ public class App {
 
 			}
 		});
-		
+
 	}
 
 }

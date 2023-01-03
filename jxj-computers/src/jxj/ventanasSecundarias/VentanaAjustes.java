@@ -2,32 +2,27 @@ package jxj.ventanasSecundarias;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 
-
-import jxj.dataBase.DBException;
-import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaLogin;
 import jxj.ventanasPrimarias.VentanaSeccion;
-import jxj.ventanasVenta.VentanaVenta;
 import jxj.ventanasVenta.VentanaVentasInformacion;
-
-import java.awt.SystemColor;
 
 public class VentanaAjustes extends JFrame {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Creamos la ventana
 	 */
-	
+
 	public VentanaAjustes() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
@@ -92,55 +87,53 @@ public class VentanaAjustes extends JFrame {
 		btnVentasEInformacion.setBounds(57, 120, 297, 20);
 		getContentPane().add(btnVentasEInformacion);
 
-		
-
 		btnVentasEInformacion.addActionListener(e -> {
-			
+
 			VentanaVentasInformacion v1 = new VentanaVentasInformacion();
 			v1.setVisible(true);
 			dispose();
-		
-	});		
+
+		});
 
 		botonPrivacidad.addActionListener(e -> {
-			
-				VentanaPrivacidad v2 = new VentanaPrivacidad();
-				v2.setVisible(true);
-				dispose();
+
+			VentanaPrivacidad v2 = new VentanaPrivacidad();
+			v2.setVisible(true);
+			dispose();
 
 		});
 
 		botonCerrarSesion.addActionListener(e -> {
-			
-				VentanaLogin vl = new VentanaLogin();
-				vl.setVisible(true);
-				dispose();
+
+			VentanaLogin vl = new VentanaLogin();
+			vl.setVisible(true);
+			dispose();
 		});
 
 		botonSalir.addActionListener(e -> {
-			
-				System.exit(-1);
+
+			System.exit(-1);
 		});
 
 		botonContacto.addActionListener(e -> {
-				VentanaContacto v4 = new VentanaContacto();
-				v4.setVisible(true);
-				dispose();
+			VentanaContacto v4 = new VentanaContacto();
+			v4.setVisible(true);
+			dispose();
 		});
 
 		botonSeguridad.addActionListener(e -> {
-			
-				VentanaSeguridad vs = new VentanaSeguridad();
-				vs.setVisible(true);
-				setVisible(false);
+
+			VentanaSeguridad vs = new VentanaSeguridad();
+			vs.setVisible(true);
+			setVisible(false);
 		});
 
 		btnvlvAtras.addActionListener(e -> {
-			
-				VentanaSeccion vs = null;
-				vs = new VentanaSeccion();
-				vs.setVisible(true);
-				setVisible(false);
+
+			VentanaSeccion vs = null;
+			vs = new VentanaSeccion();
+			vs.setVisible(true);
+			setVisible(false);
 
 		});
 	}

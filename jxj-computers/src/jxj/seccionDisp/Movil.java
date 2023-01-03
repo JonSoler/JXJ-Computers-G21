@@ -6,17 +6,15 @@ public class Movil extends Dispositivo {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private boolean tactil;
 	private String sensorReconocimiento;
 	private int bateria;
-	
-	
-	
-	
+
 	public Movil(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, String rutaFoto, double precio, boolean tactil, String sensorReconocimiento, int bateria) {
-		
+			String sistemaOperativo, String rutaFoto, double precio, boolean tactil, String sensorReconocimiento,
+			int bateria) {
+
 		this.tactil = tactil;
 		this.sensorReconocimiento = sensorReconocimiento;
 		this.bateria = bateria;
@@ -27,7 +25,7 @@ public class Movil extends Dispositivo {
 		this.tactil = false;
 		this.sensorReconocimiento = " ";
 		this.bateria = 0;
-		
+
 	}
 
 	public boolean isTactil() {

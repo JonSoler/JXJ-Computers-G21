@@ -34,7 +34,7 @@ public class VentanaSobremesa {
 	private ListaDispositivo Dispositivos;
 	DBManager con = new DBManager();
 	JScrollPane scrollPane;
-	
+
 	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,7 +47,7 @@ public class VentanaSobremesa {
 			}
 		});
 	}
-	
+
 	public VentanaSobremesa() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -59,29 +59,30 @@ public class VentanaSobremesa {
 	}
 
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
-		frame.setBounds(100, 100, 600,650);
+		frame.setBounds(100, 100, 600, 650);
 		frame.setTitle("JXJComputers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(5, 10, 700, 750);
-		
+
 		ArrayList<Sobremesa> Sobremesa = new ArrayList<Sobremesa>();
-		 try {
-			 Sobremesa = DBManager.listarSobremesa();
+		try {
+			Sobremesa = DBManager.listarSobremesa();
 		} catch (DBException e1) {
 			e1.printStackTrace();
 		}
-		
-		 JPanel SobremesaPanel = new JPanel(new FlowLayout());
-		cargarRecursivamente(SobremesaPanel,Sobremesa,0);
-		
-		SobremesaPanel.setBounds(50,100,500,700);
-		JScrollPane scrollPane = new JScrollPane(SobremesaPanel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
+
+		JPanel SobremesaPanel = new JPanel(new FlowLayout());
+		cargarRecursivamente(SobremesaPanel, Sobremesa, 0);
+
+		SobremesaPanel.setBounds(50, 100, 500, 700);
+		JScrollPane scrollPane = new JScrollPane(SobremesaPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
 		frame.getContentPane().add(scrollPane);
 		frame.getContentPane().add(SobremesaPanel);
 
@@ -94,77 +95,76 @@ public class VentanaSobremesa {
 
 		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
 		mntmSobremesa.addActionListener(e -> {
-				VentanaSobremesa.main();
-				frame.dispose();
+			VentanaSobremesa.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmSobremesa);
-		
+
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
-				VentanaMovil.main();
-				frame.dispose();
+			VentanaMovil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmMovil);
-		
+
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
-				VentanaPortatil.main();
-				frame.dispose();
+			VentanaPortatil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmPortatil);
-		
+
 		JMenuItem mntmTablet = new JMenuItem("Tablet");
 		mntmTablet.addActionListener(e -> {
-				VentanaTablet.main();
-				frame.dispose();
+			VentanaTablet.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
-		
+
 		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
 		mntmSecInicio.addActionListener(e -> {
-				VentanaSeccion.main(null);
-				frame.dispose();
+			VentanaSeccion.main(null);
+			frame.dispose();
 		});
 		mnSec.add(mntmSecInicio);
-		
+
 		JLabel lblSobremesa = new JLabel("Sobremesa");
 		lblSobremesa.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblSobremesa.setBounds(194, 34, 178, 43);
 		frame.getContentPane().add(lblSobremesa);
-		
+
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main();
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 
-		
 	}
-	
+
 	private void cargarRecursivamente(JPanel SobremesaPanel, ArrayList<Sobremesa> Sobremesa, int i) {
-		if(i<Sobremesa.size()) {
+		if (i < Sobremesa.size()) {
 			JPanel SobremesasPanel = DispositivoPanel(Sobremesa.get(i), VentanaSeccion.carrito);
 			SobremesaPanel.add(SobremesasPanel);
-			cargarRecursivamente(SobremesaPanel, Sobremesa, i+1);
+			cargarRecursivamente(SobremesaPanel, Sobremesa, i + 1);
 		}
 	}
-	
 
 	private JPanel DispositivoPanel(Sobremesa sobremesa, ArrayList<Dispositivo> carrito) {
-		
-		JPanel panel =  new JPanel();
+
+		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		panel.setBackground(Color.WHITE);
 		JLabel lblImagen = new JLabel();
 		lblImagen.setBounds(72, 90, 124, 141);
-		ImageIcon ico1= new ImageIcon(sobremesa.getRutaFoto());
-		ImageIcon img1= new ImageIcon(ico1.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+		ImageIcon ico1 = new ImageIcon(sobremesa.getRutaFoto());
+		ImageIcon img1 = new ImageIcon(
+				ico1.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
 		lblImagen.setIcon(img1);
 		lblImagen.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblImagen);
-	
+
 		JLabel lblNombre = new JLabel(sobremesa.getNombre());
 		lblNombre.setBackground(Color.WHITE);
 		lblNombre.setToolTipText("");
@@ -172,30 +172,25 @@ public class VentanaSobremesa {
 		lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblNombre);
 
-	
-		JLabel lblPrecio = new JLabel(String.valueOf(sobremesa.getPrecio()+"€"));
+		JLabel lblPrecio = new JLabel(String.valueOf(sobremesa.getPrecio() + "€"));
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblPrecio);
-		
-		
+
 		JButton btnAnadirAlCarrito = new JButton("Agregar al carrito");
 		btnAnadirAlCarrito.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAnadirAlCarrito.setForeground(Color.WHITE);
 		btnAnadirAlCarrito.setBackground(new Color(255, 165, 0));
 		btnAnadirAlCarrito.addActionListener(e -> {
-				Dispositivos.getDispositivos().put(new Random().nextInt(), sobremesa);
-				carrito.add(sobremesa);
+			Dispositivos.getDispositivos().put(new Random().nextInt(), sobremesa);
+			carrito.add(sobremesa);
 		});
-		
+
 		btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(btnAnadirAlCarrito);
-	
 
 		return panel;
-		
+
 	}
-	
-	
-	
+
 }

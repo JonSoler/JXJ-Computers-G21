@@ -1,24 +1,25 @@
 package jxj.seccionDisp;
 
-public class Sobremesa extends Dispositivo{
-	
+public class Sobremesa extends Dispositivo {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String fuenteAlimentacion;
 	private String ventilador;
 	private int numPuertosUSB;
-	
+
 	public Sobremesa(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
-			String sistemaOperativo, String rutaFoto, double precio, String fuenteAlimentacion, String ventilador, int numPuertosUSB)  {
-		
+			String sistemaOperativo, String rutaFoto, double precio, String fuenteAlimentacion, String ventilador,
+			int numPuertosUSB) {
+
 		this.fuenteAlimentacion = fuenteAlimentacion;
 		this.ventilador = ventilador;
 		this.numPuertosUSB = numPuertosUSB;
 	}
-	
+
 	public Sobremesa() {
 		super();
 		this.fuenteAlimentacion = " ";
@@ -55,6 +56,5 @@ public class Sobremesa extends Dispositivo{
 		return "Sobremesa [fuenteAlimentacion=" + fuenteAlimentacion + ", ventilador=" + ventilador + ", numPuertosUSB="
 				+ numPuertosUSB + "]";
 	}
-	
-	
+
 }

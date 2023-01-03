@@ -30,9 +30,14 @@ import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaRegistro;
 
-
 public class VentanaPago extends javax.swing.JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@SuppressWarnings("unused")
 	private static final Component ActionPerformed = null;
 	private JPanel contentPane;
 	private JTextField TextoNTarjeta;
@@ -49,6 +54,7 @@ public class VentanaPago extends javax.swing.JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public VentanaPago() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -148,13 +154,13 @@ public class VentanaPago extends javax.swing.JFrame {
 		BotonGuardar.setForeground(new Color(0, 0, 0));
 		BotonGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				@SuppressWarnings("unused")
 				VentanaTransaccionCompra vtt = new VentanaTransaccionCompra();
 				setVisible(false);
-				
-				
-				JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente",
-						"Correcto", 1);
-				
+
+				JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto",
+						1);
+
 			}
 		});
 		BotonGuardar.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -482,13 +488,12 @@ public class VentanaPago extends javax.swing.JFrame {
 		});
 
 		int idUsuario = idU;
-		
-	
 
 		BotonGuardar.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				VentanaFinal vt = new VentanaFinal();
 				setVisible(false);
 				vt.setVisible(true);
@@ -524,7 +529,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 				try {
 					conexionT.initBD("JXJComputers.db");
-					conexionT.insertarDatosTarjeta(tarjeta); 
+					conexionT.insertarDatosTarjeta(tarjeta);
 					try {
 						conexionT.disconnect();
 					} catch (SQLException e1) {
@@ -541,4 +546,3 @@ public class VentanaPago extends javax.swing.JFrame {
 
 	}
 }
-

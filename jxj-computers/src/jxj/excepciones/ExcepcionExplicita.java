@@ -1,27 +1,27 @@
 package jxj.excepciones;
 
 /**
- * Utilizamos esta clase para hacer que la fecha de fabricación no pueda ser menor al año 2000. Esta
- * fecha seria demasiado antigua para poder poner a la venta en nuestra aplicación.
+ * Utilizamos esta clase para hacer que la fecha de fabricaciï¿½n no pueda ser
+ * menor al aï¿½o 2000. Esta fecha seria demasiado antigua para poder poner a la
+ * venta en nuestra aplicaciï¿½n.
  *
  */
 
-public class ExcepcionExplicita extends Exception{
-	
+public class ExcepcionExplicita extends Exception {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String mensaje;
-	
+
 	public ExcepcionExplicita(String m) {
 		mensaje = m;
 	}
-	
+
 	public String toString() {
 		return mensaje;
 	}
 
 }
-

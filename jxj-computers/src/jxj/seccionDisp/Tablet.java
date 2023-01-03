@@ -1,25 +1,25 @@
 package jxj.seccionDisp;
 
 public class Tablet extends Dispositivo {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String color;
 	private boolean conectividadTeclado;
 	private int pixelesCamara;
-	
-	public Tablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion, 
-			String sistemaOperativo, String rutaFoto, double precio, String color,
-			boolean conectividadTeclado, int pixelesCamara) {
-		
+
+	public Tablet(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
+			String sistemaOperativo, String rutaFoto, double precio, String color, boolean conectividadTeclado,
+			int pixelesCamara) {
+
 		this.color = color;
 		this.conectividadTeclado = conectividadTeclado;
 		this.pixelesCamara = pixelesCamara;
 	}
-	
+
 	public Tablet() {
 		super();
 		this.color = " ";
@@ -56,5 +56,5 @@ public class Tablet extends Dispositivo {
 		return "Tablet [color=" + color + ", conectividadTeclado=" + conectividadTeclado + ", pixelesCamara="
 				+ pixelesCamara + "]";
 	}
-	
+
 }

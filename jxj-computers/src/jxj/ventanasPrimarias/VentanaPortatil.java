@@ -32,10 +32,9 @@ public class VentanaPortatil {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	
-	
+
 	public static void main() {
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,8 +46,7 @@ public class VentanaPortatil {
 			}
 		});
 	}
-	
-	
+
 	public VentanaPortatil() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -58,9 +56,9 @@ public class VentanaPortatil {
 		this.Dispositivos = Dispositivos;
 		initialize();
 	}
-	
+
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
@@ -77,78 +75,78 @@ public class VentanaPortatil {
 
 		JPanel PortatilPanel = new JPanel(new FlowLayout());
 		cargarRecursivamente(PortatilPanel, Portatil, 0);
-		
+
 		PortatilPanel.setBounds(50, 100, 500, 700);
-		JScrollPane scrollPane = new JScrollPane(PortatilPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(PortatilPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		frame.getContentPane().add(scrollPane);
 		frame.getContentPane().add(PortatilPanel);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 99, 22);
 		frame.getContentPane().add(menuBar);
 
 		JMenu mnSec = new JMenu("Secciones");
 		menuBar.add(mnSec);
-		
+
 		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
 		mntmSobremesa.addActionListener(e -> {
-				VentanaSobremesa.main();
-				frame.dispose();
+			VentanaSobremesa.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmSobremesa);
-		
+
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
-				VentanaMovil.main();
-				frame.dispose();
+			VentanaMovil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmMovil);
-		
+
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
-				VentanaPortatil.main();
-				frame.dispose();
+			VentanaPortatil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmPortatil);
-		
+
 		JMenuItem mntmTablet = new JMenuItem("Tablet");
 		mntmTablet.addActionListener(e -> {
-				VentanaTablet.main();
-				frame.dispose();
+			VentanaTablet.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
-		
+
 		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
 		mntmSecInicio.addActionListener(e -> {
-				VentanaSeccion.main(null);
-				frame.dispose();
+			VentanaSeccion.main(null);
+			frame.dispose();
 		});
 		mnSec.add(mntmSecInicio);
-		
+
 		JLabel lblPortatil = new JLabel("Portatil");
 		lblPortatil.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblPortatil.setBounds(194, 34, 178, 43);
 		frame.getContentPane().add(lblPortatil);
-		
+
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main();
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}
-	
+
 	private void cargarRecursivamente(JPanel PortatilPanel, ArrayList<Portatil> Portatil, int i) {
-		if(i<Portatil.size()) {
+		if (i < Portatil.size()) {
 			JPanel PortatilsPanel = PortatilPanel(Portatil.get(i), VentanaSeccion.carrito);
 			PortatilPanel.add(PortatilsPanel);
-			cargarRecursivamente(PortatilPanel, Portatil, i+1);
+			cargarRecursivamente(PortatilPanel, Portatil, i + 1);
+		}
 	}
-}
-
 
 	private JPanel PortatilPanel(Portatil portatil, ArrayList<Dispositivo> carrito) {
-		
+
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -162,7 +160,7 @@ public class VentanaPortatil {
 		lblImagen.setIcon(img1);
 		lblImagen.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblImagen);
-		
+
 		JLabel lblNombre = new JLabel(portatil.getNombre());
 		lblNombre.setBackground(Color.WHITE);
 		lblNombre.setToolTipText("");
@@ -170,7 +168,7 @@ public class VentanaPortatil {
 		lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblNombre);
 
-		JLabel lblPrecio = new JLabel(String.valueOf(portatil.getPrecio()+"€"));
+		JLabel lblPrecio = new JLabel(String.valueOf(portatil.getPrecio() + "€"));
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblPrecio);
@@ -184,13 +182,12 @@ public class VentanaPortatil {
 			Dispositivos.getDispositivos().put(new Random().nextInt(), portatil);
 			carrito.add(portatil);
 		});
-		
+
 		btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(btnAnadirAlCarrito);
 
 		return panel;
-		
+
 	}
-	
-	
+
 }

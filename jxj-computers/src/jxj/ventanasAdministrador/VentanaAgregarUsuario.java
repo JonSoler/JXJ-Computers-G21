@@ -9,8 +9,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 
 import javax.swing.ImageIcon;
@@ -29,6 +27,11 @@ import jxj.ventanasPrimarias.VentanaLogin;
 
 
 public class VentanaAgregarUsuario extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textApellidos;

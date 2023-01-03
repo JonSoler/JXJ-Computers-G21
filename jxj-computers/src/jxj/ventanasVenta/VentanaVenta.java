@@ -26,7 +26,6 @@ import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasSecundarias.VentanaAjustes;
-import jxj.ventanasVenta.*;
 
 public class VentanaVenta extends JFrame {
 
@@ -36,7 +35,6 @@ public class VentanaVenta extends JFrame {
 	private JPanel panelNorte;
 	private JPanel panelCentro;
 	private JPanel panelBotonera;
-
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -85,24 +83,24 @@ public class VentanaVenta extends JFrame {
 		Id.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Id.setBounds(37, 50, 93, 34);
 		panelCentro.add(Id);
-		
+
 		JTextArea textoId = new JTextArea();
 		textoId.setTabSize(18);
 		textoId.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textoId.setBounds(126, 62, 148, 22);
 		panelCentro.add(textoId);
-		
+
 		JLabel Nombre = new JLabel("Nombre");
 		Nombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Nombre.setBounds(37, 96, 93, 34);
 		panelCentro.add(Nombre);
-		
+
 		JTextArea textoNombre = new JTextArea();
 		textoNombre.setTabSize(18);
 		textoNombre.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textoNombre.setBounds(126, 108, 148, 22);
 		panelCentro.add(textoNombre);
-		
+
 		JLabel Seccion = new JLabel("Seccion");
 		Seccion.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Seccion.setBounds(37, 141, 99, 34);
@@ -112,7 +110,7 @@ public class VentanaVenta extends JFrame {
 		Precio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Precio.setBounds(310, 145, 64, 27);
 		panelCentro.add(Precio);
-		
+
 		JTextArea textoPrecio = new JTextArea();
 		textoPrecio.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textoPrecio.setBounds(445, 153, 128, 22);
@@ -122,12 +120,12 @@ public class VentanaVenta extends JFrame {
 		euro.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		euro.setBounds(580, 151, 37, 34);
 		panelCentro.add(euro);
-		
+
 		JLabel FechaF = new JLabel("Fecha fabricacion");
 		FechaF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		FechaF.setBounds(310, 50, 111, 34);
 		panelCentro.add(FechaF);
-		
+
 		JTextPane textoFechaF = new JTextPane();
 		textoFechaF.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textoFechaF.setBounds(445, 62, 148, 22);
@@ -137,13 +135,13 @@ public class VentanaVenta extends JFrame {
 		Marca.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Marca.setBounds(37, 201, 77, 29);
 		panelCentro.add(Marca);
-		
+
 		JTextArea textoMarca = new JTextArea();
 		textoMarca.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textoMarca.setBounds(126, 210, 148, 22);
 		panelCentro.add(textoMarca);
 		textoMarca.setColumns(10);
-		
+
 		JLabel SistemaOP = new JLabel("Sistema Operativo");
 		SistemaOP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		SistemaOP.setBounds(310, 96, 122, 34);
@@ -155,11 +153,11 @@ public class VentanaVenta extends JFrame {
 		textoSOP.setBounds(445, 108, 148, 22);
 		panelCentro.add(textoSOP);
 		textoSOP.setColumns(10);
-		
+
 		JLabel Imagen = new JLabel("Imagen");
 		Imagen.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		Imagen.setBounds(310, 198, 77, 34);
-		
+
 		JLabel Foto = new JLabel("");
 		Foto.setBounds(37, 282, 0, 0);
 		panelCentro.add(Foto);
@@ -174,8 +172,8 @@ public class VentanaVenta extends JFrame {
 		btnImagen.addActionListener(e -> {
 
 			JFileChooser fc = new JFileChooser();
-			fc.setCurrentDirectory(new File(".")); 
-			fc.setCurrentDirectory(new File("src"));  
+			fc.setCurrentDirectory(new File("."));
+			fc.setCurrentDirectory(new File("src"));
 			int seleccionado = fc.showOpenDialog(null);
 			if (seleccionado == JFileChooser.APPROVE_OPTION) {
 				File ficheroSeleccionado = fc.getSelectedFile();
@@ -189,147 +187,144 @@ public class VentanaVenta extends JFrame {
 		String[] opciones = { "Movil", "Portatil", "Sobremesa", "Tablet" };
 
 		JComboBox comboBox_seccion = new JComboBox(opciones);
-		comboBox_seccion.setModel(new DefaultComboBoxModel(new String[] {"Movil", "Portatil", "Sobremesa", "Tablet"}));
+		comboBox_seccion
+				.setModel(new DefaultComboBoxModel(new String[] { "Movil", "Portatil", "Sobremesa", "Tablet" }));
 		panelCentro.add(comboBox_seccion);
 		comboBox_seccion.setBounds(126, 149, 148, 22);
 
 		getContentPane().add(panelCentro, BorderLayout.CENTER);
-		
-				btnAtras = new JButton("Atras");
-				panelCentro.add(btnAtras);
-				btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				btnAtras.setBounds(126, 266, 128, 29);
-				
-				btnAtras.addActionListener(e -> {
 
-					VentanaVentasInformacion v4 = new VentanaVentasInformacion();
-					v4.setVisible(true);
-					dispose();
+		btnAtras = new JButton("Atras");
+		panelCentro.add(btnAtras);
+		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAtras.setBounds(126, 266, 128, 29);
 
-				});
-				
+		btnAtras.addActionListener(e -> {
 
-				JButton btnGuardar = new JButton("Guardar");
-				panelCentro.add(btnGuardar);
-				btnGuardar.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						
-						if (textoId.getText().equals("") || textoNombre.getText().equals("") || textoPrecio.getText().equals("")
-								|| textoFechaF.getText().equals("") || textoSOP.getText().equals("")
-								|| textoMarca.getText().equals("")) {
-							JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
-						} else {
-							String id = textoId.getText();
-							String nombre = textoNombre.getText();
-							String seccion = comboBox_seccion.getSelectedItem().toString();
-							String marca = textoMarca.getText();
-							String precio = textoPrecio.getText();
-							String fecha_fabricacion = textoFechaF.getText();
-							String sistemaOperativo = textoSOP.getText();
-							ImageIcon im = (ImageIcon) Foto.getIcon();
-							String rutaFoto = im.getDescription();
+			VentanaVentasInformacion v4 = new VentanaVentasInformacion();
+			v4.setVisible(true);
+			dispose();
 
-							if (seccion.equals("Movil")) {
-								
-									try {
-										DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-											precio, rutaFoto);
-									} catch (DBException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
-									VentanaInicio vi = null;
-									try {
-										vi = new VentanaInicio();
-									} catch (DBException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
-									vi.setVisible(true);
-									setVisible(false);
-								
-		
-								
-							}
+		});
 
-							if (seccion.equals("Portatil")) {
-								try {
-									DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-											precio, rutaFoto);
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								VentanaInicio vi = null;
-								try {
-									vi = new VentanaInicio();
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								vi.setVisible(true);
-								setVisible(false);
-								
-							}
+		JButton btnGuardar = new JButton("Guardar");
+		panelCentro.add(btnGuardar);
+		btnGuardar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 
-							if (seccion.equals("Sobremesa")) {
-								try {
-									DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-											precio, rutaFoto);
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								VentanaInicio vi = null;
-								try {
-									vi = new VentanaInicio();
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								vi.setVisible(true);
-								setVisible(false);
-							}
+				if (textoId.getText().equals("") || textoNombre.getText().equals("") || textoPrecio.getText().equals("")
+						|| textoFechaF.getText().equals("") || textoSOP.getText().equals("")
+						|| textoMarca.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios.");
+				} else {
+					String id = textoId.getText();
+					String nombre = textoNombre.getText();
+					String seccion = comboBox_seccion.getSelectedItem().toString();
+					String marca = textoMarca.getText();
+					String precio = textoPrecio.getText();
+					String fecha_fabricacion = textoFechaF.getText();
+					String sistemaOperativo = textoSOP.getText();
+					ImageIcon im = (ImageIcon) Foto.getIcon();
+					String rutaFoto = im.getDescription();
 
-							if (seccion.equals("Tablet")) {
-								try {
-									DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
-											precio, rutaFoto);
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								VentanaInicio vi = null;
-								try {
-									vi = new VentanaInicio();
-								} catch (DBException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								vi.setVisible(true);
-								setVisible(false);
-								
-							}
+					if (seccion.equals("Movil")) {
 
-							JOptionPane.showMessageDialog(null, "Se ha registrado tu venta correctamente");
+						try {
+							DBManager.insertarMovil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+									precio, rutaFoto);
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
+						VentanaInicio vi = null;
+						try {
+							vi = new VentanaInicio();
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						vi.setVisible(true);
+						setVisible(false);
+
 					}
-				});
-				btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				btnGuardar.setBounds(395, 266, 128, 29);
-				
-						btnAtras.addActionListener(e -> {
-							VentanaAjustes va = new VentanaAjustes();
-							va.setVisible(true);
-							dispose();
-							
-						});
+
+					if (seccion.equals("Portatil")) {
+						try {
+							DBManager.insertarPortatil(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+									precio, rutaFoto);
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						VentanaInicio vi = null;
+						try {
+							vi = new VentanaInicio();
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						vi.setVisible(true);
+						setVisible(false);
+
+					}
+
+					if (seccion.equals("Sobremesa")) {
+						try {
+							DBManager.insertarSobremesa(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+									precio, rutaFoto);
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						VentanaInicio vi = null;
+						try {
+							vi = new VentanaInicio();
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						vi.setVisible(true);
+						setVisible(false);
+					}
+
+					if (seccion.equals("Tablet")) {
+						try {
+							DBManager.insertarTablet(id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo,
+									precio, rutaFoto);
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						VentanaInicio vi = null;
+						try {
+							vi = new VentanaInicio();
+						} catch (DBException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						vi.setVisible(true);
+						setVisible(false);
+
+					}
+
+					JOptionPane.showMessageDialog(null, "Se ha registrado tu venta correctamente");
+				}
+			}
+		});
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnGuardar.setBounds(395, 266, 128, 29);
+
+		btnAtras.addActionListener(e -> {
+			VentanaAjustes va = new VentanaAjustes();
+			va.setVisible(true);
+			dispose();
+
+		});
 		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 
 	}
 
-	
 	public static int getVentaId() {
 		return idVenta;
 	}

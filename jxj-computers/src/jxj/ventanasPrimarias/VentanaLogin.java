@@ -207,18 +207,18 @@ public class VentanaLogin extends JFrame {
 		getContentPane().add(lblAdmin);
 
 		// Funcionalidad de iniciar sesión pulsando Enter
-				KeyListener keyListener = new KeyAdapter() {			
-					@Override
-					public void keyPressed(KeyEvent e) {
-						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-							iniciarSesion();
-						}
-					}
-				};
-				
-				//Asociamos el listener de teclado a todos los componentes de la ventana
-				this.txtNombre.addKeyListener(keyListener);
-				this.txtContrasenya.addKeyListener(keyListener);
+		KeyListener keyListener = new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					iniciarSesion();
+				}
+			}
+		};
+
+		// Asociamos el listener de teclado a todos los componentes de la ventana
+		this.txtNombre.addKeyListener(keyListener);
+		this.txtContrasenya.addKeyListener(keyListener);
 	}
 
 	/**
@@ -229,6 +229,7 @@ public class VentanaLogin extends JFrame {
 		txtContrasenya.setText("");
 	}
 
+	@SuppressWarnings({ "static-access" })
 	public void iniciarSesion() {
 		DBManager conexion = new DBManager();
 		String usuario = txtNombre.getText();

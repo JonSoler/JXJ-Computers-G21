@@ -39,7 +39,7 @@ public class VentanaInicio extends JFrame {
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 610, 630);
 		setLocationRelativeTo(null);
-		
+
 		// Boton Registro
 		JButton btnRegistro = new JButton("");
 		btnRegistro.setIcon(new ImageIcon("imagenes/AgregarUsuarios.png"));
@@ -90,14 +90,14 @@ public class VentanaInicio extends JFrame {
 				ico.getImage().getScaledInstance(lblLogo1.getWidth(), lblLogo1.getHeight(), Image.SCALE_SMOOTH));
 		lblLogo1.setIcon(img);
 		getContentPane().add(lblLogo1);
-		
+
 		JLabel lblIniciarSesion = new JLabel("Iniciar sesi\u00F3n");
 		lblIniciarSesion.setForeground(new Color(51, 51, 204));
 		lblIniciarSesion.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblIniciarSesion.setEnabled(true);
 		lblIniciarSesion.setBounds(349, 524, 106, 25);
 		getContentPane().add(lblIniciarSesion);
-		
+
 		JLabel lblNuevoUsuario = new JLabel("Nuevo usuario");
 		lblNuevoUsuario.setForeground(new Color(140, 128, 0));
 		lblNuevoUsuario.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));

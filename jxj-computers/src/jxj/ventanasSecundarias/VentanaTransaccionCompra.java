@@ -9,29 +9,36 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class VentanaTransaccionCompra extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * M�todo que contiene un hilo que salta al a hora de realizar la compra de la tabla de coches seleccionados
+	 * Método que contiene un hilo que salta al a hora de realizar la compra de la
+	 * tabla de coches seleccionados
+	 * 
 	 * @param args
 	 */
-	
-	
+
 	private JPanel pCentral;
+
 	public VentanaTransaccionCompra() {
-		setBounds(800,300,400,100);
+		setBounds(800, 300, 400, 100);
 		setTitle("Espera unos segundos mientras se realiza la transacci�n");
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		pCentral = new JPanel();
-		getContentPane().add(pCentral,BorderLayout.CENTER);
+		getContentPane().add(pCentral, BorderLayout.CENTER);
 		JFrame ventana = this;
-		Runnable r = new Runnable() { //objeto ejecutable
-			
+		Runnable r = new Runnable() { // objeto ejecutable
+
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				for(int i=0;i<5;i++) {
+				for (int i = 0; i < 5; i++) {
 					JLabel lbl = new JLabel(".");
-					lbl.setFont(new Font(Font.SERIF,Font.BOLD, 30));
+					lbl.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 					pCentral.add(lbl);
 					getContentPane().validate();
 					try {
@@ -42,15 +49,11 @@ public class VentanaTransaccionCompra extends JFrame {
 					}
 				}
 				ventana.dispose();
-				JOptionPane.showMessageDialog(null,"Gracias por su compra, la operaci�n se ha realizado con exito");
+				JOptionPane.showMessageDialog(null, "Gracias por su compra, la operaci�n se ha realizado con exito");
 			}
 		};
-		Thread t = new Thread(r); //hilo
+		Thread t = new Thread(r); // hilo
 		t.start();
 		setVisible(true);
 	}
 }
-
-
-
-

@@ -9,15 +9,14 @@ import jxj.excepciones.ExcepcionExplicita;
 
 public class Dispositivo implements Serializable {
 
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String id, nombre, seccion, marca, fecha_fabricacion, sistemaOperativo, rutaFoto;
 	private double precio;
-	
+
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	public Dispositivo(String id, String nombre, String seccion, String marca, String fecha_fabricacion,
@@ -31,7 +30,7 @@ public class Dispositivo implements Serializable {
 		try {
 			Date f = sdf.parse(fecha_fabricacion);
 			Date fechaLimite = sdf.parse("2000-01-01");
-			if(f.before(fechaLimite))
+			if (f.before(fechaLimite))
 				throw new ExcepcionExplicita("Es un dispositivo demasiado antiguo");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -40,9 +39,9 @@ public class Dispositivo implements Serializable {
 		this.sistemaOperativo = sistemaOperativo;
 		this.rutaFoto = rutaFoto;
 		this.precio = precio;
-		
+
 	}
-	
+
 	public Dispositivo() {
 		super();
 		this.id = " ";
@@ -123,13 +122,11 @@ public class Dispositivo implements Serializable {
 		return sdf;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Dispositivo [id=" + id + ", nombre=" + nombre + ", seccion=" + seccion + ", marca=" + marca
-				+ ", fecha_fabricacion=" + fecha_fabricacion + ", sistemaOperativo=" + sistemaOperativo + ", precio=" + precio + ", rutaFoto="
-				+ rutaFoto +"]";
+				+ ", fecha_fabricacion=" + fecha_fabricacion + ", sistemaOperativo=" + sistemaOperativo + ", precio="
+				+ precio + ", rutaFoto=" + rutaFoto + "]";
 	}
-	
+
 }

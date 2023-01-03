@@ -16,8 +16,12 @@ import javax.swing.border.EmptyBorder;
 
 import jxj.ventanasPrimarias.VentanaInicio;
 
+public class VentanaAdmin extends JFrame {
 
-public class VentanaAdmin extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane, panelNorte, panelCentro, panelBotonera;
 
@@ -99,6 +103,3 @@ public class VentanaAdmin extends JFrame{
 
 	}
 }
-
-
-

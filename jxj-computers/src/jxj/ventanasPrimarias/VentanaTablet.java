@@ -31,10 +31,9 @@ import jxj.seccionDisp.Tablet;
 public class VentanaTablet {
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	
-	
+
 	public static void main() {
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -46,8 +45,7 @@ public class VentanaTablet {
 			}
 		});
 	}
-	
-	
+
 	public VentanaTablet() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -57,9 +55,9 @@ public class VentanaTablet {
 		this.Dispositivos = Dispositivos;
 		initialize();
 	}
-	
+
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
 		frame.setBounds(100, 100, 600, 650);
@@ -76,78 +74,78 @@ public class VentanaTablet {
 
 		JPanel TabletPanel = new JPanel(new FlowLayout());
 		cargarRecursivamente(TabletPanel, Tablet, 0);
-		
+
 		TabletPanel.setBounds(50, 100, 500, 700);
-		JScrollPane scrollPane = new JScrollPane(TabletPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(TabletPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		frame.getContentPane().add(scrollPane);
 		frame.getContentPane().add(TabletPanel);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 99, 22);
 		frame.getContentPane().add(menuBar);
 
 		JMenu mnSec = new JMenu("Secciones");
 		menuBar.add(mnSec);
-		
+
 		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
 		mntmSobremesa.addActionListener(e -> {
-				VentanaSobremesa.main();
-				frame.dispose();
+			VentanaSobremesa.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmSobremesa);
-		
+
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
-				VentanaMovil.main();
-				frame.dispose();
+			VentanaMovil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmMovil);
-		
+
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
-				VentanaPortatil.main();
-				frame.dispose();
+			VentanaPortatil.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmPortatil);
-		
+
 		JMenuItem mntmTablet = new JMenuItem("Tablet");
 		mntmTablet.addActionListener(e -> {
-				VentanaTablet.main();
-				frame.dispose();
+			VentanaTablet.main();
+			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
-		
+
 		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
 		mntmSecInicio.addActionListener(e -> {
-				VentanaSeccion.main(null);
-				frame.dispose();
+			VentanaSeccion.main(null);
+			frame.dispose();
 		});
 		mnSec.add(mntmSecInicio);
-		
+
 		JLabel lblTablet = new JLabel("Tablet");
 		lblTablet.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblTablet.setBounds(194, 34, 178, 43);
 		frame.getContentPane().add(lblTablet);
-		
+
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
-				VentanaCarritoCompra.main();
+			VentanaCarritoCompra.main();
 		});
 		frame.getContentPane().add(btnCarritoCompra);
 	}
-	
+
 	private void cargarRecursivamente(JPanel TabletPanel, ArrayList<Tablet> Tablet, int i) {
-		if(i<Tablet.size()) {
+		if (i < Tablet.size()) {
 			JPanel TabletsPanel = TabletPanel(Tablet.get(i), VentanaSeccion.carrito);
 			TabletPanel.add(TabletsPanel);
-			cargarRecursivamente(TabletPanel, Tablet, i+1);
+			cargarRecursivamente(TabletPanel, Tablet, i + 1);
+		}
 	}
-}
-
 
 	private JPanel TabletPanel(Tablet tablet, ArrayList<Dispositivo> carrito) {
-		
+
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -161,7 +159,7 @@ public class VentanaTablet {
 		lblImagen.setIcon(img1);
 		lblImagen.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblImagen);
-		
+
 		JLabel lblNombre = new JLabel(tablet.getNombre());
 		lblNombre.setBackground(Color.WHITE);
 		lblNombre.setToolTipText("");
@@ -169,7 +167,7 @@ public class VentanaTablet {
 		lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblNombre);
 
-		JLabel lblPrecio = new JLabel(String.valueOf(tablet.getPrecio()+"€"));
+		JLabel lblPrecio = new JLabel(String.valueOf(tablet.getPrecio() + "€"));
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblPrecio);
@@ -183,12 +181,12 @@ public class VentanaTablet {
 			Dispositivos.getDispositivos().put(new Random().nextInt(), tablet);
 			carrito.add(tablet);
 		});
-		
+
 		btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(btnAnadirAlCarrito);
 
 		return panel;
-		
+
 	}
 
 }
