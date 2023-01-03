@@ -11,6 +11,7 @@ import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
@@ -206,25 +207,18 @@ public class VentanaLogin extends JFrame {
 		getContentPane().add(lblAdmin);
 
 		// Funcionalidad de iniciar sesión pulsando Enter
-		txtContrasenya.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-			}
-
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					iniciarSesion();
-				}
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-
-			}
-		});
-
+				KeyListener keyListener = new KeyAdapter() {			
+					@Override
+					public void keyPressed(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+							iniciarSesion();
+						}
+					}
+				};
+				
+				//Asociamos el listener de teclado a todos los componentes de la ventana
+				this.txtNombre.addKeyListener(keyListener);
+				this.txtContrasenya.addKeyListener(keyListener);
 	}
 
 	/**

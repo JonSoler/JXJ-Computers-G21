@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -165,24 +166,18 @@ public class VentanaInicioAdmin extends JFrame {
 		getContentPane().add(lblAtras);
 
 		// Funcionalidad de iniciar sesión pulsando Enter
-		textoContrasenya.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-			}
-
+		KeyListener keyListener = new KeyAdapter() {			
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					iniciarSesion();
 				}
 			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-
-			}
-		});
+		};
+		
+		//Asociamos el listener de teclado a todos los componentes de la ventana
+		this.textoUsuario.addKeyListener(keyListener);
+		this.textoContrasenya.addKeyListener(keyListener);
 
 	}
 

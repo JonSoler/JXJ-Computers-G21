@@ -9,6 +9,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.KeyAdapter;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -335,24 +336,23 @@ public class VentanaRegistro extends JFrame {
 		setTitle("Registrarse como nuevo cliente");
 		
 		// Funcionalidad de registrar usuario pulsando Enter
-				textoConfirmarContrasenya.addKeyListener(new KeyListener() {
-					@Override
-					public void keyTyped(KeyEvent e) {
-
-					}
-
-					@Override
-					public void keyPressed(KeyEvent e) {
-						if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-							registrarUsuario();
-						}
-					}
-
-					@Override
-					public void keyReleased(KeyEvent e) {
-
-					}
-				});
+		KeyListener keyListener = new KeyAdapter() {			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					registrarUsuario();
+				}
+			}
+		};
+		//Asociamos el listener de teclado a todos los componentes de la ventana
+		this.textoDNI.addKeyListener(keyListener);
+		this.textoNombre.addKeyListener(keyListener);
+		this.textoApellido.addKeyListener(keyListener);
+		this.textoEdad.addKeyListener(keyListener);
+		this.textoEmail.addKeyListener(keyListener);
+		this.textoNombreDeUsuario.addKeyListener(keyListener);
+		this.textoContrasenya.addKeyListener(keyListener);
+		this.textoConfirmarContrasenya.addKeyListener(keyListener);
 											
 	}
 	
@@ -461,7 +461,7 @@ public class VentanaRegistro extends JFrame {
 			}
 
 		}
-		
+		//metodo que genera una contraseña segura aleatoria
 		RecursividadGenerarContrasenyas p = new RecursividadGenerarContrasenyas();
 		private class generarContrasenya extends AbstractAction {
 			public generarContrasenya() {
