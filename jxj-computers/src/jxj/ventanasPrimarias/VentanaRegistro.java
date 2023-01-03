@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +12,8 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
@@ -24,6 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import jxj.ventanasPrimarias.*;
+import jxj.Recursividad.RecursividadGenerarContrasenyas;
 import jxj.clasesBasicas.*;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
@@ -52,7 +56,8 @@ public class VentanaRegistro extends JFrame {
 	private JTextField textoNombreDeUsuario = new JTextField();
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JPasswordField textoConfirmarContrasenya = new JPasswordField();
-
+	private final Action action = new generarContrasenya();
+			
 	private final JPanel panelTitulo = new JPanel();
 	private final JPanel panelDatos = new JPanel();
 	private final JPanel panelCampos = new JPanel();
@@ -89,7 +94,7 @@ public class VentanaRegistro extends JFrame {
 		labelTitle.setForeground(new Color(102, 102, 153));
 		labelTitle.setFont(new Font("Cooper Black", Font.BOLD, 40));
 
-		panelDatos.setBounds(24, 100, 190, 372);
+		panelDatos.setBounds(24, 100, 190, 353);
 		contentpane.add(panelDatos);
 
 		labelDNI.setText("DNI:");
@@ -180,7 +185,7 @@ public class VentanaRegistro extends JFrame {
 		);
 		panelDatos.setLayout(gl_panelDatos);
 
-		panelCampos.setBounds(208, 100, 174, 372);
+		panelCampos.setBounds(208, 100, 174, 353);
 		contentpane.add(panelCampos);
 		GroupLayout gl_panelCampos = new GroupLayout(panelCampos);
 		gl_panelCampos.setHorizontalGroup(
@@ -371,6 +376,12 @@ public class VentanaRegistro extends JFrame {
 		lblAtras.setEnabled(true);
 		lblAtras.setBounds(68, 501, 92, 25);
 		contentpane.add(lblAtras);
+		
+		JButton generarContrasenya = new JButton("Generar contrase\u00F1a segura");
+		generarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
+		generarContrasenya.setAction(action);
+		generarContrasenya.setBounds(120, 455, 190, 23);
+		contentpane.add(generarContrasenya);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(460, 600);
@@ -398,6 +409,19 @@ public class VentanaRegistro extends JFrame {
 			}
 
 		}
+		
+		RecursividadGenerarContrasenyas p = new RecursividadGenerarContrasenyas();
+		private class generarContrasenya extends AbstractAction {
+			public generarContrasenya() {
+				putValue(NAME, "Generar contraseña segura");
+				putValue(SHORT_DESCRIPTION, "Generar contraseña segura automáticamente");
+			}
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, p.generate(14, 5, 9), "Contraseña segura sugerida",JOptionPane.INFORMATION_MESSAGE);				
+			}
+		}
+		
 		public static int getUsuarioId() {
 			return idUsuario;
 		}
