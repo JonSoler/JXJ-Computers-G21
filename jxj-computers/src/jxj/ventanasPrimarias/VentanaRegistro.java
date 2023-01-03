@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,6 +20,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -57,7 +60,7 @@ public class VentanaRegistro extends JFrame {
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JPasswordField textoConfirmarContrasenya = new JPasswordField();
 	private final Action action = new generarContrasenya();
-			
+
 	private final JPanel panelTitulo = new JPanel();
 	private final JPanel panelDatos = new JPanel();
 	private final JPanel panelCampos = new JPanel();
@@ -86,7 +89,7 @@ public class VentanaRegistro extends JFrame {
 		setContentPane(contentpane);
 		contentpane.setLayout(null);
 
-		panelTitulo.setBounds(0, 24, 444, 59);
+		panelTitulo.setBounds(0, 21, 444, 59);
 		contentpane.add(panelTitulo);
 
 		JLabel labelTitle = new JLabel("NUEVO USUARIO");
@@ -94,7 +97,7 @@ public class VentanaRegistro extends JFrame {
 		labelTitle.setForeground(new Color(102, 102, 153));
 		labelTitle.setFont(new Font("Cooper Black", Font.BOLD, 40));
 
-		panelDatos.setBounds(24, 100, 190, 353);
+		panelDatos.setBounds(30, 81, 190, 358);
 		contentpane.add(panelDatos);
 
 		labelDNI.setText("DNI:");
@@ -185,7 +188,7 @@ public class VentanaRegistro extends JFrame {
 		);
 		panelDatos.setLayout(gl_panelDatos);
 
-		panelCampos.setBounds(208, 100, 174, 353);
+		panelCampos.setBounds(223, 81, 174, 358);
 		contentpane.add(panelCampos);
 		GroupLayout gl_panelCampos = new GroupLayout(panelCampos);
 		gl_panelCampos.setHorizontalGroup(
@@ -380,8 +383,30 @@ public class VentanaRegistro extends JFrame {
 		JButton generarContrasenya = new JButton("Generar contrase\u00F1a segura");
 		generarContrasenya.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
 		generarContrasenya.setAction(action);
-		generarContrasenya.setBounds(120, 455, 190, 23);
+		generarContrasenya.setBounds(47, 445, 190, 23);
 		contentpane.add(generarContrasenya);
+		
+		JCheckBox cbMostrarContrasenya = new JCheckBox("Mostrar contrase\u00F1a");
+		cbMostrarContrasenya.setFont(new Font("Segoe UI Variable", Font.PLAIN, 11));
+		cbMostrarContrasenya.setBounds(260, 445, 163, 23);
+		contentpane.add(cbMostrarContrasenya);
+
+		cbMostrarContrasenya.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					textoContrasenya.setEchoChar((char) 0);
+					textoConfirmarContrasenya.setEchoChar((char) 0);
+					// checkbox has been selected
+					// do something...
+				} else {// checkbox has been deselected
+					textoContrasenya.setEchoChar('•');
+					textoConfirmarContrasenya.setEchoChar('•');
+				}
+				;
+			}
+
+		});
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(460, 600);
@@ -389,6 +414,8 @@ public class VentanaRegistro extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Registrarse como nuevo cliente");
 	}
+	
+	
 	
 	//metodo que se encarga de escribir en el fichero usuarioRegistrados los usuarios que se registren
 		@SuppressWarnings("deprecation")
@@ -418,10 +445,15 @@ public class VentanaRegistro extends JFrame {
 			}
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, p.generate(14, 5, 9), "Contraseña segura sugerida",JOptionPane.INFORMATION_MESSAGE);				
+				String contrasenyaSegura = p.generate(14, 5, 9);
+				
+				textoContrasenya.setText(contrasenyaSegura);
+				textoConfirmarContrasenya.setText(contrasenyaSegura);
+				JOptionPane.showMessageDialog(null, contrasenyaSegura, "Contraseña segura sugerida",JOptionPane.INFORMATION_MESSAGE);
+				
 			}
 		}
-		
+				
 		public static int getUsuarioId() {
 			return idUsuario;
 		}
