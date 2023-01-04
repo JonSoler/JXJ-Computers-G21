@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"jxj.ventanasPrimarias","l":"VentanaRegistro.JNumberTextField"},{"p":"jxj.ventanasPrimarias","l":"VentanaRegistro"}];updateSearchResults();
