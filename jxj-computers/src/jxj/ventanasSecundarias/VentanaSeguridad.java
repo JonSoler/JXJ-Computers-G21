@@ -38,6 +38,7 @@ public class VentanaSeguridad extends JFrame {
 
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 449, 379);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
 
 		panelNorte = new JPanel();

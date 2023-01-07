@@ -26,7 +26,8 @@ public class VentanaTransaccionCompra extends JFrame {
 
 	public VentanaTransaccionCompra() {
 		setBounds(800, 300, 400, 100);
-		setTitle("Espera unos segundos mientras se realiza la transacci�n");
+		//setLocationRelativeTo(null);
+		setTitle("Espera unos segundos mientras se realiza la transacción");
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		pCentral = new JPanel();
 		getContentPane().add(pCentral, BorderLayout.CENTER);
@@ -49,7 +50,7 @@ public class VentanaTransaccionCompra extends JFrame {
 					}
 				}
 				ventana.dispose();
-				JOptionPane.showMessageDialog(null, "Gracias por su compra, la operaci�n se ha realizado con exito");
+				JOptionPane.showMessageDialog(null, "Gracias por su compra, la operación se ha realizado con exito");
 			}
 		};
 		Thread t = new Thread(r); // hilo

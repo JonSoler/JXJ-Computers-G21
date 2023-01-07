@@ -29,6 +29,7 @@ public class VentanaVentasInformacion extends JFrame {
 	public VentanaVentasInformacion() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 456, 474);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setForeground(Color.WHITE);
 

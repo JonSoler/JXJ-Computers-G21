@@ -65,6 +65,7 @@ public class VentanaSeccion extends JFrame {
 	private void initialize() {
 
 		setBounds(100, 100, 500, 480);
+		setLocationRelativeTo(null);
 		setTitle("JXJ Computers");
 		getContentPane().setLayout(null);
 

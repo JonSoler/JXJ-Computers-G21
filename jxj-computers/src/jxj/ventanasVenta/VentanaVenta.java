@@ -54,6 +54,7 @@ public class VentanaVenta extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 643, 452);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
 
 		panelNorte = new JPanel();

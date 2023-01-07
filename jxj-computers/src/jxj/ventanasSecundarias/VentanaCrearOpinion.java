@@ -53,6 +53,7 @@ public class VentanaCrearOpinion extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
 

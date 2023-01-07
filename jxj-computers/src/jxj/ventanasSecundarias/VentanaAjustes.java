@@ -26,6 +26,7 @@ public class VentanaAjustes extends JFrame {
 	public VentanaAjustes() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setLayout(null);
 

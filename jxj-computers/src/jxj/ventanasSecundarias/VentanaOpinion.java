@@ -36,6 +36,7 @@ public class VentanaOpinion extends JFrame {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 403, 559);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

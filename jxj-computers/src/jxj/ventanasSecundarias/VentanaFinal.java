@@ -114,6 +114,7 @@ public class VentanaFinal extends JFrame {
 		btnNewButton_1.setBounds(279, 511, 166, 58);
 		getContentPane().add(btnNewButton_1);
 		setBounds(100, 100, 638, 639);
+		setLocationRelativeTo(null);
 
 	}
 }

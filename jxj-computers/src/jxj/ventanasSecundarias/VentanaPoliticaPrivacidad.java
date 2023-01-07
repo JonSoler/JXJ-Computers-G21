@@ -23,6 +23,7 @@ public class VentanaPoliticaPrivacidad extends JFrame {
 
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 555);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
 

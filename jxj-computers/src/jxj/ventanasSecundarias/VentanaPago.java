@@ -59,6 +59,7 @@ public class VentanaPago extends javax.swing.JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

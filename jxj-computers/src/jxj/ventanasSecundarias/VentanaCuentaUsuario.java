@@ -36,6 +36,7 @@ public class VentanaCuentaUsuario extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
 
 		JLabel lblMiCuenta = new JLabel("MI CUENTA");

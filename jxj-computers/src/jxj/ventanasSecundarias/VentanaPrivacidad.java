@@ -36,6 +36,7 @@ public class VentanaPrivacidad extends JFrame {
 		int idUser = VentanaLogin.getUsuarioId();
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 489);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
 
 		panel = new JPanel();

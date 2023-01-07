@@ -131,6 +131,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 400, 750);
+		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJ Computers");
 		frame.getContentPane().setLayout(null);
 		updatePrecioTotal();
@@ -241,7 +242,7 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla.addColumn("Id");
 		carritoModeloTabla.addColumn("Nombre");
 		carritoModeloTabla.addColumn("Fecha de matriculacion");
-		carritoModeloTabla.addColumn("Precio (�)");
+		carritoModeloTabla.addColumn("Precio (€)");
 		setTableContent(carrito);
 
 	}
@@ -354,7 +355,7 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 
 	private void updatePrecioTotal() {
-		this.lblTotal.setText("TOTAL:   " + this.precioTotal + " �");
+		this.lblTotal.setText("TOTAL:   " + this.precioTotal + "€");
 	}
 
 }
