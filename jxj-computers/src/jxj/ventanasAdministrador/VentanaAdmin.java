@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,6 +40,8 @@ public class VentanaAdmin extends JFrame {
 		panelCentro = new JPanel();
 
 		JButton btnStock = new JButton("STOCK DISPONIBLE");
+		btnStock.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
+		btnStock.setBounds(83, 167, 171, 32);
 		btnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionStock vgs = new VentanaGestionStock();
@@ -47,13 +50,14 @@ public class VentanaAdmin extends JFrame {
 			}
 		});
 		contentPane.setLayout(new BorderLayout(0, 0));
-		panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER, 125, 125));
+		panelCentro.setLayout(null);
 		btnStock.setForeground(Color.WHITE);
 		btnStock.setBackground(new Color(255, 165, 0));
-		btnStock.setBounds(5, 81, 348, 66);
 		panelCentro.add(btnStock);
 
 		JButton btnUsuarios = new JButton("GESTION DE USUARIOS");
+		btnUsuarios.setFont(new Font("Segoe UI Variable", Font.BOLD, 12));
+		btnUsuarios.setBounds(353, 167, 171, 32);
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionUsuario vgu = new VentanaGestionUsuario();
@@ -65,17 +69,26 @@ public class VentanaAdmin extends JFrame {
 
 		btnUsuarios.setForeground(Color.WHITE);
 		btnUsuarios.setBackground(new Color(255, 165, 0));
-		btnUsuarios.setBounds(129, 187, 348, 66);
 		panelCentro.add(btnUsuarios);
 
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 
-		JLabel lblTitulo = new JLabel("MEN\u00DA");
+		JLabel lblTitulo = new JLabel("ADMINISTRAR TIENDA");
 		lblTitulo.setForeground(new Color(99, 121, 194));
-		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 40));
+		lblTitulo.setFont(new Font("Cooper Black", Font.BOLD, 35));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		panelNorte.add(lblTitulo);
+		//panelNorte.add(lblTitulo);
 		contentPane.add(lblTitulo, BorderLayout.NORTH);
+		
+		JLabel lblAdministrarUsuarios = new JLabel("");
+		lblAdministrarUsuarios.setIcon(new ImageIcon("imagenes/AdministrarUsuarios.png"));
+		lblAdministrarUsuarios.setBounds(396, 64, 92, 92);
+		panelCentro.add(lblAdministrarUsuarios);
+		
+		JLabel lblStock = new JLabel("");
+		lblStock.setIcon(new ImageIcon("imagenes/Stock.png"));
+		lblStock.setBounds(122, 60, 92, 92);
+		panelCentro.add(lblStock);
 
 		JButton btnVlvAtras = new JButton("Volver atras");
 		btnVlvAtras.addActionListener(new ActionListener() {
