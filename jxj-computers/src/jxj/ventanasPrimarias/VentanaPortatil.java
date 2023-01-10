@@ -1,7 +1,9 @@
 package jxj.ventanasPrimarias;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,10 +13,12 @@ import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -32,6 +36,10 @@ public class VentanaPortatil {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
+	
+	private DefaultListModel<Dispositivo> modelo;
+	private JList<Dispositivo> lista;
+	private JScrollPane scroll;
 
 	public static void main() {
 
@@ -61,11 +69,15 @@ public class VentanaPortatil {
 
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
-		frame.setBounds(100, 100, 600, 650);
+		frame.setBounds(100, 100, 600, 700);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJComputers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(new BorderLayout());
+
+		JPanel pCentro = new JPanel();
+		pCentro.setLayout(null);
+		frame.getContentPane().add(pCentro, BorderLayout.CENTER);
 
 		ArrayList<Portatil> Portatil = new ArrayList<Portatil>();
 		try {
@@ -80,12 +92,15 @@ public class VentanaPortatil {
 		PortatilPanel.setBounds(50, 100, 500, 700);
 		JScrollPane scrollPane = new JScrollPane(PortatilPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		frame.getContentPane().add(scrollPane);
-		frame.getContentPane().add(PortatilPanel);
+		//frame.getContentPane().add(scrollPane);
+		//frame.getContentPane().add(PortatilPanel);
+		pCentro.add(scrollPane);
+		pCentro.add(PortatilPanel);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 99, 22);
-		frame.getContentPane().add(menuBar);
+		//frame.getContentPane().add(menuBar);
+		pCentro.add(menuBar);
 
 		JMenu mnSec = new JMenu("Secciones");
 		menuBar.add(mnSec);
@@ -128,14 +143,34 @@ public class VentanaPortatil {
 		JLabel lblPortatil = new JLabel("Portatil");
 		lblPortatil.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblPortatil.setBounds(194, 34, 178, 43);
-		frame.getContentPane().add(lblPortatil);
+		//frame.getContentPane().add(lblPortatil);
+		pCentro.add(lblPortatil);
 
 		JButton btnCarritoCompra = new JButton("Carrito");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
 			VentanaCarritoCompra.main();
 		});
-		frame.getContentPane().add(btnCarritoCompra);
+		JPanel pBotonera = new JPanel();
+		modelo = new DefaultListModel<>();
+		cargarModelo();
+		lista = new JList<>(modelo);
+		//lista.setPreferredSize(new Dimension(20, 10));
+		scroll = new JScrollPane(lista);
+		scroll.setBounds(10, 10, 80, 30);
+		scroll.setPreferredSize(new Dimension (500, 90));
+		pBotonera.add(btnCarritoCompra);
+		frame.getContentPane().add(pBotonera, BorderLayout.NORTH);
+		frame.getContentPane().add(scroll, BorderLayout.SOUTH);
+		/*JScrollBar bar = scroll.getVerticalScrollBar();
+		bar.setPreferredSize(new Dimension(10, 0));*/
+	}
+	
+	private void cargarModelo() {
+		modelo.removeAllElements();
+		for(Dispositivo d : VentanaSeccion.carrito) {
+			modelo.addElement(d);
+		}
 	}
 
 	private void cargarRecursivamente(JPanel PortatilPanel, ArrayList<Portatil> Portatil, int i) {
@@ -182,6 +217,7 @@ public class VentanaPortatil {
 
 			Dispositivos.getDispositivos().put(new Random().nextInt(), portatil);
 			carrito.add(portatil);
+			cargarModelo();
 		});
 
 		btnAnadirAlCarrito.setAlignmentX(Component.CENTER_ALIGNMENT);
