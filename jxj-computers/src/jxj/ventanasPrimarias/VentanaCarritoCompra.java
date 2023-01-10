@@ -141,6 +141,7 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
 		btnVaciarCesta.addActionListener(e -> {
+			VentanaMovil.vaciarLista();
 			while (carritoModeloTabla.getRowCount() != 0)
 				carritoModeloTabla.removeRow(0);
 			while (!VentanaCategoria.carrito.isEmpty()) {
@@ -236,7 +237,7 @@ public class VentanaCarritoCompra extends JFrame {
 		lblCostesGratis.setBounds(10, 482, 179, 14);
 		frame.getContentPane().add(lblCostesGratis);
 	}
-
+	
 	private void initTableModel(ArrayList<Dispositivo> carrito) {
 		carritoModeloTabla = new DefaultTableModel();
 		carritoModeloTabla.addColumn("Id");

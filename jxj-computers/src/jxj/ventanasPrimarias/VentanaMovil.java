@@ -37,8 +37,8 @@ public class VentanaMovil {
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
 	
-	private DefaultListModel<Dispositivo> modelo;
-	private JList<Dispositivo> lista;
+	private static DefaultListModel<String> modelo;
+	private JList<String> lista;
 	private JScrollPane scroll;
 
 	public static void main() {
@@ -163,9 +163,13 @@ public class VentanaMovil {
 	}
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaCategoria.carrito) {
-			modelo.addElement(d);
+		for (Dispositivo Dispositivo : VentanaCategoria.carrito) {
+			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
+	}
+	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
 	}
 	
 	private void cargarRecursivamente(JPanel MovilPanel, ArrayList<Movil> Movil, int i) {
