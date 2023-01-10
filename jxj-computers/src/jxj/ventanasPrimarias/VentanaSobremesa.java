@@ -36,8 +36,8 @@ public class VentanaSobremesa {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	private DefaultListModel<Dispositivo> modelo;
-	private JList<Dispositivo> lista;
+	private static DefaultListModel<String> modelo;
+	private JList<String> lista;
 	private JScrollPane scroll;
 	DBManager con = new DBManager();
 	JScrollPane scrollPane;
@@ -166,8 +166,8 @@ public class VentanaSobremesa {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaCategoria.carrito) {
-			modelo.addElement(d);
+		for(Dispositivo Dispositivo : VentanaCategoria.carrito) {
+			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
 	}
 
@@ -177,6 +177,10 @@ public class VentanaSobremesa {
 			SobremesaPanel.add(SobremesasPanel);
 			cargarRecursivamente(SobremesaPanel, Sobremesa, i + 1);
 		}
+	}
+	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
 	}
 
 	private JPanel DispositivoPanel(Sobremesa sobremesa, ArrayList<Dispositivo> carrito) {
