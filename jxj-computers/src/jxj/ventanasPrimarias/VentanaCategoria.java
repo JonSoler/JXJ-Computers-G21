@@ -64,7 +64,7 @@ public class VentanaCategoria extends JFrame {
 	 */
 	private void initialize() {
 
-		setBounds(100, 100, 500, 480);
+		setBounds(100, 100, 500, 520);
 		setLocationRelativeTo(null);
 		setTitle("JXJ Computers");
 		getContentPane().setLayout(null);
@@ -72,14 +72,14 @@ public class VentanaCategoria extends JFrame {
 		JLabel lblCategoriasDispositivos = new JLabel("Todas las categorías");
 		lblCategoriasDispositivos.setFont(new Font("Cooper Black", Font.BOLD, 32));
 		lblCategoriasDispositivos.setForeground(new Color(102, 102, 153));
-		lblCategoriasDispositivos.setBounds(68, 0, 379, 45);
+		lblCategoriasDispositivos.setBounds(68, 12, 379, 45);
 		getContentPane().add(lblCategoriasDispositivos);
 
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
-		lblMovil.setBounds(83, 62, 126, 77);
+		lblMovil.setBounds(86, 85, 126, 77);
 		getContentPane().add(lblMovil);
-		ImageIcon ico3 = new ImageIcon("imagenes/Movil.jpg");
+		ImageIcon ico3 = new ImageIcon("imagenes/Movil.png");
 		ImageIcon img3 = new ImageIcon(
 				ico3.getImage().getScaledInstance(lblMovil.getWidth(), lblMovil.getHeight(), Image.SCALE_SMOOTH));
 		lblMovil.setIcon(img3);
@@ -88,7 +88,7 @@ public class VentanaCategoria extends JFrame {
 		btnMovil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnMovil.setForeground(Color.WHITE);
 		btnMovil.setBackground(new Color(255, 165, 0));
-		btnMovil.setBounds(83, 150, 126, 48);
+		btnMovil.setBounds(74, 186, 118, 36);
 		getContentPane().add(btnMovil);
 
 		btnMovil.addActionListener(e -> {
@@ -98,10 +98,10 @@ public class VentanaCategoria extends JFrame {
 
 		JLabel lblPortatil = new JLabel("Portatil");
 		lblPortatil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
-		lblPortatil.setBounds(275, 62, 126, 77);
+		lblPortatil.setBounds(270, 85, 126, 77);
 		getContentPane().add(lblPortatil);
 
-		ImageIcon ico2 = new ImageIcon("imagenes/Portatil.jpg");
+		ImageIcon ico2 = new ImageIcon("imagenes/Portatil.png");
 		ImageIcon img2 = new ImageIcon(
 				ico2.getImage().getScaledInstance(lblPortatil.getWidth(), lblPortatil.getHeight(), Image.SCALE_SMOOTH));
 		lblPortatil.setIcon(img2);
@@ -110,7 +110,7 @@ public class VentanaCategoria extends JFrame {
 		btnPortatil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnPortatil.setForeground(Color.WHITE);
 		btnPortatil.setBackground(new Color(255, 165, 0));
-		btnPortatil.setBounds(275, 150, 126, 48);
+		btnPortatil.setBounds(291, 186, 118, 36);
 		getContentPane().add(btnPortatil);
 
 		btnPortatil.addActionListener(e -> {
@@ -121,10 +121,10 @@ public class VentanaCategoria extends JFrame {
 		JLabel lblSobremesa = new JLabel("Sobremesa");
 		lblSobremesa.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblSobremesa.setBackground(Color.WHITE);
-		lblSobremesa.setBounds(83, 239, 126, 77);
+		lblSobremesa.setBounds(86, 260, 126, 77);
 		getContentPane().add(lblSobremesa);
 
-		ImageIcon ico4 = new ImageIcon("imagenes/Sobremesa.jpg");
+		ImageIcon ico4 = new ImageIcon("imagenes/Sobremesa.png");
 		ImageIcon img4 = new ImageIcon(ico4.getImage().getScaledInstance(lblSobremesa.getWidth(),
 				lblSobremesa.getHeight(), Image.SCALE_SMOOTH));
 		lblSobremesa.setIcon(img4);
@@ -133,7 +133,7 @@ public class VentanaCategoria extends JFrame {
 		btnSobremesa.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnSobremesa.setForeground(Color.WHITE);
 		btnSobremesa.setBackground(new Color(255, 165, 0));
-		btnSobremesa.setBounds(83, 339, 126, 48);
+		btnSobremesa.setBounds(74, 364, 118, 36);
 		getContentPane().add(btnSobremesa);
 
 		btnSobremesa.addActionListener(e -> {
@@ -144,10 +144,10 @@ public class VentanaCategoria extends JFrame {
 		JLabel lblTablet = new JLabel("Tablet");
 		lblTablet.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblTablet.setBackground(Color.WHITE);
-		lblTablet.setBounds(275, 239, 126, 77);
+		lblTablet.setBounds(270, 260, 126, 77);
 		getContentPane().add(lblTablet);
 
-		ImageIcon ico5 = new ImageIcon("imagenes/Tablet.jpg");
+		ImageIcon ico5 = new ImageIcon("imagenes/Tablet.png");
 		ImageIcon img5 = new ImageIcon(
 				ico5.getImage().getScaledInstance(lblTablet.getWidth(), lblTablet.getHeight(), Image.SCALE_SMOOTH));
 		lblTablet.setIcon(img5);
@@ -156,7 +156,7 @@ public class VentanaCategoria extends JFrame {
 		btnTablet.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnTablet.setForeground(Color.WHITE);
 		btnTablet.setBackground(new Color(255, 165, 0));
-		btnTablet.setBounds(275, 339, 126, 48);
+		btnTablet.setBounds(291, 364, 118, 36);
 		getContentPane().add(btnTablet);
 
 		btnTablet.addActionListener(e -> {
