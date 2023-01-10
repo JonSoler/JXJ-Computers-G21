@@ -130,7 +130,7 @@ public class VentanaCarritoCompra extends JFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 400, 750);
+		frame.setBounds(100, 100, 400, 700);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJ Computers");
 		frame.getContentPane().setLayout(null);
@@ -250,7 +250,7 @@ public class VentanaCarritoCompra extends JFrame {
 
 	public void setTableContent(ArrayList<Dispositivo> carrito) {
 		clear();
-		System.out.println(carrito);
+		//System.out.println(carrito);
 		for (Dispositivo Dispositivo : carrito) {
 			this.carritoModeloTabla.addRow(new Object[] { Dispositivo.getId(), Dispositivo.getNombre(),
 					Dispositivo.getFecha_fabricacion(), Dispositivo.getPrecio() });

@@ -91,17 +91,6 @@ public class VentanaAdmin extends JFrame {
 		lblStock.setBounds(122, 60, 92, 92);
 		panelCentro.add(lblStock);
 
-		JButton btnVlvAtras = new JButton("Volver atras");
-		btnVlvAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				VentanaInicioAdmin v1 = new VentanaInicioAdmin();
-				v1.setVisible(true);
-				dispose();
-			}
-		});
-		btnVlvAtras.setBounds(10, 303, 138, 23);
-		panelBotonera.add(btnVlvAtras);
-
 		contentPane.add(panelBotonera, BorderLayout.SOUTH);
 
 		JButton btnCerrarSesion = new JButton("Cerrar Sesion");

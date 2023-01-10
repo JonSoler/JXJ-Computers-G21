@@ -91,7 +91,7 @@ public class DBManager {
 				logger.log(Level.INFO, "Tabla Dispositivo creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Dispositivo ya existente");
+				//logger.log(Level.WARNING, "Tabla Dispositivo ya existente");
 				// throw new DBException("Error creando tabla de Dispositivo a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
@@ -104,7 +104,7 @@ public class DBManager {
 				logger.log(Level.INFO, "Tabla Movil creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Movil ya existente");
+				//logger.log(Level.WARNING, "Tabla Movil ya existente");
 				// throw new DBException("Error creando tabla de Movil a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
@@ -117,7 +117,7 @@ public class DBManager {
 				logger.log(Level.WARNING, "Tabla Portatil creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Portatil ya existente");
+				//logger.log(Level.WARNING, "Tabla Portatil ya existente");
 				// throw new DBException("Error creando tabla de Portatil a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
@@ -130,7 +130,7 @@ public class DBManager {
 				logger.log(Level.WARNING, "Tabla Sobremesa creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Sobremesa ya existente");
+				//logger.log(Level.WARNING, "Tabla Sobremesa ya existente");
 				// throw new DBException("Error creando tabla de Sobremesa a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
@@ -144,7 +144,7 @@ public class DBManager {
 				logger.log(Level.WARNING, "Tabla Tablet creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Tablet ya existente");
+				//logger.log(Level.WARNING, "Tabla Tablet ya existente");
 				// throw new DBException("Error creando tabla de Tablet a la BD", ex);
 
 			} // Si la tabla ya existe, no hacemos nada
@@ -155,7 +155,7 @@ public class DBManager {
 				logger.log(Level.WARNING, "Tabla usuario creada");
 
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Usuario ya existente");
+				//logger.log(Level.WARNING, "Tabla Usuario ya existente");
 				// throw new DBException("Error creando tabla de Usuarios a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada
 
@@ -163,7 +163,7 @@ public class DBManager {
 				statement.executeUpdate(
 						"CREATE TABLE if not exists opinion " + "idUsuario integer, titulo string, descripcion string");
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Opinion ya existente");
+				//logger.log(Level.WARNING, "Tabla Opinion ya existente");
 				// throw new DBException("Error creando tabla de opinion a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
 
@@ -173,7 +173,7 @@ public class DBManager {
 						+ "codigoPostal2 string, nombreCompleto string, direccion string, lineaSegundaDireccion string, ciudad string, "
 						+ "estadoProvincia string, codigoPostal string");
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Tarjeta ya existente");
+				//logger.log(Level.WARNING, "Tabla Tarjeta ya existente");
 				// throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
 
@@ -181,7 +181,7 @@ public class DBManager {
 				statement.executeUpdate("CREATE TABLE  if not exists Carrito "
 						+ "id string, nombre string, fecha string, precio double");
 			} catch (SQLException ex) {
-				logger.log(Level.WARNING, "Tabla Carrito ya existente");
+				//logger.log(Level.WARNING, "Tabla Carrito ya existente");
 				// throw new DBException("Error creando tabla de tarjeta a la BD", ex);
 			} // Si la tabla ya existe, no hacemos nada*/
 

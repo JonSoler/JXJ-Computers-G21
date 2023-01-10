@@ -72,11 +72,11 @@ public class VentanaGestionUsuario extends JFrame {
 		menuBar.setBounds(0, 0, 584, 22);
 		getContentPane().add(menuBar);
 
-		JMenu mnGestion = new JMenu("Gestion");
+		JMenu mnGestion = new JMenu("Menú administrar");
 		mnGestion.setForeground(Color.BLACK);
 		menuBar.add(mnGestion);
 
-		JMenuItem mnStock = new JMenuItem("Stock");
+		JMenuItem mnStock = new JMenuItem("Stock disponible");
 		mnStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaGestionStock vgs = new VentanaGestionStock();
@@ -86,17 +86,7 @@ public class VentanaGestionUsuario extends JFrame {
 		});
 		mnGestion.add(mnStock);
 
-		JMenuItem mnUsuarios = new JMenuItem("Usuarios");
-		mnUsuarios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaGestionUsuario vgu = new VentanaGestionUsuario();
-				vgu.setVisible(true);
-				dispose();
-			}
-		});
-		mnGestion.add(mnUsuarios);
-
-		JMenuItem mnInicioAdmin = new JMenuItem("Volver al inicio");
+		JMenuItem mnInicioAdmin = new JMenuItem("Atrás");
 		mnInicioAdmin.setForeground(Color.BLACK);
 		mnInicioAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
