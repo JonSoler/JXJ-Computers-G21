@@ -35,8 +35,8 @@ import jxj.seccionDisp.Tablet;
 public class VentanaTablet {
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	private DefaultListModel<Dispositivo> modelo;
-	private JList<Dispositivo> lista;
+	private static DefaultListModel<String> modelo;
+	private JList<String> lista;
 	private JScrollPane scroll;
 
 	public static void main() {
@@ -160,10 +160,12 @@ public class VentanaTablet {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaCategoria.carrito) {
-			modelo.addElement(d);
+		for(Dispositivo Dispositivo : VentanaCategoria.carrito) {
+			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
 	}
+	
+	
 
 	private void cargarRecursivamente(JPanel TabletPanel, ArrayList<Tablet> Tablet, int i) {
 		if (i < Tablet.size()) {
@@ -172,6 +174,11 @@ public class VentanaTablet {
 			cargarRecursivamente(TabletPanel, Tablet, i + 1);
 		}
 	}
+	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
+	}
+	
 
 	private JPanel TabletPanel(Tablet tablet, ArrayList<Dispositivo> carrito) {
 
