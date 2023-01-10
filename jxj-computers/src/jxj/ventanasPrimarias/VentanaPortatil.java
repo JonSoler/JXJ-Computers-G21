@@ -151,6 +151,7 @@ public class VentanaPortatil {
 		btnCarritoCompra.addActionListener(e -> {
 			VentanaCarritoCompra.main();
 		});
+		
 		JPanel pBotonera = new JPanel();
 		modelo = new DefaultListModel<>();
 		cargarModelo();
