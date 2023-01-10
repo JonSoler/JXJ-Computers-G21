@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 
 public class VentanaFinal extends JFrame {
 	/**
@@ -106,7 +106,7 @@ public class VentanaFinal extends JFrame {
 		JButton btnNewButton_1 = new JButton("Volver a JXJ Computers");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaSeccion vp = new VentanaSeccion();
+				VentanaCategoria vp = new VentanaCategoria();
 				setVisible(false);
 				vp.setVisible(true);
 			}

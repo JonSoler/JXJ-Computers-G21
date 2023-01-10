@@ -100,23 +100,23 @@ public class VentanaTablet {
 		//frame.getContentPane().add(menuBar);
 		pCentro.add(menuBar);
 
-		JMenu mnSec = new JMenu("Secciones");
+		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
-
-		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
-		mntmSobremesa.addActionListener(e -> {
-			VentanaSobremesa.main();
+		
+		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
 			frame.dispose();
 		});
-		mnSec.add(mntmSobremesa);
-
+		mnSec.add(mntmSecInicio);
+		
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
 			VentanaMovil.main();
 			frame.dispose();
 		});
 		mnSec.add(mntmMovil);
-
+		
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
 			VentanaPortatil.main();
@@ -124,19 +124,12 @@ public class VentanaTablet {
 		});
 		mnSec.add(mntmPortatil);
 
-		JMenuItem mntmTablet = new JMenuItem("Tablet");
-		mntmTablet.addActionListener(e -> {
-			VentanaTablet.main();
+		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
+		mntmSobremesa.addActionListener(e -> {
+			VentanaSobremesa.main();
 			frame.dispose();
 		});
-		mnSec.add(mntmTablet);
-
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaSeccion.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
+		mnSec.add(mntmSobremesa);
 
 		JLabel lblTablet = new JLabel("Tablet");
 		lblTablet.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -167,14 +160,14 @@ public class VentanaTablet {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaSeccion.carrito) {
+		for(Dispositivo d : VentanaCategoria.carrito) {
 			modelo.addElement(d);
 		}
 	}
 
 	private void cargarRecursivamente(JPanel TabletPanel, ArrayList<Tablet> Tablet, int i) {
 		if (i < Tablet.size()) {
-			JPanel TabletsPanel = TabletPanel(Tablet.get(i), VentanaSeccion.carrito);
+			JPanel TabletsPanel = TabletPanel(Tablet.get(i), VentanaCategoria.carrito);
 			TabletPanel.add(TabletsPanel);
 			cargarRecursivamente(TabletPanel, Tablet, i + 1);
 		}

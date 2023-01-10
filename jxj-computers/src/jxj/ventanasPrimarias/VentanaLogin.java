@@ -245,7 +245,7 @@ public class VentanaLogin extends JFrame {
 				JOptionPane.showMessageDialog(null, "BIENVENIDO A JXJ Computers", "BIENVENIDO",
 						JOptionPane.INFORMATION_MESSAGE);
 
-				VentanaSeccion vs = new VentanaSeccion();
+				VentanaCategoria vs = new VentanaCategoria();
 				setVisible(false);
 				vs.setVisible(true);
 			} else {

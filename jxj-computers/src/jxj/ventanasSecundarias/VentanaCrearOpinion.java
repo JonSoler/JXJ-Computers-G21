@@ -25,7 +25,7 @@ import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaLogin;
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 
 public class VentanaCrearOpinion extends JFrame {
 
@@ -113,8 +113,8 @@ public class VentanaCrearOpinion extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JOptionPane.showMessageDialog(null, "Gracias por tu opini�n", "Correcto", 1);
-				VentanaSeccion vs = null;
-				vs = new VentanaSeccion();
+				VentanaCategoria vs = null;
+				vs = new VentanaCategoria();
 				vs.setVisible(true);
 				setVisible(false);
 			}

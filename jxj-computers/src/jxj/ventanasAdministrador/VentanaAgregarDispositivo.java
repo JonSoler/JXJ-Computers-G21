@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 
 public class VentanaAgregarDispositivo extends JFrame {
 
@@ -190,7 +190,7 @@ public class VentanaAgregarDispositivo extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					VentanaSeccion vs = new VentanaSeccion();
+					VentanaCategoria vs = new VentanaCategoria();
 					vs.setVisible(true);
 					setVisible(false);
 				}

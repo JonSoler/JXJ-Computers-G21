@@ -72,7 +72,7 @@ public class VentanaCarritoCompra extends JFrame {
 	public VentanaCarritoCompra(ListaDispositivo Dispositivos) {
 		this.precioTotal = 0;
 		lblTotal = new JLabel();
-		initTablePanel(VentanaSeccion.carrito);
+		initTablePanel(VentanaCategoria.carrito);
 		initialize();
 	}
 
@@ -143,8 +143,8 @@ public class VentanaCarritoCompra extends JFrame {
 		btnVaciarCesta.addActionListener(e -> {
 			while (carritoModeloTabla.getRowCount() != 0)
 				carritoModeloTabla.removeRow(0);
-			while (!VentanaSeccion.carrito.isEmpty()) {
-				VentanaSeccion.carrito.remove(0);
+			while (!VentanaCategoria.carrito.isEmpty()) {
+				VentanaCategoria.carrito.remove(0);
 			}
 		});
 		frame.getContentPane().add(btnVaciarCesta);

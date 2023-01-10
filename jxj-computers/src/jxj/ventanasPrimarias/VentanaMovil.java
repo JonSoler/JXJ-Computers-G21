@@ -102,8 +102,22 @@ public class VentanaMovil {
 		//frame.getContentPane().add(menuBar);
 		pCentro.add(menuBar);
 		
-		JMenu mnSec = new JMenu("Secciones");
+		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
+		
+		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
+			frame.dispose();
+		});
+		mnSec.add(mntmSecInicio);
+				
+		JMenuItem mntmPortatil = new JMenuItem("Portatil");
+		mntmPortatil.addActionListener(e -> {
+			VentanaPortatil.main();
+			frame.dispose();
+		});
+		mnSec.add(mntmPortatil);
 
 		JMenuItem mntmSobremesa = new JMenuItem("Sobremesa");
 		mntmSobremesa.addActionListener(e -> {
@@ -112,33 +126,12 @@ public class VentanaMovil {
 		});
 		mnSec.add(mntmSobremesa);
 
-		JMenuItem mntmMovil = new JMenuItem("Movil");
-		mntmMovil.addActionListener(e -> {
-			VentanaMovil.main();
-			frame.dispose();
-		});
-		mnSec.add(mntmMovil);
-
-		JMenuItem mntmPortatil = new JMenuItem("Portatil");
-		mntmPortatil.addActionListener(e -> {
-			VentanaPortatil.main();
-			frame.dispose();
-		});
-		mnSec.add(mntmPortatil);
-
 		JMenuItem mntmTablet = new JMenuItem("Tablet");
 		mntmTablet.addActionListener(e -> {
 			VentanaTablet.main();
 			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
-
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaSeccion.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
 
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -170,14 +163,14 @@ public class VentanaMovil {
 	}
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaSeccion.carrito) {
+		for(Dispositivo d : VentanaCategoria.carrito) {
 			modelo.addElement(d);
 		}
 	}
 	
 	private void cargarRecursivamente(JPanel MovilPanel, ArrayList<Movil> Movil, int i) {
 		if (i < Movil.size()) {
-			JPanel MovilsPanel = DispositivoPanel(Movil.get(i), VentanaSeccion.carrito);
+			JPanel MovilsPanel = DispositivoPanel(Movil.get(i), VentanaCategoria.carrito);
 			MovilPanel.add(MovilsPanel);
 			cargarRecursivamente(MovilPanel, Movil, i + 1);
 		}

@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import jxj.clasesBasicas.Usuario;
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 
 public class VentanaCuentaUsuario extends JFrame {
 
@@ -118,7 +118,7 @@ public class VentanaCuentaUsuario extends JFrame {
 		JButton btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(e -> {
 
-			VentanaSeccion principal = new VentanaSeccion();
+			VentanaCategoria principal = new VentanaCategoria();
 			principal.setVisible(true);
 			dispose();
 		});

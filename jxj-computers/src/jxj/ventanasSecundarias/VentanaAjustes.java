@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 import jxj.ventanasPrimarias.VentanaLogin;
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 import jxj.ventanasVenta.VentanaVentasInformacion;
 
 public class VentanaAjustes extends JFrame {
@@ -131,8 +131,8 @@ public class VentanaAjustes extends JFrame {
 
 		btnvlvAtras.addActionListener(e -> {
 
-			VentanaSeccion vs = null;
-			vs = new VentanaSeccion();
+			VentanaCategoria vs = null;
+			vs = new VentanaCategoria();
 			vs.setVisible(true);
 			setVisible(false);
 

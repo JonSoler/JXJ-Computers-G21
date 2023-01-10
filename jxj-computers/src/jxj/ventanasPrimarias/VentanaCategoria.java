@@ -20,7 +20,7 @@ import jxj.seccionDisp.Dispositivo;
 import jxj.ventanasSecundarias.VentanaAjustes;
 import jxj.ventanasSecundarias.VentanaCuentaUsuario;
 
-public class VentanaSeccion extends JFrame {
+public class VentanaCategoria extends JFrame {
 	/**
 	 * 
 	 */
@@ -40,7 +40,7 @@ public class VentanaSeccion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaSeccion window = new VentanaSeccion();
+					VentanaCategoria window = new VentanaCategoria();
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +54,7 @@ public class VentanaSeccion extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public VentanaSeccion() {
+	public VentanaCategoria() {
 		initialize();
 		setVisible(true);
 	}
@@ -69,12 +69,14 @@ public class VentanaSeccion extends JFrame {
 		setTitle("JXJ Computers");
 		getContentPane().setLayout(null);
 
-		JLabel lblSeccionesDispositivos = new JLabel("Secciones de los Dispositivos");
-		lblSeccionesDispositivos.setFont(new Font("Dialog", Font.PLAIN, 21));
-		lblSeccionesDispositivos.setBounds(83, 6, 317, 26);
-		getContentPane().add(lblSeccionesDispositivos);
+		JLabel lblCategoriasDispositivos = new JLabel("Todas las categorías");
+		lblCategoriasDispositivos.setFont(new Font("Cooper Black", Font.BOLD, 32));
+		lblCategoriasDispositivos.setForeground(new Color(102, 102, 153));
+		lblCategoriasDispositivos.setBounds(68, 0, 379, 45);
+		getContentPane().add(lblCategoriasDispositivos);
 
 		JLabel lblMovil = new JLabel("Movil");
+		lblMovil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblMovil.setBounds(83, 62, 126, 77);
 		getContentPane().add(lblMovil);
 		ImageIcon ico3 = new ImageIcon("imagenes/Movil.jpg");
@@ -83,6 +85,7 @@ public class VentanaSeccion extends JFrame {
 		lblMovil.setIcon(img3);
 
 		JButton btnMovil = new JButton("Movil");
+		btnMovil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnMovil.setForeground(Color.WHITE);
 		btnMovil.setBackground(new Color(255, 165, 0));
 		btnMovil.setBounds(83, 150, 126, 48);
@@ -94,6 +97,7 @@ public class VentanaSeccion extends JFrame {
 		});
 
 		JLabel lblPortatil = new JLabel("Portatil");
+		lblPortatil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblPortatil.setBounds(275, 62, 126, 77);
 		getContentPane().add(lblPortatil);
 
@@ -103,6 +107,7 @@ public class VentanaSeccion extends JFrame {
 		lblPortatil.setIcon(img2);
 
 		JButton btnPortatil = new JButton("Portatil");
+		btnPortatil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnPortatil.setForeground(Color.WHITE);
 		btnPortatil.setBackground(new Color(255, 165, 0));
 		btnPortatil.setBounds(275, 150, 126, 48);
@@ -114,6 +119,7 @@ public class VentanaSeccion extends JFrame {
 		});
 
 		JLabel lblSobremesa = new JLabel("Sobremesa");
+		lblSobremesa.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblSobremesa.setBackground(Color.WHITE);
 		lblSobremesa.setBounds(83, 239, 126, 77);
 		getContentPane().add(lblSobremesa);
@@ -124,6 +130,7 @@ public class VentanaSeccion extends JFrame {
 		lblSobremesa.setIcon(img4);
 
 		JButton btnSobremesa = new JButton("Sobremesa");
+		btnSobremesa.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnSobremesa.setForeground(Color.WHITE);
 		btnSobremesa.setBackground(new Color(255, 165, 0));
 		btnSobremesa.setBounds(83, 339, 126, 48);
@@ -135,6 +142,7 @@ public class VentanaSeccion extends JFrame {
 		});
 
 		JLabel lblTablet = new JLabel("Tablet");
+		lblTablet.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		lblTablet.setBackground(Color.WHITE);
 		lblTablet.setBounds(275, 239, 126, 77);
 		getContentPane().add(lblTablet);
@@ -145,6 +153,7 @@ public class VentanaSeccion extends JFrame {
 		lblTablet.setIcon(img5);
 
 		JButton btnTablet = new JButton("Tablet");
+		btnTablet.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));
 		btnTablet.setForeground(Color.WHITE);
 		btnTablet.setBackground(new Color(255, 165, 0));
 		btnTablet.setBounds(275, 339, 126, 48);

@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 
-import jxj.ventanasPrimarias.VentanaSeccion;
+import jxj.ventanasPrimarias.VentanaCategoria;
 
 public class VentanaPoliticaPrivacidad extends JFrame {
 
@@ -63,7 +63,7 @@ public class VentanaPoliticaPrivacidad extends JFrame {
 
 			JOptionPane.showMessageDialog(null, "Has aceptado la politica de privacidad", "Privacidad",
 					JOptionPane.INFORMATION_MESSAGE);
-			VentanaSeccion v = new VentanaSeccion();
+			VentanaCategoria v = new VentanaCategoria();
 			v.setVisible(true);
 			dispose();
 		}
