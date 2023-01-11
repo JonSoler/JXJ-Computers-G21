@@ -36,7 +36,6 @@ public class VentanaMovil {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	
 	private static DefaultListModel<String> modelo;
 	private JList<String> lista;
 	private JScrollPane scroll;
@@ -104,14 +103,7 @@ public class VentanaMovil {
 		
 		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
-		
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaCategoria.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
-				
+						
 		JMenuItem mntmPortatil = new JMenuItem("Portatil");
 		mntmPortatil.addActionListener(e -> {
 			VentanaPortatil.main();
@@ -132,6 +124,13 @@ public class VentanaMovil {
 			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
+		
+		JMenuItem mntmSecInicio = new JMenuItem("Atrás");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
+			frame.dispose();
+		});
+		mnSec.add(mntmSecInicio);
 
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -139,7 +138,7 @@ public class VentanaMovil {
 		//frame.getContentPane().add(lblMovil);
 		pCentro.add(lblMovil);
 		
-		JButton btnCarritoCompra = new JButton("Carrito");
+		JButton btnCarritoCompra = new JButton("Cesta");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
 			VentanaCarritoCompra.main();
@@ -207,7 +206,7 @@ public class VentanaMovil {
 		lblPrecio.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel.add(lblPrecio);
 
-		JButton btnAnadirAlCarrito = new JButton("Agregar al carrito");
+		JButton btnAnadirAlCarrito = new JButton("Agregar al la cesta");
 		btnAnadirAlCarrito.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAnadirAlCarrito.setForeground(Color.WHITE);
 		btnAnadirAlCarrito.setBackground(new Color(255, 165, 0));

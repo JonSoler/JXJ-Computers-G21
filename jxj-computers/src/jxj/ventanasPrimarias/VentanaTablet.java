@@ -33,6 +33,7 @@ import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Tablet;
 
 public class VentanaTablet {
+	
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
 	private static DefaultListModel<String> modelo;
@@ -103,13 +104,6 @@ public class VentanaTablet {
 		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
 		
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaCategoria.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
-		
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
 			VentanaMovil.main();
@@ -129,7 +123,14 @@ public class VentanaTablet {
 			VentanaSobremesa.main();
 			frame.dispose();
 		});
+		
 		mnSec.add(mntmSobremesa);
+		JMenuItem mntmSecInicio = new JMenuItem("Atrás");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
+			frame.dispose();
+		});
+		mnSec.add(mntmSecInicio);
 
 		JLabel lblTablet = new JLabel("Tablet");
 		lblTablet.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -137,7 +138,7 @@ public class VentanaTablet {
 		//frame.getContentPane().add(lblTablet);
 		pCentro.add(lblTablet);
 
-		JButton btnCarritoCompra = new JButton("Carrito");
+		JButton btnCarritoCompra = new JButton("Cesta");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
 			VentanaCarritoCompra.main();
@@ -160,12 +161,14 @@ public class VentanaTablet {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo Dispositivo : VentanaCategoria.carrito) {
+		for (Dispositivo Dispositivo : VentanaCategoria.carrito) {
 			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
 	}
 	
-	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
+	}
 
 	private void cargarRecursivamente(JPanel TabletPanel, ArrayList<Tablet> Tablet, int i) {
 		if (i < Tablet.size()) {
@@ -174,11 +177,6 @@ public class VentanaTablet {
 			cargarRecursivamente(TabletPanel, Tablet, i + 1);
 		}
 	}
-	
-	public static void vaciarLista() {
-		modelo.removeAllElements();
-	}
-	
 
 	private JPanel TabletPanel(Tablet tablet, ArrayList<Dispositivo> carrito) {
 

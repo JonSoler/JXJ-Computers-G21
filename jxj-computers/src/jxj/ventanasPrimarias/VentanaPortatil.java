@@ -36,9 +36,8 @@ public class VentanaPortatil {
 
 	private JFrame frame;
 	private ListaDispositivo Dispositivos;
-	
-	private DefaultListModel<Dispositivo> modelo;
-	private JList<Dispositivo> lista;
+	private static DefaultListModel<String> modelo;
+	private JList<String> lista;
 	private JScrollPane scroll;
 
 	public static void main() {
@@ -104,14 +103,7 @@ public class VentanaPortatil {
 
 		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
-		
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaCategoria.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
-		
+				
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
 			VentanaMovil.main();
@@ -132,6 +124,13 @@ public class VentanaPortatil {
 			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
+		
+		JMenuItem mntmSecInicio = new JMenuItem("Atrás");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
+			frame.dispose();
+		});
+		mnSec.add(mntmSecInicio);
 
 		JLabel lblPortatil = new JLabel("Portatil");
 		lblPortatil.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -162,9 +161,13 @@ public class VentanaPortatil {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo d : VentanaCategoria.carrito) {
-			modelo.addElement(d);
+		for (Dispositivo Dispositivo : VentanaCategoria.carrito) {
+			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
+	}
+	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
 	}
 
 	private void cargarRecursivamente(JPanel PortatilPanel, ArrayList<Portatil> Portatil, int i) {

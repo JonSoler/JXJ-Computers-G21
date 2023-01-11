@@ -108,13 +108,6 @@ public class VentanaSobremesa {
 		JMenu mnSec = new JMenu("Categorías");
 		menuBar.add(mnSec);
 		
-		JMenuItem mntmSecInicio = new JMenuItem("Volver a inicio");
-		mntmSecInicio.addActionListener(e -> {
-			VentanaCategoria.main(null);
-			frame.dispose();
-		});
-		mnSec.add(mntmSecInicio);
-		
 		JMenuItem mntmMovil = new JMenuItem("Movil");
 		mntmMovil.addActionListener(e -> {
 			VentanaMovil.main();
@@ -135,14 +128,21 @@ public class VentanaSobremesa {
 			frame.dispose();
 		});
 		mnSec.add(mntmTablet);
+		
+		JMenuItem mntmSecInicio = new JMenuItem("Atrás");
+		mntmSecInicio.addActionListener(e -> {
+			VentanaCategoria.main(null);
+			frame.dispose();
+		});
+		mnSec.add(mntmSecInicio);
 
 		JLabel lblSobremesa = new JLabel("Sobremesa");
 		lblSobremesa.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblSobremesa.setBounds(194, 34, 178, 43);
 		//frame.getContentPane().add(lblSobremesa);
 		pCentro.add(lblSobremesa);
-
-		JButton btnCarritoCompra = new JButton("Carrito");
+		
+		JButton btnCarritoCompra = new JButton("Cesta");
 		btnCarritoCompra.setBounds(250, 550, 80, 30);
 		btnCarritoCompra.addActionListener(e -> {
 			VentanaCarritoCompra.main();
@@ -166,9 +166,13 @@ public class VentanaSobremesa {
 	
 	private void cargarModelo() {
 		modelo.removeAllElements();
-		for(Dispositivo Dispositivo : VentanaCategoria.carrito) {
+		for (Dispositivo Dispositivo : VentanaCategoria.carrito) {
 			modelo.addElement("Has añadido " + Dispositivo.getNombre() + " por " + Dispositivo.getPrecio() + "€ a la cesta");
 		}
+	}
+	
+	public static void vaciarLista() {
+		modelo.removeAllElements();
 	}
 
 	private void cargarRecursivamente(JPanel SobremesaPanel, ArrayList<Sobremesa> Sobremesa, int i) {
@@ -177,10 +181,6 @@ public class VentanaSobremesa {
 			SobremesaPanel.add(SobremesasPanel);
 			cargarRecursivamente(SobremesaPanel, Sobremesa, i + 1);
 		}
-	}
-	
-	public static void vaciarLista() {
-		modelo.removeAllElements();
 	}
 
 	private JPanel DispositivoPanel(Sobremesa sobremesa, ArrayList<Dispositivo> carrito) {
