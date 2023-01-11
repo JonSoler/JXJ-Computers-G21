@@ -1,6 +1,7 @@
 package jxj.recursividad;
 
 import java.util.ArrayList;
+import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Movil;
 
 public class RecursividadRecomendaciones {
@@ -20,10 +21,28 @@ public class RecursividadRecomendaciones {
 				//importe = importe + ad.get(i).getPrecio();
 				//aux.remove(i);
 			}else {
-				al.add(aux);
+				al.add(aux);	
 			}
 		}else {
 			al.add(aux);
 		}
+	}
+	
+	public void mostrarOpciones() {
+		int i=1;
+		for(ArrayList<Movil> a: al) {
+			System.out.println("OPCIÓN: "+i);
+			for(Dispositivo d: a) {
+				System.out.println("\t"+d);
+			}
+		}
+	}
+	
+	public ArrayList<ArrayList<Movil>> getAl() {
+		return al;
+	}
+
+	public void setAl(ArrayList<ArrayList<Movil>> al) {
+		this.al = al;
 	}
 }
