@@ -53,8 +53,9 @@ public class Tablet extends Dispositivo {
 
 	@Override
 	public String toString() {
-		return "Tablet [color=" + color + ", conectividadTeclado=" + conectividadTeclado + ", pixelesCamara="
-				+ pixelesCamara + "]";
+		//return "Tablet [color=" + color + ", conectividadTeclado=" + conectividadTeclado + ", pixelesCamara=" + pixelesCamara + "]";
+		
+		return getNombre() + ", " + getPrecio() + "€";
 	}
 
 }

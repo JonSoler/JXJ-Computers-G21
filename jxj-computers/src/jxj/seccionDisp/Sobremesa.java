@@ -53,8 +53,9 @@ public class Sobremesa extends Dispositivo {
 
 	@Override
 	public String toString() {
-		return "Sobremesa [fuenteAlimentacion=" + fuenteAlimentacion + ", ventilador=" + ventilador + ", numPuertosUSB="
-				+ numPuertosUSB + "]";
+		//return "Sobremesa [fuenteAlimentacion=" + fuenteAlimentacion + ", ventilador=" + ventilador + ", numPuertosUSB=" + numPuertosUSB + "]";
+		
+		return getNombre() + ", " + getPrecio() + "€";
 	}
 
 }

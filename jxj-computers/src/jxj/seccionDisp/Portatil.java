@@ -57,7 +57,9 @@ public class Portatil extends Dispositivo {
 
 	@Override
 	public String toString() {
-		return "Portatil [webcam=" + webcam + ", tipoTeclado=" + tipoTeclado + ", touchpad=" + touchpad + "]";
+		//return "Portatil [webcam=" + webcam + ", tipoTeclado=" + tipoTeclado + ", touchpad=" + touchpad + "]";
+		
+		return getNombre() + ", " + getPrecio() + "€";
 	}
 
 }

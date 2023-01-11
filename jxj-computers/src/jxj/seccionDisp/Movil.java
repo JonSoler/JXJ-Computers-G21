@@ -54,9 +54,9 @@ public class Movil extends Dispositivo {
 
 	@Override
 	public String toString() {
-		//return "Movil [tactil=" + tactil + ", sensorReconocimiento=" + sensorReconocimiento + ", bateria=" + bateria
-		//		+ "]";
-		return getNombre() + " " + getPrecio() + " €";
+		//return "Movil [tactil=" + tactil + ", sensorReconocimiento=" + sensorReconocimiento + ", bateria=" + bateria + "]";
+		
+		return getNombre() + ", " + getPrecio() + "€";
 	}
 
 }
