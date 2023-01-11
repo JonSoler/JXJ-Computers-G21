@@ -172,7 +172,8 @@ public class VentanaSobremesa {
 	}
 	
 	public static void vaciarLista() {
-		modelo.removeAllElements();
+		if(modelo!=null)
+        	modelo.removeAllElements();
 	}
 
 	private void cargarRecursivamente(JPanel SobremesaPanel, ArrayList<Sobremesa> Sobremesa, int i) {

@@ -168,7 +168,8 @@ public class VentanaMovil {
 	}
 	
 	public static void vaciarLista() {
-		modelo.removeAllElements();
+		if(modelo!=null)
+        	modelo.removeAllElements();
 	}
 	
 	private void cargarRecursivamente(JPanel MovilPanel, ArrayList<Movil> Movil, int i) {

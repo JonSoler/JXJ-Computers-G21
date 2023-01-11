@@ -141,7 +141,12 @@ public class VentanaCarritoCompra extends JFrame {
 		JButton btnVaciarCesta = new JButton("Vaciar cesta");
 		btnVaciarCesta.setBounds(90, 349, 212, 29);
 		btnVaciarCesta.addActionListener(e -> {
+			
 			VentanaMovil.vaciarLista();
+			VentanaPortatil.vaciarLista();
+			VentanaSobremesa.vaciarLista();
+			VentanaTablet.vaciarLista();
+			
 			while (carritoModeloTabla.getRowCount() != 0)
 				carritoModeloTabla.removeRow(0);
 			while (!VentanaCategoria.carrito.isEmpty()) {

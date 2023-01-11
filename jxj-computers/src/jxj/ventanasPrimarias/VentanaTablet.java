@@ -167,7 +167,8 @@ public class VentanaTablet {
 	}
 	
 	public static void vaciarLista() {
-		modelo.removeAllElements();
+        if(modelo!=null)
+        	modelo.removeAllElements();
 	}
 
 	private void cargarRecursivamente(JPanel TabletPanel, ArrayList<Tablet> Tablet, int i) {
