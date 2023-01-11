@@ -1,6 +1,8 @@
 package jxj.recursividad;
 
 import java.util.ArrayList;
+import jxj.dataBase.DBException;
+import jxj.dataBase.DBManager;
 import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Movil;
 
@@ -44,5 +46,17 @@ public class RecursividadRecomendaciones {
 
 	public void setAl(ArrayList<ArrayList<Movil>> al) {
 		this.al = al;
+	}
+
+	public static void main(String[] args) {
+		try {
+			DBManager.initBD("JXJComputers.db");
+			ArrayList<Movil> ad = DBManager.listarMovil();
+			RecursividadRecomendaciones rr = new RecursividadRecomendaciones(700, ad);
+			rr.mostrarOpciones();
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
