@@ -201,11 +201,9 @@ public class VentanaVenta extends JFrame {
 		btnAtras.setBounds(126, 266, 128, 29);
 
 		btnAtras.addActionListener(e -> {
-
 			VentanaVentasInformacion v4 = new VentanaVentasInformacion();
 			v4.setVisible(true);
 			dispose();
-
 		});
 
 		JButton btnGuardar = new JButton("Guardar");
@@ -316,12 +314,6 @@ public class VentanaVenta extends JFrame {
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnGuardar.setBounds(395, 266, 128, 29);
 
-		btnAtras.addActionListener(e -> {
-			VentanaAjustes va = new VentanaAjustes();
-			va.setVisible(true);
-			dispose();
-
-		});
 		getContentPane().add(panelBotonera, BorderLayout.SOUTH);
 
 	}
