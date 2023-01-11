@@ -52,6 +52,10 @@ public class RecursividadRecomendaciones {
 		try {
 			DBManager.initBD("JXJComputers.db");
 			ArrayList<Movil> ad = DBManager.listarMovil();
+			/**
+			 * Añadimos la cantidad de dinero que queremos gastar, de esta manera,
+			 * se nos generan todas las combinaciones de compra posibles con esa cantidad
+			 */
 			RecursividadRecomendaciones rr = new RecursividadRecomendaciones(700, ad);
 			rr.mostrarOpciones();
 		} catch (DBException e) {
