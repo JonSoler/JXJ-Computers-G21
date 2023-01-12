@@ -1,38 +1,47 @@
 package jxj.recursividad;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Movil;
 
 public class RecursividadRecomendaciones {
-	private ArrayList<ArrayList<Movil>> al;
+	private List<List<Movil>> al;
 	
-	public RecursividadRecomendaciones(double importe, ArrayList<Movil> ad) {
+	public RecursividadRecomendaciones(double importe, List<Movil> ad) {
 		al = new ArrayList<>();
-		r(importe, al, new ArrayList<Movil>(), ad, 0);
+		al = recomendaciones(importe, ad);
 	}
-	
-	public void r (double importe, ArrayList<ArrayList<Movil>> al, ArrayList<Movil> aux, ArrayList<Movil> ad, int i) {
-		if(i<ad.size()) {
-			if(importe>0) {
-				importe = importe - ad.get(i).getPrecio();
-				aux.add(ad.get(i));
-				r(importe, al, aux, ad, i+1);
-				//importe = importe + ad.get(i).getPrecio();
-				//aux.remove(i);
-			}else {
-				al.add(aux);	
+	public List<List<Movil>> recomendaciones(double importe, List<Movil> ad){
+		List<List<Movil>> recom = new ArrayList<>();
+		combinaciones(recom,ad,importe,0,new ArrayList<>());
+		return recom;
+	}
+	public void combinaciones(List<List<Movil>> recom, List<Movil>ad, double importe, double sobrante, List<Movil> temp){
+		if(importe<0) {
+			return;
+		}else if(importe < sobrante){
+			Comparator<Movil> comp = (m1,m2)->{return m1.getId().compareTo(m2.getId());};
+			Collections.sort(temp,comp);
+			if(!recom.contains(temp)) {
+				recom.add(temp);
 			}
 		}else {
-			al.add(aux);
+			for(Movil m: ad) {
+				temp.add(m);
+				combinaciones(recom, ad, importe-m.getPrecio(), sobrante, temp);
+				temp.remove(temp.size()-1);
+			}
 		}
 	}
-	
 	public void mostrarOpciones() {
 		int i=1;
-		for(ArrayList<Movil> a: al) {
+		for(List<Movil> a: al) {
 			System.out.println("OPCIÓN: "+i);
 			for(Dispositivo d: a) {
 				System.out.println("\t"+d);
@@ -40,11 +49,11 @@ public class RecursividadRecomendaciones {
 		}
 	}
 	
-	public ArrayList<ArrayList<Movil>> getAl() {
+	public List<List<Movil>> getAl() {
 		return al;
 	}
 
-	public void setAl(ArrayList<ArrayList<Movil>> al) {
+	public void setAl(List<List<Movil>> al) {
 		this.al = al;
 	}
 
