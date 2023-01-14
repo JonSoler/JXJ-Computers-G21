@@ -19,6 +19,9 @@ public class VentanaPoliticaPrivacidad extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaPoliticaPrivacidad() {
 
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

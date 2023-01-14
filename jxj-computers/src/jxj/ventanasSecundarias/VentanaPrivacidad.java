@@ -31,6 +31,9 @@ public class VentanaPrivacidad extends JFrame {
 	JPanel panel;
 	JPanel panelBotones;
 
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaPrivacidad() {
 
 		int idUser = VentanaLogin.getUsuarioId();

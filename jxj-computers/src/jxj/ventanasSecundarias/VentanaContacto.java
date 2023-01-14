@@ -18,6 +18,10 @@ public class VentanaContacto extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaContacto() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 454, 472);

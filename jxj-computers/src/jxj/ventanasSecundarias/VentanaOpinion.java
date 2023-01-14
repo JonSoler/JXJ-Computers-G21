@@ -30,7 +30,7 @@ public class VentanaOpinion extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Create the frame.
+	 * Create la ventana.
 	 */
 	public VentanaOpinion() {
 		setUndecorated(true);

@@ -85,6 +85,10 @@ public class VentanaRegistro extends JFrame {
 		private static final long serialVersionUID = 1L;
 	}
 
+	
+	/**
+	 * Ventana en la cual el usuario se registra.
+	 */
 	public VentanaRegistro() {
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));

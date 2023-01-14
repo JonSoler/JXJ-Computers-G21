@@ -40,6 +40,10 @@ public class VentanaMovil {
 	private JList<String> lista;
 	private JScrollPane scroll;
 
+	/**
+	 * Launch the application.
+	 */
+	
 	public static void main() {
 		// TODO Auto-generated method stub
 		EventQueue.invokeLater(new Runnable() {
@@ -53,6 +57,10 @@ public class VentanaMovil {
 			}
 		});
 	}
+	
+	/**
+	 * Create the application.
+	 */
 
 	public VentanaMovil() {
 		Dispositivos = new ListaDispositivo();
@@ -65,6 +73,11 @@ public class VentanaMovil {
 		initialize();
 	}
 
+	
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	
 	private void initialize() {
 
 		frame = new JFrame();

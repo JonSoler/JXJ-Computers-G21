@@ -18,6 +18,11 @@ public class VentanaInicio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Desde donde se ejecuta la aplicacion
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 
 		EventQueue.invokeLater(new Runnable() {
@@ -32,6 +37,10 @@ public class VentanaInicio extends JFrame {
 		});
 
 	}
+	
+	/**
+	 * Create the frame
+	 */
 
 	public VentanaInicio() throws DBException {
 

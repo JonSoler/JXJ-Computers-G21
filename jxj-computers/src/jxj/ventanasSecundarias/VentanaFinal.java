@@ -21,7 +21,7 @@ public class VentanaFinal extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the frame
+	 * Create la ventana
 	 */
 	
 	public VentanaFinal() {

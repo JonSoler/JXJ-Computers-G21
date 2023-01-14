@@ -27,6 +27,10 @@ public class VentanaCuentaUsuario extends JFrame {
 	private JTextField textContrasenya;
 	private JPanel panelNorte, panelCentro, panelBotonera;
 
+	
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaCuentaUsuario(Usuario u) {
 
 		panelBotonera = new JPanel();

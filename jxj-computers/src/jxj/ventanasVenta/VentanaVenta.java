@@ -36,6 +36,11 @@ public class VentanaVenta extends JFrame {
 	private JPanel panelCentro;
 	private JPanel panelBotonera;
 
+	
+	/**
+	 * Desde donde se ejecuta la aplicaciÛn
+	 * 
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

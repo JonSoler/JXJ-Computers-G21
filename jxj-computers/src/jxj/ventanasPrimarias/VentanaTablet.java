@@ -40,6 +40,10 @@ public class VentanaTablet {
 	private JList<String> lista;
 	private JScrollPane scroll;
 
+	
+	/**
+	 * Launch the application.
+	 */
 	public static void main() {
 
 		EventQueue.invokeLater(new Runnable() {
@@ -54,6 +58,9 @@ public class VentanaTablet {
 		});
 	}
 
+	/**
+	 * Create the application.
+	 */
 	public VentanaTablet() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -64,6 +71,9 @@ public class VentanaTablet {
 		initialize();
 	}
 
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	private void initialize() {
 
 		frame = new JFrame();

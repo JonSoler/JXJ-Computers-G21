@@ -34,6 +34,10 @@ public class VentanaSeguridad extends JFrame {
 	private JPanel panelCentro;
 	private JPanel panelBotones;
 
+	
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaSeguridad() {
 
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

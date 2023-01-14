@@ -46,6 +46,11 @@ public class VentanaCrearOpinion extends JFrame {
 	static PrintStream log;
 	Logger logger = Logger.getLogger("LOGGER");
 
+	
+	
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaCrearOpinion() {
 
 		int idU = VentanaLogin.getUsuarioId();

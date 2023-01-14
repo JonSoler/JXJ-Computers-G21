@@ -42,6 +42,9 @@ public class VentanaSobremesa {
 	DBManager con = new DBManager();
 	JScrollPane scrollPane;
 
+	/**
+	 * Launch the application.
+	 */
 	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -55,6 +58,9 @@ public class VentanaSobremesa {
 		});
 	}
 
+	/**
+	 * Create the application.
+	 */
 	public VentanaSobremesa() {
 		Dispositivos = new ListaDispositivo();
 		initialize();
@@ -64,6 +70,10 @@ public class VentanaSobremesa {
 		this.Dispositivos = Dispositivos;
 		initialize();
 	}
+	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 
 	private void initialize() {
 

@@ -24,6 +24,9 @@ public class VentanaTransaccionCompra extends JFrame {
 
 	private JPanel pCentral;
 
+	/**
+	 * Creamos la ventana
+	 */
 	public VentanaTransaccionCompra() {
 		setBounds(800, 300, 400, 100);
 		//setLocationRelativeTo(null);
