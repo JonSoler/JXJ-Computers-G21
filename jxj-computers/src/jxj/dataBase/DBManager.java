@@ -230,6 +230,7 @@ public class DBManager {
 	 * @param msg
 	 * @param exception
 	 */
+	
 	@SuppressWarnings("static-access")
 	private static void log(Level level, String msg, Throwable exception) {
 		if (!LOGGING) {
@@ -285,6 +286,14 @@ public class DBManager {
 
 		return idUsuario;
 	}
+	
+	/**
+	 * Busca el usuario por su id
+	 * 
+	 * @param id
+	 * @return
+	 * @throws DBException
+	 */
 
 	public Usuario buscarUsuarioId(int id) throws DBException, SQLException {
 		Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
@@ -432,6 +441,13 @@ public class DBManager {
 		}
 
 	}
+	
+	/**
+	 * Eliminar cuenta de usuario por id
+	 * 
+	 * @param idUsuario
+	 * @throws DBException
+	 */
 
 	public void eliminarUsuario(int idUsuario) throws DBException, SQLException {
 		Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
@@ -443,6 +459,13 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+	
+	/**
+	 * Actualiza la contraseña del usuario
+	 * 
+	 * @param usuario
+	 * @throws newPassword
+	 */
 
 	public void actualizarPassword(Usuario usuario, String newPassword) {
 		// Se abre la conexi�n y se obtiene el Statement
@@ -583,6 +606,12 @@ public class DBManager {
 		}
 
 	}
+	
+	/**
+	 * Desconecta la base de datos
+	 * 
+	 * @throws DBException SQLException
+	 */
 
 	public static void disconnect() throws DBException, SQLException {
 		Connection initBD = DriverManager.getConnection("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
@@ -593,6 +622,11 @@ public class DBManager {
 			throw new DBException("Error cerrando la conexiÃ³n con la BD", e);
 		}
 	}
+	
+	/**
+	 * Cerramos conexi�n con la BD
+	 * 
+	 */
 
 	public static void cerrarBD(Connection con, Statement st) {
 		try {
@@ -605,6 +639,14 @@ public class DBManager {
 			logger.log(Level.WARNING, e.getMessage());
 		}
 	}
+	
+	/**
+	 * Metodo que devuelvelve un ArrayList de dispositivos independientmente a que
+	 * seccion pertenezca
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 
 	public static ArrayList<String> listarDispositvos() throws DBException {
 		ArrayList<String> dispositivos = new ArrayList<>();
@@ -661,6 +703,13 @@ public class DBManager {
 		return dispositivos;
 
 	}
+	
+	/**
+	 * Lista todos los dispositivos sobremesa
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 
 	public static ArrayList<Sobremesa> listarSobremesa() throws DBException {
 		ArrayList<Sobremesa> Sobremesa = new ArrayList<>();
@@ -697,6 +746,13 @@ public class DBManager {
 		return Sobremesa;
 
 	}
+	
+	/**
+	 * Lista todos los dispositivos movil
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 
 	public static ArrayList<Movil> listarMovil() throws DBException {
 		ArrayList<Movil> Movil = new ArrayList<>();
@@ -733,6 +789,13 @@ public class DBManager {
 		return Movil;
 
 	}
+	
+	/**
+	 * Lista todos los dispositivos portatil
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 
 	public static ArrayList<Portatil> listarPortatil() throws DBException {
 		ArrayList<Portatil> Portatil = new ArrayList<>();
@@ -768,6 +831,13 @@ public class DBManager {
 		}
 		return Portatil;
 	}
+	
+	/**
+	 * Lista todos los dispositivos tablet
+	 * 
+	 * @return
+	 * @throws DBException
+	 */
 
 	public static ArrayList<Tablet> listarTablet() throws DBException {
 		ArrayList<Tablet> Tablet = new ArrayList<>();
@@ -837,6 +907,14 @@ public class DBManager {
 		return usuarios;
 
 	}
+	
+	/**
+	 * Borra de la base de datos un usuario dependiendo del email
+	 * 
+	 * @param u
+	 * @throws SQLException
+	 * @throws DBException
+	 */
 
 	public static void borrarUsuarioGestion(Usuario u) throws SQLException, DBException {
 		Connection con = initBD("JXJComputers.db");
@@ -845,6 +923,14 @@ public class DBManager {
 		ps.execute();
 
 	}
+	
+	/**
+	 * Metodo que borra un dispositivo de la base de datos
+	 * 
+	 * @param p
+	 * @throws SQLException
+	 * @throws DBException
+	 */
 
 	public static void borrarDispositivo(String d) throws SQLException, DBException {
 		Connection con = initBD("JXJComputers.db");
@@ -865,6 +951,12 @@ public class DBManager {
 		ps.execute();
 
 	}
+	
+	/**
+	 * Se encarga de poner un movil en oferta
+	 * 
+	 * @throws SQLException
+	 */
 
 	public static void ponerMovilEnOferta() throws SQLException {
 		Connection c;
@@ -898,6 +990,16 @@ public class DBManager {
 		}
 
 	}
+	
+	/**
+	 * Metodo que recoje un Vector de Vectores y guarda en la base de datos la lista
+	 * de los dispositivos que habia en el carrito
+	 * 
+	 * @param carrito
+	 * @throws SQLException
+	 * @throws DBException
+	 */
+
 
 	public static void insetarCarrito(@SuppressWarnings("rawtypes") Vector<Vector> carrito) throws SQLException, DBException {
 
@@ -943,7 +1045,13 @@ public class DBManager {
 		}
 	}
 
-	// HAY QUE MIRAR ESTE MÉTODO
+	/**
+	 * Metodo encargado de insertar los datos necesarios de una targeta de credito
+	 * 
+	 * @param tarjeta
+	 * @throws DBException
+	 */
+	
 	public void insertarDatosTarjeta(Tarjeta tarjeta) throws DBException {
 		Connection con = initBD("jdbc:sqlite:jxj-computers/data/JXJComputers.db");
 		try (Statement stmt = con.createStatement()) {
@@ -974,6 +1082,13 @@ public class DBManager {
 		}
 
 	}
+	
+	/**
+	 * Cambiar contrase�a para usuario
+	 * 
+	 * @param user
+	 * @throws DBException
+	 */
 
 	public void cambiarContrasenia(Usuario user) throws DBException {
 
