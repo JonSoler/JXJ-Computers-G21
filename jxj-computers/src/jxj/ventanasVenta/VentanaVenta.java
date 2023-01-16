@@ -25,7 +25,6 @@ import javax.swing.SwingConstants;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.ventanasPrimarias.VentanaInicio;
-import jxj.ventanasSecundarias.VentanaAjustes;
 
 public class VentanaVenta extends JFrame {
 

@@ -2,7 +2,6 @@ package jxj.ventanasAdministrador;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +35,7 @@ public class VentanaAdmin extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		panelNorte = new JPanel();
+		setPanelNorte(new JPanel());
 		panelBotonera = new JPanel();
 		panelCentro = new JPanel();
 
@@ -104,5 +103,13 @@ public class VentanaAdmin extends JFrame {
 
 		panelBotonera.add(btnCerrarSesion);
 
+	}
+
+	public JPanel getPanelNorte() {
+		return panelNorte;
+	}
+
+	public void setPanelNorte(JPanel panelNorte) {
+		this.panelNorte = panelNorte;
 	}
 }

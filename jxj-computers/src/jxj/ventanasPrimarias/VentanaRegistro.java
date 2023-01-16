@@ -41,6 +41,7 @@ public class VentanaRegistro extends JFrame {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	private JPanel contentpane;
@@ -435,7 +436,7 @@ public class VentanaRegistro extends JFrame {
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); // opciÛn append habilitada permite escribir
 																			// sobre el fichero sin tener que borrarlo
 			BufferedWriter bw = new BufferedWriter(fw);
-
+			
 			bw.write("\n" + textoNombre.getText() + "  " + textoApellido.getText()
 					+ " ha creado un usuario con el nombre de " + textoNombreDeUsuario.getText() + ", con contraseña "
 					+ textoContrasenya.getPassword() + ", con la edad " + textoEdad.getText() + " y con el email "
