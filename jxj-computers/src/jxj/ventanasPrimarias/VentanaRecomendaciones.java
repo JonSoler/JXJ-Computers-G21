@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +13,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
-import jxj.clasesBasicas.ListaDispositivo;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 import jxj.recursividad.RecursividadRecomendaciones;
-import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Movil;
 
 public class VentanaRecomendaciones extends JFrame {
@@ -31,7 +28,6 @@ public class VentanaRecomendaciones extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
-	private JPanel panelRecomendaciones;
 	private static DefaultListModel<List<Movil>> modelo;
 	private JList<List<Movil>> lista;
 	private JScrollPane scroll;
@@ -64,7 +60,7 @@ public class VentanaRecomendaciones extends JFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 400, 500);
+		frame.setBounds(100, 100, 850, 310);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJ Computers");
 		frame.getContentPane().setLayout(new BorderLayout());
@@ -84,7 +80,7 @@ public class VentanaRecomendaciones extends JFrame {
 
 		});
 
-		JLabel lblRecomendaciones = new JLabel("Combinaciones recomendadas");
+		JLabel lblRecomendaciones = new JLabel("Combinaciones recomendadas", SwingConstants.CENTER);
 		lblRecomendaciones.setFont(new Font("Cooper Black", Font.BOLD, 22));
 		lblRecomendaciones.setForeground(new Color(102, 102, 153));
 		lblRecomendaciones.setBounds(10, 28, 364, 43);
