@@ -8,3 +8,4 @@ Mariano  Delgado ha creado un usuario con el nombre de MyP, con contraseña [C@6
 X  G ha iniciado sesion con el usuario xg con contrasenia 123
 Cristiano  Ronaldo ha iniciado sesion con el usuario cr con contrasenia 123
 X  G ha iniciado sesion con el usuario xg con contrasenia 123
+Antonio  GUtierrez ha creado un usuario con el nombre de Antonio45, con contraseña [C@c447a45, con la edad 45 y con el email a@gmail.eus

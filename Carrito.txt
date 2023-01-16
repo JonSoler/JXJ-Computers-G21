@@ -1,2 +1,6 @@
+M4 Poco M4 Pro 179.0 10/08/2022
+M5 ProT5 328.0 2022/05/12
+M2 Samsung Galaxy S3 339.0 14/01/2022
 T3 Microsoft surface go 439.0 17/04/2022
-T4 Ipad Air 2 182.0 04/09/2021
+P2 Alurin Go Intel 324.0 09/01/2022
+M1 Xiaomi Readme Note 199.0 17/11/2021

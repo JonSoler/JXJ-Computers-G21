@@ -39,14 +39,14 @@ public class VentanaContacto extends JFrame {
 		lblGmail.setText("JXJComputers@gmail.es");
 		lblGmail.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblGmail.setFocusable(false);
-		lblGmail.setBounds(152, 77, 240, 41);
+		lblGmail.setBounds(163, 77, 240, 41);
 		getContentPane().add(lblGmail);
 
 		JLabel lblLinkedin = new JLabel();
 		lblLinkedin.setText("JXJComputers Linkedin");
 		lblLinkedin.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblLinkedin.setFocusable(false);
-		lblLinkedin.setBounds(152, 143, 300, 41);
+		lblLinkedin.setBounds(163, 173, 300, 41);
 		getContentPane().add(lblLinkedin);
 
 		JTextArea txtDispositivo = new JTextArea();
@@ -62,7 +62,6 @@ public class VentanaContacto extends JFrame {
 		getContentPane().add(btnVolver);
 
 		JButton btnGmail = new JButton("");
-		btnGmail.setBackground(new Color(255, 255, 255));
 		btnGmail.setIcon(new ImageIcon("imagenes/iconoEmail.png"));
 		btnGmail.setFocusPainted(false);
 		btnGmail.setBorderPainted(false);
@@ -82,11 +81,10 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 
-		btnGmail.setBounds(56, 89, 42, 29);
+		btnGmail.setBounds(63, 69, 60, 53);
 		getContentPane().add(btnGmail);
 
 		JButton btnLinkedin = new JButton("");
-		btnLinkedin.setBackground(new Color(255, 255, 255));
 		btnLinkedin.setIcon(new ImageIcon("imagenes/iconoLikedin.png"));
 		btnLinkedin.setFocusPainted(false);
 		btnLinkedin.setBorderPainted(false);
@@ -106,7 +104,7 @@ public class VentanaContacto extends JFrame {
 			}
 		});
 
-		btnLinkedin.setBounds(68, 143, 43, 38);
+		btnLinkedin.setBounds(58, 161, 60, 61);
 		getContentPane().add(btnLinkedin);
 
 		JButton btnCerrarSesion = new JButton("Cerrar sesion");
