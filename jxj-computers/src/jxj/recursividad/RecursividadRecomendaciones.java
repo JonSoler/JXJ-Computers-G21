@@ -14,28 +14,29 @@ public class RecursividadRecomendaciones {
 	private List<List<Movil>> al;
 	
 	public RecursividadRecomendaciones(double importe, List<Movil> ad) {
-		al = new ArrayList<>();
 		al = recomendaciones(importe, ad);
 	}
 	public List<List<Movil>> recomendaciones(double importe, List<Movil> ad){
 		List<List<Movil>> recom = new ArrayList<>();
-		combinaciones(recom,ad,importe,0,new ArrayList<>());
+		combinaciones(recom,ad,importe,100,new ArrayList<>());
 		return recom;
 	}
 	public void combinaciones(List<List<Movil>> recom, List<Movil>ad, double importe, double sobrante, List<Movil> temp){
-		if(importe<0) {
+		if(importe < 0)
 			return;
-		}else if(importe < sobrante){
+		else if(importe < sobrante){
 			Comparator<Movil> comp = (m1,m2)->{return m1.getId().compareTo(m2.getId());};
 			Collections.sort(temp,comp);
 			if(!recom.contains(temp)) {
-				recom.add(temp);
+				recom.add(new ArrayList<>(temp));
+				
 			}
 		}else {
 			for(Movil m: ad) {
-				temp.add(m);
-				combinaciones(recom, ad, importe-m.getPrecio(), sobrante, temp);
-				temp.remove(temp.size()-1);
+					temp.add(m);
+					combinaciones(recom, ad, importe-m.getPrecio(), sobrante, temp);
+					temp.remove(temp.size()-1);
+				
 			}
 		}
 	}
@@ -46,6 +47,7 @@ public class RecursividadRecomendaciones {
 			for(Dispositivo d: a) {
 				System.out.println("\t"+d);
 			}
+			i++;
 		}
 	}
 	
