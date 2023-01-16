@@ -157,6 +157,12 @@ public class VentanaMovil {
 			VentanaCarritoCompra.main();
 		});
 		
+		JButton btnRecomendaciones = new JButton("Recomendaciones");
+		btnRecomendaciones.setBounds(250, 550, 80, 30);
+		btnRecomendaciones.addActionListener(e -> {
+			VentanaRecomendaciones.main();
+		});
+		
 		JPanel pBotonera = new JPanel();
 		modelo = new DefaultListModel<>();
 		cargarModelo();
@@ -166,6 +172,7 @@ public class VentanaMovil {
 		scroll.setBounds(10, 10, 80, 30);
 		scroll.setPreferredSize(new Dimension (500, 90));
 		pBotonera.add(btnCarritoCompra);
+		pBotonera.add(btnRecomendaciones);
 		frame.getContentPane().add(pBotonera, BorderLayout.NORTH);
 		frame.getContentPane().add(scroll, BorderLayout.SOUTH);
 		/*JScrollBar bar = scroll.getVerticalScrollBar();

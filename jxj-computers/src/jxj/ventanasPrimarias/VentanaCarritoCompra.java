@@ -247,7 +247,7 @@ public class VentanaCarritoCompra extends JFrame {
 		carritoModeloTabla = new DefaultTableModel();
 		carritoModeloTabla.addColumn("Id");
 		carritoModeloTabla.addColumn("Nombre");
-		carritoModeloTabla.addColumn("Fecha de matriculacion");
+		carritoModeloTabla.addColumn("Fecha de fabricación");
 		carritoModeloTabla.addColumn("Precio (€)");
 		setTableContent(carrito);
 
