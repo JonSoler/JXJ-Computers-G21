@@ -118,12 +118,13 @@ credenciales.
    <h3> Compra</h3>
      
      ● Ventana Disp. Sobremesa/Portatil/Tablet/Movil: Cuando seleccionemos la sección del dispositivo en el que estamos interesados, pasaremos a una 
-      ventana donde encontraremos todos los dispositivos disponibles que hay en esa categoría. En esta ventana el usuario podra introducir cierta cantidad
-      de dinero para que la web le recomiende 'x' productos dependiendo de la cantidad que haya introducido. 
+      ventana donde encontraremos todos los dispositivos disponibles que hay en esa categoría. 
       
      ● VentanaCarritoCompra: Una vez el usuario  decida que compra desea hacer, podrá ver el resumen de su carrito en 
       esta venta, además del precio y algún detalle más. Una vez desea realizar el pedido, procederá a la ventana de pago. A medida que el usuario añada
       un dispositivo al carrito, en la parte inferior de la ventana, el usuario podrá visualizar los productos que va adquiriendo. 
+      
+     ● VentanaRecomendaciones: En esta ventana el usuario podra ver diferentes combinaciones de compra de móviles con 700 euros. 
       
      ● VentanaPago: Insertará todas sus credenciales. Tanto de la tarjeta como su dirección de domicilio. 
      
