@@ -10,6 +10,11 @@ import jxj.dataBase.DBManager;
 import jxj.seccionDisp.Dispositivo;
 import jxj.seccionDisp.Movil;
 
+/**
+ * Método recursivo que genera diferentes combinaciones de compra
+ * de moviles con 1000 euros 
+ */
+
 public class RecursividadRecomendaciones {
 	private List<List<Movil>> al;
 	
