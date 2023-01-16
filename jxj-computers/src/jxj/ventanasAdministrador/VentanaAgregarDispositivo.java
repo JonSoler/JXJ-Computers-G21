@@ -40,6 +40,7 @@ public class VentanaAgregarDispositivo extends JFrame {
 	 */
 	public VentanaAgregarDispositivo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 450, 700);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();

@@ -44,6 +44,7 @@ public class VentanaInicioAdmin extends JFrame {
 		setBounds(100, 100, 550, 390);
 		setTitle("Administrador - Inicio de sesi\u00F3n");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setLocationRelativeTo(null);
 
 		panelTitulo = new JPanel();

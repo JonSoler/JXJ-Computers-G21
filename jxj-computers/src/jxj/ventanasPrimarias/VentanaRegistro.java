@@ -93,6 +93,7 @@ public class VentanaRegistro extends JFrame {
 	public VentanaRegistro() {
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setContentPane(contentpane);
 		contentpane.setLayout(null);
 

@@ -49,6 +49,7 @@ public class VentanaAgregarUsuario extends JFrame{
 	 */
 	public VentanaAgregarUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 450, 577);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();

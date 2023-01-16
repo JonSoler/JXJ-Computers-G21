@@ -63,6 +63,7 @@ public class VentanaLogin extends JFrame {
 		getContentPane().add(panelCentral, BorderLayout.CENTER);
 		getContentPane().setLayout(null);
 		getContentPane().add(panelTitulo);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		lblTitulo = new JLabel("INICIO DE SESI\u00D3N");
 		lblTitulo.setVerticalAlignment(SwingConstants.BOTTOM);

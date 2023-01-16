@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -41,6 +42,7 @@ public class VentanaPrivacidad extends JFrame {
 		setBounds(100, 100, 454, 489);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		panel = new JPanel();
 		panelBotones = new JPanel();

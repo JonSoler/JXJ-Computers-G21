@@ -24,6 +24,7 @@ public class VentanaContacto extends JFrame {
 	 */
 	public VentanaContacto() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 454, 472);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));

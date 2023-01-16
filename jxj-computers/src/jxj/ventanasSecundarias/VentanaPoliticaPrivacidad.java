@@ -6,6 +6,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -29,6 +30,7 @@ public class VentanaPoliticaPrivacidad extends JFrame {
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		JLabel lblPoliticaPrivacidad = new JLabel("Politica de privacidad");
 		lblPoliticaPrivacidad.setForeground(new Color(99, 121, 194));

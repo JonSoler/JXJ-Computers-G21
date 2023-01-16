@@ -3,6 +3,7 @@ package jxj.ventanasSecundarias;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +26,7 @@ public class VentanaAjustes extends JFrame {
 
 	public VentanaAjustes() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 454, 555);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));

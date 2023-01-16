@@ -60,6 +60,7 @@ public class VentanaVenta extends JFrame {
 		setBounds(100, 100, 643, 452);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		panelNorte = new JPanel();
 		panelCentro = new JPanel();

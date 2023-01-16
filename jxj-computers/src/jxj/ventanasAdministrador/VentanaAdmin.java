@@ -30,6 +30,7 @@ public class VentanaAdmin extends JFrame {
 	 */
 	public VentanaAdmin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 631, 400);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();

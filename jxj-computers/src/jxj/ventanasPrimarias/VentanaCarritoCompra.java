@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -79,6 +80,7 @@ public class VentanaCarritoCompra extends JFrame {
 	private void initTablePanel(ArrayList<Dispositivo> carrito) {
 		tablePanel = new JPanel(new GridLayout());
 		tablePanel.setBounds(10, 81, 360, 241);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		initTableModel(carrito);
 

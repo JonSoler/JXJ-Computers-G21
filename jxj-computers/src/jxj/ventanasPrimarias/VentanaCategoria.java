@@ -74,6 +74,7 @@ public class VentanaCategoria extends JFrame {
 		lblCategoriasDispositivos.setForeground(new Color(102, 102, 153));
 		lblCategoriasDispositivos.setBounds(68, 12, 379, 45);
 		getContentPane().add(lblCategoriasDispositivos);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		JLabel lblMovil = new JLabel("Movil");
 		lblMovil.setFont(new Font("Segoe UI Variable", Font.BOLD, 14));

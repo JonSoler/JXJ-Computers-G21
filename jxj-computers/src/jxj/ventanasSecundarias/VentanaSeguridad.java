@@ -18,6 +18,7 @@ import jxj.clasesBasicas.Usuario;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 
@@ -55,6 +56,7 @@ public class VentanaSeguridad extends JFrame {
 		panelNorte.add(lblCambiarContrasenia);
 		getContentPane().add(panelNorte, BorderLayout.NORTH);
 		panelCentro.setLayout(null);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		JLabel lblContraseniaAntigua = new JLabel("Contraseña actual");
 		lblContraseniaAntigua.setBounds(10, 50, 165, 14);

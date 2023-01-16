@@ -3,6 +3,7 @@ package jxj.ventanasSecundarias;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,6 +33,7 @@ public class VentanaTransaccionCompra extends JFrame {
 		//setLocationRelativeTo(null);
 		setTitle("Espera unos segundos mientras se realiza la transacción");
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		pCentral = new JPanel();
 		getContentPane().add(pCentral, BorderLayout.CENTER);
 		JFrame ventana = this;

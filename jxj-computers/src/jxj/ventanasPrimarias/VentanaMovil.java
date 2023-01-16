@@ -82,6 +82,7 @@ public class VentanaMovil {
 
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
+		frame.setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		frame.setBounds(100, 100, 600, 700);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJComputers");

@@ -27,6 +27,7 @@ import javax.swing.border.EmptyBorder;
 import jxj.clasesBasicas.Tarjeta;
 import jxj.dataBase.DBException;
 import jxj.dataBase.DBManager;
+import jxj.ventanasPrimarias.VentanaCarritoCompra;
 import jxj.ventanasPrimarias.VentanaInicio;
 import jxj.ventanasPrimarias.VentanaRegistro;
 
@@ -58,6 +59,7 @@ public class VentanaPago extends javax.swing.JFrame {
 	public VentanaPago() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 349, 559);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -158,9 +160,7 @@ public class VentanaPago extends javax.swing.JFrame {
 				@SuppressWarnings("unused")
 				VentanaTransaccionCompra vtt = new VentanaTransaccionCompra();
 				setVisible(false);
-
-				JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto",
-						1);
+				JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto", 1);
 
 			}
 		});

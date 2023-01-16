@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -57,6 +58,7 @@ public class VentanaCrearOpinion extends JFrame {
 		logger.log(Level.INFO, "Ventana inicializada");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		setBounds(100, 100, 440, 522);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(SystemColor.menu);

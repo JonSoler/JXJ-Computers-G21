@@ -28,6 +28,7 @@ public class VentanaFinal extends JFrame {
 
 		getContentPane().setBackground(SystemColor.menu);
 		getContentPane().setLayout(null);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		JLabel lblTitulo = new JLabel("Compra realizada con exito");
 		lblTitulo.setForeground(new Color(99, 121, 194));

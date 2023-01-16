@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -61,6 +62,7 @@ public class VentanaRecomendaciones extends JFrame {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 850, 310);
+		frame.setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("JXJ Computers");
 		frame.getContentPane().setLayout(new BorderLayout());

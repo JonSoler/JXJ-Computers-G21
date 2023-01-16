@@ -87,6 +87,7 @@ public class VentanaInicio extends JFrame {
 		getContentPane().add(btnLogin);
 
 		JLabel lblBienvenido = new JLabel("Bienvenido a nuestra tienda de dispositivos electronicos");
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());	
 		lblBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenido.setFont(new Font("Dialog", Font.ITALIC, 14));
 		lblBienvenido.setBounds(30, 348, 554, 14);

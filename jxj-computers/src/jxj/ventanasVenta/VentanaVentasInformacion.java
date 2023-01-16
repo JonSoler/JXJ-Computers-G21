@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,6 +33,7 @@ public class VentanaVentasInformacion extends JFrame {
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(245, 245, 245));
 		getContentPane().setForeground(Color.WHITE);
+		setIconImage(new ImageIcon("imagenes/Logo.png").getImage());
 
 		panelNorte = new JPanel();
 		panelBotonera = new JPanel();
